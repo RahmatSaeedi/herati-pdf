@@ -344,30 +344,8 @@ body.rtl {
 }
 
 /* ===== Persian/Arabic Script Font ===== */
-/* Vazirmatn font family for better RTL text rendering */
-@font-face {
-    font-family: 'Vazirmatn';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url('https://fonts.gstatic.com/s/vazirmatn/v13/Dxx78j6PP2D_kU2muijHEe58MQ.woff2') format('woff2');
-}
-
-@font-face {
-    font-family: 'Vazirmatn';
-    font-style: normal;
-    font-weight: 500;
-    font-display: swap;
-    src: url('https://fonts.gstatic.com/s/vazirmatn/v13/Dxx78j6PP2D_kU2muijHEe58MQ.woff2') format('woff2');
-}
-
-@font-face {
-    font-family: 'Vazirmatn';
-    font-style: normal;
-    font-weight: 700;
-    font-display: swap;
-    src: url('https://fonts.gstatic.com/s/vazirmatn/v13/Dxx78j6PP2D_kU2muijHEe58MQ.woff2') format('woff2');
-}
+/* Vazirmatn font is loaded via Google Fonts API in index.html */
+/* No @font-face needed - the API handles font delivery dynamically */
 
 .rtl {
     font-family: 'Vazirmatn', 'Roboto', sans-serif;
