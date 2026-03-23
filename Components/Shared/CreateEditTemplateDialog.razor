@@ -2,6 +2,7 @@
 @using PdfMerger.Client.Services
 @inject ITemplateService TemplateService
 @inject ISnackbar Snackbar
+@inject ILocalizationService L
 
 <MudDialog>
     <DialogContent>
@@ -10,104 +11,104 @@
             <MudAlert Severity="Severity.Info" Dense="true">
                 @if (IsEditMode)
                 {
-                    <text>Edit template settings and click Save to update.</text>
+                    <text>@L.T("dialogs.editTemplate.editInfo")</text>
                 }
                 else
                 {
-                    <text>Templates save your preferred settings for quick reuse. Choose a type and configure the settings below.</text>
+                    <text>@L.T("dialogs.editTemplate.createInfo")</text>
                 }
             </MudAlert>
 
             @* Basic Information *@
             <MudPaper Elevation="0" Class="pa-4" Style="border: 1px solid var(--mud-palette-divider);">
                 <MudStack Spacing="2">
-                    <MudText Typo="Typo.subtitle1" Style="font-weight: 500;">Basic Information</MudText>
+                    <MudText Typo="Typo.subtitle1" Style="font-weight: 500;">@L.T("dialogs.editTemplate.basicInfo")</MudText>
 
                     <MudTextField @bind-Value="_name"
-                                  Label="Template Name"
+                                  Label="@L.T("dialogs.editTemplate.templateName")"
                                   Variant="Variant.Outlined"
                                   Required="true"
-                                  HelperText="A descriptive name for your template"
+                                  HelperText="@L.T("dialogs.editTemplate.templateNameHelp")"
                                   Immediate="true" />
 
                     <MudTextField @bind-Value="_description"
-                                  Label="Description"
+                                  Label="@L.T("dialogs.editTemplate.description")"
                                   Variant="Variant.Outlined"
                                   Lines="3"
                                   Required="true"
-                                  HelperText="Explain what this template is for"
+                                  HelperText="@L.T("dialogs.editTemplate.descriptionHelp")"
                                   Immediate="true" />
 
                     <MudSelect @bind-Value="_category"
-                               Label="Category"
+                               Label="@L.T("dialogs.editTemplate.category")"
                                Variant="Variant.Outlined"
-                               HelperText="Group your templates by category">
-                        <MudSelectItem Value="@("Merge")">Merge</MudSelectItem>
-                        <MudSelectItem Value="@("Print")">Print</MudSelectItem>
-                        <MudSelectItem Value="@("Web")">Web</MudSelectItem>
-                        <MudSelectItem Value="@("Batch")">Batch</MudSelectItem>
-                        <MudSelectItem Value="@("Professional")">Professional</MudSelectItem>
-                        <MudSelectItem Value="@("Business")">Business</MudSelectItem>
-                        <MudSelectItem Value="@("Photos")">Photos</MudSelectItem>
-                        <MudSelectItem Value="@("Custom")">Custom</MudSelectItem>
+                               HelperText="@L.T("dialogs.editTemplate.categoryHelp")">
+                        <MudSelectItem Value="@("Merge")">@L.T("dialogs.editTemplate.categoryMerge")</MudSelectItem>
+                        <MudSelectItem Value="@("Print")">@L.T("dialogs.editTemplate.categoryPrint")</MudSelectItem>
+                        <MudSelectItem Value="@("Web")">@L.T("dialogs.editTemplate.categoryWeb")</MudSelectItem>
+                        <MudSelectItem Value="@("Batch")">@L.T("dialogs.editTemplate.categoryBatch")</MudSelectItem>
+                        <MudSelectItem Value="@("Professional")">@L.T("dialogs.editTemplate.categoryProfessional")</MudSelectItem>
+                        <MudSelectItem Value="@("Business")">@L.T("dialogs.editTemplate.categoryBusiness")</MudSelectItem>
+                        <MudSelectItem Value="@("Photos")">@L.T("dialogs.editTemplate.categoryPhotos")</MudSelectItem>
+                        <MudSelectItem Value="@("Custom")">@L.T("dialogs.editTemplate.categoryCustom")</MudSelectItem>
                     </MudSelect>
 
                     <MudSelect @bind-Value="_icon"
-                               Label="Icon"
+                               Label="@L.T("dialogs.editTemplate.icon")"
                                Variant="Variant.Outlined"
-                               HelperText="Visual icon for your template">
+                               HelperText="@L.T("dialogs.editTemplate.iconHelp")">
                         <MudSelectItem Value="@("merge")">
                             <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="1">
                                 <MudIcon Icon="@Icons.Material.Filled.Merge" Size="Size.Small" />
-                                <MudText>Merge</MudText>
+                                <MudText>@L.T("dialogs.editTemplate.iconMerge")</MudText>
                             </MudStack>
                         </MudSelectItem>
                         <MudSelectItem Value="@("print")">
                             <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="1">
                                 <MudIcon Icon="@Icons.Material.Filled.Print" Size="Size.Small" />
-                                <MudText>Print</MudText>
+                                <MudText>@L.T("dialogs.editTemplate.iconPrint")</MudText>
                             </MudStack>
                         </MudSelectItem>
                         <MudSelectItem Value="@("web")">
                             <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="1">
                                 <MudIcon Icon="@Icons.Material.Filled.Language" Size="Size.Small" />
-                                <MudText>Web</MudText>
+                                <MudText>@L.T("dialogs.editTemplate.iconWeb")</MudText>
                             </MudStack>
                         </MudSelectItem>
                         <MudSelectItem Value="@("compress")">
                             <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="1">
                                 <MudIcon Icon="@Icons.Material.Filled.Compress" Size="Size.Small" />
-                                <MudText>Compress</MudText>
+                                <MudText>@L.T("dialogs.editTemplate.iconCompress")</MudText>
                             </MudStack>
                         </MudSelectItem>
                         <MudSelectItem Value="@("security")">
                             <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="1">
                                 <MudIcon Icon="@Icons.Material.Filled.Security" Size="Size.Small" />
-                                <MudText>Security</MudText>
+                                <MudText>@L.T("dialogs.editTemplate.iconSecurity")</MudText>
                             </MudStack>
                         </MudSelectItem>
                         <MudSelectItem Value="@("gavel")">
                             <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="1">
                                 <MudIcon Icon="@Icons.Material.Filled.Gavel" Size="Size.Small" />
-                                <MudText>Legal</MudText>
+                                <MudText>@L.T("dialogs.editTemplate.iconLegal")</MudText>
                             </MudStack>
                         </MudSelectItem>
                         <MudSelectItem Value="@("receipt")">
                             <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="1">
                                 <MudIcon Icon="@Icons.Material.Filled.Receipt" Size="Size.Small" />
-                                <MudText>Receipt</MudText>
+                                <MudText>@L.T("dialogs.editTemplate.iconReceipt")</MudText>
                             </MudStack>
                         </MudSelectItem>
                         <MudSelectItem Value="@("photo_library")">
                             <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="1">
                                 <MudIcon Icon="@Icons.Material.Filled.PhotoLibrary" Size="Size.Small" />
-                                <MudText>Photo Library</MudText>
+                                <MudText>@L.T("dialogs.editTemplate.iconPhotoLibrary")</MudText>
                             </MudStack>
                         </MudSelectItem>
                     </MudSelect>
 
                     <MudSwitch @bind-Value="_isFavorite"
-                               Label="Mark as Favorite"
+                               Label="@L.T("dialogs.editTemplate.markAsFavorite")"
                                Color="Color.Warning" />
                 </MudStack>
             </MudPaper>
@@ -115,17 +116,17 @@
             @* Template Type *@
             <MudPaper Elevation="0" Class="pa-4" Style="border: 1px solid var(--mud-palette-divider);">
                 <MudStack Spacing="2">
-                    <MudText Typo="Typo.subtitle1" Style="font-weight: 500;">Template Type</MudText>
+                    <MudText Typo="Typo.subtitle1" Style="font-weight: 500;">@L.T("dialogs.editTemplate.templateType")</MudText>
 
                     <MudSelect @bind-Value="_templateType"
-                               Label="Type"
+                               Label="@L.T("common.type")"
                                Variant="Variant.Outlined"
                                Required="true"
-                               HelperText="Select the type of template">
-                        <MudSelectItem Value="@TemplateType.MergeSettings">Merge Settings</MudSelectItem>
-                        <MudSelectItem Value="@TemplateType.ConversionSettings">Conversion Settings</MudSelectItem>
-                        <MudSelectItem Value="@TemplateType.BatchOperation">Batch Operation</MudSelectItem>
-                        <MudSelectItem Value="@TemplateType.AdvancedOperation">Advanced Operation</MudSelectItem>
+                               HelperText="@L.T("dialogs.editTemplate.selectType")">
+                        <MudSelectItem Value="@TemplateType.MergeSettings">@L.T("dialogs.editTemplate.mergeSettings")</MudSelectItem>
+                        <MudSelectItem Value="@TemplateType.ConversionSettings">@L.T("dialogs.editTemplate.conversionSettings")</MudSelectItem>
+                        <MudSelectItem Value="@TemplateType.BatchOperation">@L.T("dialogs.editTemplate.batchOperation")</MudSelectItem>
+                        <MudSelectItem Value="@TemplateType.AdvancedOperation">@L.T("dialogs.editTemplate.advancedOperation")</MudSelectItem>
                     </MudSelect>
                 </MudStack>
             </MudPaper>
@@ -133,13 +134,13 @@
             @* Settings Section *@
             <MudPaper Elevation="0" Class="pa-4" Style="border: 1px solid var(--mud-palette-divider);">
                 <MudStack Spacing="3">
-                    <MudText Typo="Typo.subtitle1" Style="font-weight: 500;">Template Settings</MudText>
+                    <MudText Typo="Typo.subtitle1" Style="font-weight: 500;">@L.T("dialogs.editTemplate.templateSettings")</MudText>
 
                     @* Common Settings for Merge and Conversion *@
                     @if (_templateType == TemplateType.MergeSettings || _templateType == TemplateType.ConversionSettings || _templateType == TemplateType.AdvancedOperation)
                     {
                         <MudSelect @bind-Value="_pageSize"
-                                   Label="Page Size"
+                                   Label="@L.T("dialogs.editTemplate.pageSize")"
                                    Variant="Variant.Outlined">
                             <MudSelectItem Value="@("A4")">A4</MudSelectItem>
                             <MudSelectItem Value="@("Letter")">Letter</MudSelectItem>
@@ -149,19 +150,19 @@
                         </MudSelect>
 
                         <MudRadioGroup @bind-Value="_orientation" T="string">
-                            <MudText Typo="Typo.body2" Class="mb-2">Orientation</MudText>
-                            <MudRadio Value="@("Portrait")" Color="Color.Primary">Portrait</MudRadio>
-                            <MudRadio Value="@("Landscape")" Color="Color.Primary">Landscape</MudRadio>
+                            <MudText Typo="Typo.body2" Class="mb-2">@L.T("dialogs.editTemplate.orientation")</MudText>
+                            <MudRadio Value="@("Portrait")" Color="Color.Primary">@L.T("dialogs.editTemplate.portrait")</MudRadio>
+                            <MudRadio Value="@("Landscape")" Color="Color.Primary">@L.T("dialogs.editTemplate.landscape")</MudRadio>
                         </MudRadioGroup>
 
                         <div>
-                            <MudText Typo="Typo.body2" Class="mb-2">Image Quality: @_imageQuality</MudText>
+                            <MudText Typo="Typo.body2" Class="mb-2">@L.T("dialogs.editTemplate.imageQuality"): @_imageQuality</MudText>
                             <MudSlider @bind-Value="_imageQuality"
                                        Min="0"
                                        Max="100"
                                        Step="5"
                                        Color="Color.Primary">
-                                Quality: @_imageQuality
+                                @L.T("dialogs.editTemplate.quality"): @_imageQuality
                             </MudSlider>
                         </div>
                     }
@@ -170,15 +171,15 @@
                     @if (_templateType == TemplateType.ConversionSettings || _templateType == TemplateType.AdvancedOperation)
                     {
                         <MudSwitch @bind-Value="_includeMetadata"
-                                   Label="Include Metadata"
+                                   Label="@L.T("dialogs.editTemplate.includeMetadata")"
                                    Color="Color.Primary" />
 
                         <MudSwitch @bind-Value="_compressImages"
-                                   Label="Compress Images"
+                                   Label="@L.T("dialogs.editTemplate.compressImages")"
                                    Color="Color.Primary" />
 
                         <MudSwitch @bind-Value="_fitToPage"
-                                   Label="Fit to Page"
+                                   Label="@L.T("dialogs.editTemplate.fitToPage")"
                                    Color="Color.Primary" />
                     }
 
@@ -186,39 +187,39 @@
                     @if (_templateType == TemplateType.BatchOperation)
                     {
                         <MudSelect @bind-Value="_operationType"
-                                   Label="Operation Type"
+                                   Label="@L.T("dialogs.editTemplate.operationType")"
                                    Variant="Variant.Outlined">
-                            <MudSelectItem Value="@("Compress")">Compress</MudSelectItem>
-                            <MudSelectItem Value="@("Watermark")">Watermark</MudSelectItem>
-                            <MudSelectItem Value="@("AddPageNumbers")">Add Page Numbers</MudSelectItem>
-                            <MudSelectItem Value="@("PasswordProtect")">Password Protect</MudSelectItem>
+                            <MudSelectItem Value="@("Compress")">@L.T("dialogs.editTemplate.compress")</MudSelectItem>
+                            <MudSelectItem Value="@("Watermark")">@L.T("dialogs.editTemplate.watermark")</MudSelectItem>
+                            <MudSelectItem Value="@("AddPageNumbers")">@L.T("dialogs.editTemplate.addPageNumbers")</MudSelectItem>
+                            <MudSelectItem Value="@("PasswordProtect")">@L.T("dialogs.editTemplate.passwordProtect")</MudSelectItem>
                         </MudSelect>
 
                         @if (_operationType == "Compress")
                         {
                             <MudSelect @bind-Value="_quality"
-                                       Label="Compression Quality"
+                                       Label="@L.T("dialogs.editTemplate.compressionQuality")"
                                        Variant="Variant.Outlined">
-                                <MudSelectItem Value="@("low")">Low</MudSelectItem>
-                                <MudSelectItem Value="@("medium")">Medium</MudSelectItem>
-                                <MudSelectItem Value="@("high")">High</MudSelectItem>
+                                <MudSelectItem Value="@("low")">@L.T("dialogs.editTemplate.qualityLow")</MudSelectItem>
+                                <MudSelectItem Value="@("medium")">@L.T("dialogs.editTemplate.qualityMedium")</MudSelectItem>
+                                <MudSelectItem Value="@("high")">@L.T("dialogs.editTemplate.qualityHigh")</MudSelectItem>
                             </MudSelect>
                         }
 
                         @if (_operationType == "Watermark")
                         {
                             <MudTextField @bind-Value="_watermarkText"
-                                          Label="Watermark Text"
+                                          Label="@L.T("dialogs.editTemplate.watermarkText")"
                                           Variant="Variant.Outlined" />
 
                             <div>
-                                <MudText Typo="Typo.body2" Class="mb-2">Opacity: @_opacity.ToString("F2")</MudText>
+                                <MudText Typo="Typo.body2" Class="mb-2">@L.T("dialogs.editTemplate.opacity"): @_opacity.ToString("F2")</MudText>
                                 <MudSlider @bind-Value="_opacity"
                                            Min="0.0"
                                            Max="1.0"
                                            Step="0.05"
                                            Color="Color.Primary">
-                                    Opacity: @_opacity.ToString("F2")
+                                    @L.T("dialogs.editTemplate.opacity"): @_opacity.ToString("F2")
                                 </MudSlider>
                             </div>
                         }
@@ -228,40 +229,40 @@
                     @if (_templateType == TemplateType.AdvancedOperation)
                     {
                         <MudSwitch @bind-Value="_addPageNumbers"
-                                   Label="Add Page Numbers"
+                                   Label="@L.T("dialogs.editTemplate.addPageNumbers")"
                                    Color="Color.Primary" />
 
                         @if (_addPageNumbers)
                         {
                             <MudSelect @bind-Value="_pageNumberPosition"
-                                       Label="Page Number Position"
+                                       Label="@L.T("dialogs.editTemplate.pageNumberPosition")"
                                        Variant="Variant.Outlined">
-                                <MudSelectItem Value="@("top-left")">Top Left</MudSelectItem>
-                                <MudSelectItem Value="@("top-center")">Top Center</MudSelectItem>
-                                <MudSelectItem Value="@("top-right")">Top Right</MudSelectItem>
-                                <MudSelectItem Value="@("bottom-left")">Bottom Left</MudSelectItem>
-                                <MudSelectItem Value="@("bottom-center")">Bottom Center</MudSelectItem>
-                                <MudSelectItem Value="@("bottom-right")">Bottom Right</MudSelectItem>
+                                <MudSelectItem Value="@("top-left")">@L.T("conversionSettings.topLeft")</MudSelectItem>
+                                <MudSelectItem Value="@("top-center")">@L.T("conversionSettings.topCenter")</MudSelectItem>
+                                <MudSelectItem Value="@("top-right")">@L.T("conversionSettings.topRight")</MudSelectItem>
+                                <MudSelectItem Value="@("bottom-left")">@L.T("conversionSettings.bottomLeft")</MudSelectItem>
+                                <MudSelectItem Value="@("bottom-center")">@L.T("conversionSettings.bottomCenter")</MudSelectItem>
+                                <MudSelectItem Value="@("bottom-right")">@L.T("conversionSettings.bottomRight")</MudSelectItem>
                             </MudSelect>
                         }
 
                         <MudTextField @bind-Value="_margins"
-                                      Label="Margins"
+                                      Label="@L.T("dialogs.editTemplate.margins")"
                                       Variant="Variant.Outlined"
-                                      HelperText="e.g., '1 inch', '2cm', '10mm'" />
+                                      HelperText="@L.T("dialogs.editTemplate.marginsHelp")" />
                     }
                 </MudStack>
             </MudPaper>
         </MudStack>
     </DialogContent>
     <DialogActions>
-        <MudButton OnClick="Cancel" Color="Color.Default">Cancel</MudButton>
+        <MudButton OnClick="Cancel" Color="Color.Default">@L.T("common.cancel")</MudButton>
         <MudButton OnClick="Save"
                    Color="Color.Primary"
                    Variant="Variant.Filled"
                    Disabled="@(!IsValid())"
                    StartIcon="@Icons.Material.Filled.Save">
-            @(IsEditMode ? "Update" : "Create")
+            @(IsEditMode ? L.T("dialogs.editTemplate.update") : L.T("dialogs.editTemplate.create"))
         </MudButton>
     </DialogActions>
 </MudDialog>
@@ -448,7 +449,7 @@
                 ExistingTemplate.IsFavorite = _isFavorite;
 
                 await TemplateService.UpdateTemplateAsync(ExistingTemplate);
-                Snackbar.Add("Template updated successfully!", Severity.Success);
+                Snackbar.Add(L.T("dialogs.editTemplate.updated"), Severity.Success);
             }
             else
             {
@@ -465,14 +466,14 @@
                 template.IsFavorite = _isFavorite;
                 await TemplateService.UpdateTemplateAsync(template);
 
-                Snackbar.Add("Template created successfully!", Severity.Success);
+                Snackbar.Add(L.T("dialogs.editTemplate.created"), Severity.Success);
             }
 
             MudDialog.Close(DialogResult.Ok(true));
         }
         catch (Exception ex)
         {
-            Snackbar.Add($"Error saving template: {ex.Message}", Severity.Error);
+            Snackbar.Add(L.T("dialogs.editTemplate.errorSaving", ex.Message), Severity.Error);
         }
     }
 

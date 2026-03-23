@@ -1,44 +1,46 @@
 @using Microsoft.JSInterop
 @using Microsoft.AspNetCore.Components
 @using MudBlazor
+@using PdfMerger.Client.Services
 @inject IJSRuntime JSRuntime
 @inject ISignatureService SignatureService
+@inject ILocalizationService L
 @implements IAsyncDisposable
 
 <MudDialog>
     <DialogContent>
         @if (_currentStep == 0)
         {
-            <MudText Typo="Typo.h6" Class="mb-4">Step 1: Create Your Signature</MudText>
+            <MudText Typo="Typo.h6" Class="mb-4">@L.T("dialogs.signature.step1Title", "Step 1: Create Your Signature")</MudText>
         }
         else
         {
-            <MudText Typo="Typo.h6" Class="mb-4">Step 2: Configure Placement</MudText>
+            <MudText Typo="Typo.h6" Class="mb-4">@L.T("dialogs.signature.step2Title", "Step 2: Configure Placement")</MudText>
         }
 
         @if (_currentStep == 0)
         {
         <MudTabs Elevation="2" Rounded="true" ActivePanelIndex="_activeTab" ActivePanelIndexChanged="OnTabChanged">
-            <MudTabPanel Text="Draw" Icon="@Icons.Material.Filled.Gesture">
+            <MudTabPanel Text="@L.T("dialogs.signature.draw")" Icon="@Icons.Material.Filled.Gesture">
                 <div class="pa-4">
                     <canvas @ref="_signatureCanvas" id="signatureCanvas" style="width: 100%; height: 200px; border: 2px solid #ddd; border-radius: 8px; background: white; touch-action: none;"></canvas>
                     <div class="d-flex justify-space-between mt-4">
-                        <MudButton OnClick="ClearSignature" StartIcon="@Icons.Material.Filled.Clear" Variant="Variant.Outlined">Clear</MudButton>
-                        <MudButton OnClick="UndoStroke" StartIcon="@Icons.Material.Filled.Undo" Variant="Variant.Outlined">Undo</MudButton>
+                        <MudButton OnClick="ClearSignature" StartIcon="@Icons.Material.Filled.Clear" Variant="Variant.Outlined">@L.T("common.clear")</MudButton>
+                        <MudButton OnClick="UndoStroke" StartIcon="@Icons.Material.Filled.Undo" Variant="Variant.Outlined">@L.T("dialogs.signature.undo", "Undo")</MudButton>
                     </div>
                 </div>
             </MudTabPanel>
 
-            <MudTabPanel Text="Type" Icon="@Icons.Material.Filled.TextFields">
+            <MudTabPanel Text="@L.T("dialogs.signature.type")" Icon="@Icons.Material.Filled.TextFields">
                 <div class="pa-4">
                     <MudTextField @bind-Value="_typedText"
-                                  Label="Enter your signature"
+                                  Label="@L.T("dialogs.signature.enterSignature", "Enter your signature")"
                                   Variant="Variant.Outlined"
                                   Immediate="true"
                                   DebounceInterval="300"
                                   OnDebounceIntervalElapsed="UpdateTypedSignature" />
                     <MudSelect Value="_selectedFont"
-                               Label="Font Style"
+                               Label="@L.T("dialogs.signature.fontStyle", "Font Style")"
                                Variant="Variant.Outlined"
                                Class="mt-4"
                                ValueChanged="@(async (string newFont) => await OnFontChanged(newFont))">
@@ -56,12 +58,12 @@
                 </div>
             </MudTabPanel>
 
-            <MudTabPanel Text="Upload" Icon="@Icons.Material.Filled.CloudUpload">
+            <MudTabPanel Text="@L.T("dialogs.signature.uploadImage")" Icon="@Icons.Material.Filled.CloudUpload">
                 <div class="pa-4">
                     <MudFileUpload T="IBrowserFile" Accept="image/*" OnFilesChanged="OnSignatureImageUploaded" SuppressOnChangeWhenInvalid="true">
                         <ActivatorContent>
                             <MudButton Variant="Variant.Filled" Color="Color.Primary" StartIcon="@Icons.Material.Filled.CloudUpload">
-                                Upload Signature Image
+                                @L.T("dialogs.signature.uploadSignatureImage", "Upload Signature Image")
                             </MudButton>
                         </ActivatorContent>
                     </MudFileUpload>
@@ -74,7 +76,7 @@
                 </div>
             </MudTabPanel>
 
-            <MudTabPanel Text="Saved" Icon="@Icons.Material.Filled.Bookmark">
+            <MudTabPanel Text="@L.T("dialogs.signature.saved", "Saved")" Icon="@Icons.Material.Filled.Bookmark">
                 <div class="pa-4">
                     @if (_savedSignatures.Any())
                     {
@@ -88,8 +90,8 @@
                                             <img src="@sig.DataUrl" alt="@sig.Name" style="max-width: 100%; height: auto; border: 1px solid #ddd;" />
                                         </MudCardContent>
                                         <MudCardActions>
-                                            <MudButton Size="Size.Small" OnClick="() => LoadSignature(sig.DataUrl)">Use</MudButton>
-                                            <MudButton Size="Size.Small" Color="Color.Error" OnClick="() => DeleteSignature(sig.Name)">Delete</MudButton>
+                                            <MudButton Size="Size.Small" OnClick="() => LoadSignature(sig.DataUrl)">@L.T("dialogs.signature.use", "Use")</MudButton>
+                                            <MudButton Size="Size.Small" Color="Color.Error" OnClick="() => DeleteSignature(sig.Name)">@L.T("common.delete")</MudButton>
                                         </MudCardActions>
                                     </MudCard>
                                 </MudItem>
@@ -98,7 +100,7 @@
                     }
                     else
                     {
-                        <MudText Typo="Typo.body2" Color="Color.Secondary">No saved signatures yet. Create and save one from the other tabs!</MudText>
+                        <MudText Typo="Typo.body2" Color="Color.Secondary">@L.T("dialogs.signature.noSavedSignatures", "No saved signatures yet. Create and save one from the other tabs!")</MudText>
                     }
                 </div>
             </MudTabPanel>
@@ -106,8 +108,8 @@
 
         <!-- Background Option for Step 1 -->
         <div class="mt-4">
-            <MudCheckBox @bind-Value="_transparentBackground" Label="Transparent Background" Color="Color.Primary" />
-            <MudText Typo="Typo.caption" Color="Color.Secondary">Uncheck for white background</MudText>
+            <MudCheckBox @bind-Value="_transparentBackground" Label="@L.T("dialogs.signature.transparentBackground", "Transparent Background")" Color="Color.Primary" />
+            <MudText Typo="Typo.caption" Color="Color.Secondary">@L.T("dialogs.signature.uncheckForWhite", "Uncheck for white background")</MudText>
         </div>
         }
         else
@@ -116,35 +118,35 @@
             <MudGrid>
                 <MudItem xs="12">
                     <div class="pa-4" style="background: #f5f5f5; border: 2px solid #ddd; border-radius: 8px; text-align: center;">
-                        <MudText Typo="Typo.subtitle2" Class="mb-2">Signature Preview</MudText>
+                        <MudText Typo="Typo.subtitle2" Class="mb-2">@L.T("dialogs.signature.signaturePreview", "Signature Preview")</MudText>
                         <img src="@_finalSignatureDataUrl" alt="Signature preview" style="max-width: 100%; max-height: 150px; @(_transparentBackground ? "" : "background: white;")" />
                     </div>
                 </MudItem>
 
                 <MudItem xs="12" sm="6">
-                    <MudNumericField @bind-Value="_pageNumber" Label="Page Number" Variant="Variant.Outlined" Min="0" />
-                    <MudText Typo="Typo.caption" Color="Color.Secondary">0 = first page, 1 = second page, etc.</MudText>
+                    <MudNumericField @bind-Value="_pageNumber" Label="@L.T("dialogs.signature.selectPage")" Variant="Variant.Outlined" Min="0" />
+                    <MudText Typo="Typo.caption" Color="Color.Secondary">@L.T("dialogs.signature.pageNumberHelp", "0 = first page, 1 = second page, etc.")</MudText>
                 </MudItem>
 
                 <MudItem xs="12" sm="6">
-                    <MudNumericField @bind-Value="_signatureWidth" Label="Width (px)" Variant="Variant.Outlined" Min="50" Max="500" />
+                    <MudNumericField @bind-Value="_signatureWidth" Label="@($"{L.T("dialogs.signature.width")} (px)")" Variant="Variant.Outlined" Min="50" Max="500" />
                 </MudItem>
 
                 <MudItem xs="12" sm="6">
-                    <MudNumericField @bind-Value="_signatureHeight" Label="Height (px)" Variant="Variant.Outlined" Min="20" Max="300" />
+                    <MudNumericField @bind-Value="_signatureHeight" Label="@($"{L.T("dialogs.signature.height")} (px)")" Variant="Variant.Outlined" Min="20" Max="300" />
                 </MudItem>
 
                 <MudItem xs="12" sm="6">
-                    <MudNumericField @bind-Value="_positionX" Label="X Position (px)" Variant="Variant.Outlined" Min="0" />
+                    <MudNumericField @bind-Value="_positionX" Label="@($"{L.T("dialogs.signature.xPosition")} (px)")" Variant="Variant.Outlined" Min="0" />
                 </MudItem>
 
                 <MudItem xs="12" sm="6">
-                    <MudNumericField @bind-Value="_positionY" Label="Y Position (px)" Variant="Variant.Outlined" Min="0" />
+                    <MudNumericField @bind-Value="_positionY" Label="@($"{L.T("dialogs.signature.yPosition")} (px)")" Variant="Variant.Outlined" Min="0" />
                 </MudItem>
 
                 <MudItem xs="12">
                     <MudText Typo="Typo.caption" Color="Color.Secondary">
-                        Position (0,0) is top-left corner. Adjust based on your PDF size (typically 595x842 for A4).
+                        @L.T("dialogs.signature.positionHelp", "Position (0,0) is top-left corner. Adjust based on your PDF size (typically 595x842 for A4).")
                     </MudText>
                 </MudItem>
             </MudGrid>
@@ -153,14 +155,14 @@
     <DialogActions>
         @if (_currentStep == 0)
         {
-            <MudButton OnClick="Cancel">Cancel</MudButton>
-            <MudButton Color="Color.Secondary" OnClick="SaveCurrentSignature" Disabled="@(!HasSignature())">Save Signature</MudButton>
-            <MudButton Color="Color.Primary" OnClick="GoToPlacementStep" Disabled="@(!HasSignature())" EndIcon="@Icons.Material.Filled.ArrowForward">Next</MudButton>
+            <MudButton OnClick="Cancel">@L.T("common.cancel")</MudButton>
+            <MudButton Color="Color.Secondary" OnClick="SaveCurrentSignature" Disabled="@(!HasSignature())">@L.T("dialogs.signature.saveSignature", "Save Signature")</MudButton>
+            <MudButton Color="Color.Primary" OnClick="GoToPlacementStep" Disabled="@(!HasSignature())" EndIcon="@Icons.Material.Filled.ArrowForward">@L.T("dialogs.signature.next", "Next")</MudButton>
         }
         else
         {
-            <MudButton OnClick="GoBackToSignatureStep" StartIcon="@Icons.Material.Filled.ArrowBack">Back</MudButton>
-            <MudButton Color="Color.Primary" OnClick="Submit" EndIcon="@Icons.Material.Filled.Check">Add to PDF</MudButton>
+            <MudButton OnClick="GoBackToSignatureStep" StartIcon="@Icons.Material.Filled.ArrowBack">@L.T("dialogs.signature.back", "Back")</MudButton>
+            <MudButton Color="Color.Primary" OnClick="Submit" EndIcon="@Icons.Material.Filled.Check">@L.T("dialogs.signature.addToPdf")</MudButton>
         }
     </DialogActions>
 </MudDialog>

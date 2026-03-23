@@ -1,5 +1,7 @@
+@using PdfMerger.Client.Services
 @inject ISnackbar Snackbar
 @inject IJSRuntime JSRuntime
+@inject ILocalizationService L
 @implements IAsyncDisposable
 
 <div @ref="_uploadZone" class="file-upload-zone" style="border: 2px dashed #bdbdbd; border-radius: 8px; min-height: 200px; cursor: pointer; transition: all 0.2s ease;">
@@ -12,9 +14,9 @@
             <ActivatorContent>
                 <MudStack AlignItems="AlignItems.Center" Spacing="3">
                     <MudIcon Icon="@Icons.Material.Filled.CloudUpload" Size="Size.Large" Color="Color.Primary" Style="font-size: 64px;" />
-                    <MudText Typo="Typo.h6" Color="Color.Primary">Drop files here or click to upload</MudText>
-                    <MudText Typo="Typo.body2" Color="Color.Secondary">PDF • Images (PNG, JPG, WebP, GIF, BMP, SVG, HEIC, TIFF, AVIF) • Documents (TXT, MD, CSV, HTML, DOCX, XLSX, XLS, ODS) • ZIP</MudText>
-                    <MudText Typo="Typo.caption" Color="Color.Secondary">Max 1GB per file, 4GB total</MudText>
+                    <MudText Typo="Typo.h6" Color="Color.Primary">@L.T("upload.dropFilesHere")</MudText>
+                    <MudText Typo="Typo.body2" Color="Color.Secondary">@L.T("upload.supportedFormats")</MudText>
+                    <MudText Typo="Typo.caption" Color="Color.Secondary">@L.T("upload.maxFileSize")</MudText>
                 </MudStack>
             </ActivatorContent>
         </MudFileUpload>

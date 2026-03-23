@@ -1,64 +1,65 @@
 @using PdfMerger.Client.Services
 @using PdfMerger.Client.Models
 @inject IAdvancedPdfService AdvancedPdfService
+@inject ILocalizationService L
 
 <MudDialog>
     <DialogContent>
         <MudStack Spacing="3">
             @if (!_isProcessing && _splitResults.Count == 0)
             {
-                <MudText Typo="Typo.h6">Split or Extract PDF Pages</MudText>
+                <MudText Typo="Typo.h6">@L.T("dialogs.split.title")</MudText>
 
                 @if (Files.Count > 1)
                 {
-                    <MudSelect @bind-Value="_selectedFile" Label="Select PDF File" Variant="Variant.Outlined">
+                    <MudSelect @bind-Value="_selectedFile" Label="@L.T("dialogs.split.selectPdfFile")" Variant="Variant.Outlined">
                         @foreach (var file in Files)
                         {
-                            <MudSelectItem Value="@file">@file.Name (@file.PageCount pages)</MudSelectItem>
+                            <MudSelectItem Value="@file">@file.Name (@file.PageCount @L.T("common.pages"))</MudSelectItem>
                         }
                     </MudSelect>
                 }
                 else if (Files.Count == 1)
                 {
                     <MudAlert Severity="Severity.Info">
-                        <strong>File:</strong> @Files[0].Name (@Files[0].PageCount pages)
+                        <strong>@L.T("common.file"):</strong> @Files[0].Name (@Files[0].PageCount @L.T("common.pages"))
                     </MudAlert>
                 }
 
                 <MudRadioGroup @bind-Value="_operationType">
-                    <MudRadio T="string" Value="@("extract")" Color="Color.Primary">Extract Specific Pages</MudRadio>
-                    <MudRadio T="string" Value="@("split")" Color="Color.Primary">Split into Multiple PDFs</MudRadio>
-                    <MudRadio T="string" Value="@("delete")" Color="Color.Primary">Delete Pages</MudRadio>
+                    <MudRadio T="string" Value="@("extract")" Color="Color.Primary">@L.T("dialogs.split.extractSpecificPages")</MudRadio>
+                    <MudRadio T="string" Value="@("split")" Color="Color.Primary">@L.T("dialogs.split.splitIntoMultiple")</MudRadio>
+                    <MudRadio T="string" Value="@("delete")" Color="Color.Primary">@L.T("dialogs.split.deletePages")</MudRadio>
                 </MudRadioGroup>
 
                 @if (_operationType == "extract")
                 {
                     <MudTextField @bind-Value="_pageRanges"
-                                  Label="Pages to Extract"
+                                  Label="@L.T("dialogs.split.pagesToExtract")"
                                   Variant="Variant.Outlined"
-                                  HelperText="Enter page numbers (e.g., 1,3,5-8,10)"
+                                  HelperText="@L.T("dialogs.split.pageRangesHelp")"
                                   Required="true" />
 
                     <MudAlert Severity="Severity.Info" Dense="true">
                         <MudText Typo="Typo.caption">
-                            Creates a new PDF with only the specified pages. Original file remains unchanged.
+                            @L.T("dialogs.split.extractInfo")
                         </MudText>
                     </MudAlert>
                 }
                 else if (_operationType == "split")
                 {
-                    <MudText Typo="Typo.body2">Split Options:</MudText>
+                    <MudText Typo="Typo.body2">@L.T("dialogs.split.splitOptions"):</MudText>
 
                     <MudRadioGroup @bind-Value="_splitMode">
-                        <MudRadio T="string" Value="@("pages")" Color="Color.Secondary">Split every N pages</MudRadio>
-                        <MudRadio T="string" Value="@("count")" Color="Color.Secondary">Split into N files</MudRadio>
-                        <MudRadio T="string" Value="@("custom")" Color="Color.Secondary">Custom ranges</MudRadio>
+                        <MudRadio T="string" Value="@("pages")" Color="Color.Secondary">@L.T("dialogs.split.splitEveryNPages")</MudRadio>
+                        <MudRadio T="string" Value="@("count")" Color="Color.Secondary">@L.T("dialogs.split.splitIntoNFiles")</MudRadio>
+                        <MudRadio T="string" Value="@("custom")" Color="Color.Secondary">@L.T("dialogs.split.customRanges")</MudRadio>
                     </MudRadioGroup>
 
                     @if (_splitMode == "pages")
                     {
                         <MudNumericField @bind-Value="_splitEveryPages"
-                                         Label="Split Every N Pages"
+                                         Label="@L.T("dialogs.split.splitEveryNPagesLabel")"
                                          Variant="Variant.Outlined"
                                          Min="1"
                                          Max="@(_selectedFile?.PageCount ?? 100)" />
@@ -66,7 +67,7 @@
                     else if (_splitMode == "count")
                     {
                         <MudNumericField @bind-Value="_splitIntoCount"
-                                         Label="Number of Files"
+                                         Label="@L.T("dialogs.split.numberOfFiles")"
                                          Variant="Variant.Outlined"
                                          Min="2"
                                          Max="@(_selectedFile?.PageCount ?? 100)" />
@@ -74,30 +75,30 @@
                     else if (_splitMode == "custom")
                     {
                         <MudTextField @bind-Value="_customRanges"
-                                      Label="Custom Ranges"
+                                      Label="@L.T("dialogs.split.customRangesLabel")"
                                       Variant="Variant.Outlined"
                                       Lines="3"
-                                      HelperText="Enter ranges, one per line (e.g., 1-5, 6-10, 11-15)"
+                                      HelperText="@L.T("dialogs.split.customRangesHelp")"
                                       Required="true" />
                     }
 
                     <MudAlert Severity="Severity.Info" Dense="true">
                         <MudText Typo="Typo.caption">
-                            Splits the PDF into multiple files. You'll be able to download each file separately.
+                            @L.T("dialogs.split.splitInfo")
                         </MudText>
                     </MudAlert>
                 }
                 else if (_operationType == "delete")
                 {
                     <MudTextField @bind-Value="_pageRanges"
-                                  Label="Pages to Delete"
+                                  Label="@L.T("dialogs.split.pagesToDelete")"
                                   Variant="Variant.Outlined"
-                                  HelperText="Enter page numbers (e.g., 2,4,6-9)"
+                                  HelperText="@L.T("dialogs.split.deletePageRangesHelp")"
                                   Required="true" />
 
                     <MudAlert Severity="Severity.Warning" Dense="true">
                         <MudText Typo="Typo.caption">
-                            Creates a new PDF without the specified pages. Original file remains unchanged.
+                            @L.T("dialogs.split.deleteInfo")
                         </MudText>
                     </MudAlert>
                 }
@@ -114,7 +115,7 @@
             @if (_splitResults.Count > 0)
             {
                 <MudStack Spacing="2">
-                    <MudText Typo="Typo.h6">@(_operationType == "split" ? "Split Results" : "Result")</MudText>
+                    <MudText Typo="Typo.h6">@(_operationType == "split" ? L.T("dialogs.split.splitResults") : L.T("dialogs.split.result"))</MudText>
 
                     @foreach (var result in _splitResults)
                     {
@@ -123,7 +124,7 @@
                                 <div>
                                     <MudText Typo="Typo.body1"><strong>@result.Name</strong></MudText>
                                     <MudText Typo="Typo.caption" Color="Color.Secondary">
-                                        @result.PageCount page@(result.PageCount != 1 ? "s" : "") • @FormatFileSize(result.Bytes.Length)
+                                        @result.PageCount @(result.PageCount != 1 ? L.T("common.pages") : L.T("common.page")) • @FormatFileSize(result.Bytes.Length)
                                     </MudText>
                                 </div>
                                 <MudButton Variant="Variant.Filled"
@@ -131,14 +132,14 @@
                                            Size="Size.Small"
                                            StartIcon="@Icons.Material.Filled.Download"
                                            OnClick="@(() => DownloadResult(result))">
-                                    Download
+                                    @L.T("common.download")
                                 </MudButton>
                             </MudStack>
                         </MudPaper>
                     }
 
                     <MudAlert Severity="Severity.Success">
-                        Generated @_splitResults.Count file@(_splitResults.Count != 1 ? "s" : "")
+                        @L.T("dialogs.split.generatedFiles", _splitResults.Count)
                     </MudAlert>
                 </MudStack>
             }
@@ -152,14 +153,14 @@
         </MudStack>
     </DialogContent>
     <DialogActions>
-        <MudButton OnClick="Close">@(_splitResults.Count > 0 ? "Close" : "Cancel")</MudButton>
+        <MudButton OnClick="Close">@(_splitResults.Count > 0 ? L.T("common.close") : L.T("common.cancel"))</MudButton>
         @if (_splitResults.Count == 0 && !_isProcessing)
         {
             <MudButton Color="Color.Primary"
                        Variant="Variant.Filled"
                        OnClick="ProcessPdf"
                        Disabled="@(_selectedFile == null || !IsInputValid())">
-                @(_operationType == "extract" ? "Extract Pages" : _operationType == "delete" ? "Delete Pages" : "Split PDF")
+                @(_operationType == "extract" ? L.T("dialogs.split.extractPages") : _operationType == "delete" ? L.T("dialogs.split.deletePagesButton") : L.T("dialogs.split.splitPdf"))
             </MudButton>
         }
         @if (_splitResults.Count > 0)
@@ -167,7 +168,7 @@
             <MudButton Color="Color.Secondary"
                        Variant="Variant.Outlined"
                        OnClick="StartNew">
-                Process Another
+                @L.T("dialogs.split.processAnother")
             </MudButton>
         }
     </DialogActions>
@@ -263,7 +264,7 @@
         if (_selectedFile == null) return;
 
         _isProcessing = true;
-        _statusMessage = "Processing PDF...";
+        _statusMessage = L.T("dialogs.split.processingPdf");
         _errorMessage = "";
         _splitResults.Clear();
         StateHasChanged();
@@ -275,7 +276,7 @@
                 var pages = ParsePageNumbers(_pageRanges);
                 if (pages.Count == 0)
                 {
-                    _errorMessage = "No valid page numbers specified";
+                    _errorMessage = L.T("dialogs.split.noValidPageNumbers");
                     return;
                 }
 
@@ -291,7 +292,7 @@
                 }
                 else
                 {
-                    _errorMessage = "Failed to extract pages";
+                    _errorMessage = L.T("dialogs.split.failedToExtract");
                 }
             }
             else if (_operationType == "delete")
@@ -299,7 +300,7 @@
                 var pages = ParsePageNumbers(_pageRanges);
                 if (pages.Count == 0)
                 {
-                    _errorMessage = "No valid page numbers specified";
+                    _errorMessage = L.T("dialogs.split.noValidPageNumbers");
                     return;
                 }
 
@@ -315,7 +316,7 @@
                 }
                 else
                 {
-                    _errorMessage = "Failed to delete pages";
+                    _errorMessage = L.T("dialogs.split.failedToDelete");
                 }
             }
             else if (_operationType == "split")
@@ -337,7 +338,7 @@
 
                 if (ranges == null || ranges.Count == 0)
                 {
-                    _errorMessage = "No valid ranges specified";
+                    _errorMessage = L.T("dialogs.split.noValidRanges");
                     return;
                 }
 
@@ -348,7 +349,7 @@
                 }
                 else
                 {
-                    _errorMessage = "Failed to split PDF";
+                    _errorMessage = L.T("dialogs.split.failedToSplit");
                 }
             }
         }
@@ -427,12 +428,12 @@
             }
             else
             {
-                Snackbar.Add($"✅ Downloaded: {result.Name}", Severity.Success);
+                Snackbar.Add($"✅ {L.T("success.downloaded", result.Name)}", Severity.Success);
             }
         }
         catch (Exception ex)
         {
-            Snackbar.Add($"⚠️ Download failed: {ex.Message}", Severity.Error);
+            Snackbar.Add($"⚠️ {L.T("errors.downloadFailed", ex.Message)}", Severity.Error);
         }
     }
 

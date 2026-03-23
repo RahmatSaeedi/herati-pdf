@@ -1,6 +1,7 @@
 @using PdfMerger.Client.Services
 @using PdfMerger.Client.Models
 @inject IOcrService OcrService
+@inject ILocalizationService L
 
 <style>
     .ocr-dialog-content {
@@ -37,11 +38,11 @@
         <MudStack Spacing="3" Class="ocr-dialog-content">
             @if (!_isProcessing && string.IsNullOrEmpty(_extractedText))
             {
-                <MudText Typo="Typo.h6">Extract Text with OCR</MudText>
+                <MudText Typo="Typo.h6">@L.T("dialogs.ocr.title")</MudText>
 
                 @if (Files.Count > 1)
                 {
-                    <MudSelect @bind-Value="_selectedFile" Label="Select File" Variant="Variant.Outlined">
+                    <MudSelect @bind-Value="_selectedFile" Label="@L.T("dialogs.ocr.selectFile", "Select File")" Variant="Variant.Outlined">
                         @foreach (var file in Files)
                         {
                             <MudSelectItem Value="@file">@file.Name</MudSelectItem>
@@ -51,12 +52,12 @@
                 else if (Files.Count == 1)
                 {
                     <MudAlert Severity="Severity.Info">
-                        <strong>File:</strong> @Files[0].Name
+                        <strong>@L.T("common.file"):</strong> @Files[0].Name
                     </MudAlert>
                 }
 
                 <MudSelect @bind-Value="_selectedLanguage"
-                           Label="Language"
+                           Label="@L.T("dialogs.ocr.selectLanguage")"
                            Variant="Variant.Outlined"
                            Dense="true"
                            MaxHeight="400">
@@ -77,8 +78,7 @@
 
                 <MudAlert Severity="Severity.Info" Dense="true">
                     <MudText Typo="Typo.caption">
-                        OCR will extract text from the selected @(IsImage(_selectedFile) ? "image" : "PDF").
-                        First-time language download may take a few seconds.
+                        @L.T("dialogs.ocr.ocrInfo", "OCR will extract text from the selected file. First-time language download may take a few seconds.")
                     </MudText>
                 </MudAlert>
             }
@@ -87,11 +87,11 @@
             {
                 <MudStack Spacing="2" AlignItems="AlignItems.Center">
                     <MudProgressCircular Color="Color.Primary" Size="Size.Large" Indeterminate="true" />
-                    <MudText Typo="Typo.h6">Processing OCR...</MudText>
+                    <MudText Typo="Typo.h6">@L.T("dialogs.ocr.processingOcr", "Processing OCR...")</MudText>
                     @if (_progress > 0)
                     {
                         <MudProgressLinear Color="Color.Primary" Value="@_progress" Size="Size.Medium" Class="rounded" />
-                        <MudText Typo="Typo.body2">@_progress% complete</MudText>
+                        <MudText Typo="Typo.body2">@_progress% @L.T("dialogs.ocr.complete", "complete")</MudText>
                     }
                     @if (!string.IsNullOrEmpty(_statusMessage))
                     {
@@ -104,20 +104,20 @@
             {
                 <MudStack Spacing="2">
                     <div class="d-flex justify-space-between align-center">
-                        <MudText Typo="Typo.h6">Extracted Text</MudText>
+                        <MudText Typo="Typo.h6">@L.T("dialogs.ocr.extractedText", "Extracted Text")</MudText>
                         <MudButton StartIcon="@Icons.Material.Filled.ContentCopy"
                                    OnClick="CopyToClipboard"
                                    Variant="Variant.Outlined"
                                    Size="Size.Small"
                                    Color="Color.Primary">
-                            Copy
+                            @L.T("dialogs.ocr.copy", "Copy")
                         </MudButton>
                     </div>
 
                     @if (_confidence > 0)
                     {
                         <MudChip T="string" Size="Size.Small" Color="@GetConfidenceColor(_confidence)">
-                            Confidence: @_confidence.ToString("F1")%
+                            @L.T("dialogs.ocr.confidence", "Confidence"): @_confidence.ToString("F1")%
                         </MudChip>
                     }
 
@@ -126,7 +126,7 @@
                     </MudPaper>
 
                     <MudText Typo="Typo.caption" Color="Color.Secondary">
-                        @_wordCount words extracted
+                        @_wordCount @L.T("dialogs.ocr.wordsExtracted", "words extracted")
                     </MudText>
                 </MudStack>
             }
@@ -140,14 +140,14 @@
         </MudStack>
     </DialogContent>
     <DialogActions>
-        <MudButton OnClick="Close">@(string.IsNullOrEmpty(_extractedText) ? "Cancel" : "Close")</MudButton>
+        <MudButton OnClick="Close">@(string.IsNullOrEmpty(_extractedText) ? L.T("common.cancel") : L.T("common.close"))</MudButton>
         @if (string.IsNullOrEmpty(_extractedText) && !_isProcessing)
         {
             <MudButton Color="Color.Primary"
                        Variant="Variant.Filled"
                        OnClick="PerformOCR"
                        Disabled="@(_selectedFile == null)">
-                Extract Text
+                @L.T("dialogs.ocr.extractText")
             </MudButton>
         }
         @if (!string.IsNullOrEmpty(_extractedText))
@@ -155,7 +155,7 @@
             <MudButton Color="Color.Secondary"
                        Variant="Variant.Outlined"
                        OnClick="StartNew">
-                Extract Another
+                @L.T("dialogs.ocr.extractAnother", "Extract Another")
             </MudButton>
         }
     </DialogActions>

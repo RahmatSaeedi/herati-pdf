@@ -1,22 +1,24 @@
 @using Microsoft.JSInterop
 @using MudBlazor
+@using PdfMerger.Client.Services
 @inject IJSRuntime JSRuntime
+@inject ILocalizationService L
 @implements IAsyncDisposable
 
 <MudDialog>
     <DialogContent>
         <MudStack Spacing="3">
-            <MudText Typo="Typo.h6">Scan Document with Camera</MudText>
+            <MudText Typo="Typo.h6">@L.T("dialogs.camera.title")</MudText>
 
             @if (!_cameraAvailable)
             {
                 <MudAlert Severity="Severity.Warning">
-                    Camera not available or permission denied. Please check your browser settings and ensure you're using HTTPS.
+                    @L.T("dialogs.camera.notAvailable")
                 </MudAlert>
                 @if (!string.IsNullOrEmpty(_errorMessage))
                 {
                     <MudAlert Severity="Severity.Error" Dense="true">
-                        Error: @_errorMessage
+                        @L.T("common.error"): @_errorMessage
                     </MudAlert>
                 }
             }
@@ -39,17 +41,17 @@
                         <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #000; display: flex; align-items: center; justify-content: center; min-height: 300px;">
                             <MudStack AlignItems="AlignItems.Center" Spacing="2">
                                 <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
-                                <MudText Typo="Typo.body2" Color="Color.Primary">Starting camera...</MudText>
+                                <MudText Typo="Typo.body2" Color="Color.Primary">@L.T("dialogs.camera.starting")</MudText>
                                 @if (_showManualStart)
                                 {
                                     <MudButton Variant="Variant.Filled"
                                                Color="Color.Primary"
                                                OnClick="ManualStartCamera"
                                                Style="margin-top: 16px;">
-                                        Tap to Start Camera
+                                        @L.T("dialogs.camera.tapToStart")
                                     </MudButton>
                                     <MudText Typo="Typo.caption" Color="Color.Secondary" Style="color: #999;">
-                                        Camera didn't start automatically? Try tapping the button above.
+                                        @L.T("dialogs.camera.didntStartHint")
                                     </MudText>
                                 }
                             </MudStack>
@@ -61,19 +63,19 @@
                     {
                         <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.9); display: flex; align-items: center; justify-content: center;">
                             <MudStack AlignItems="AlignItems.Center" Spacing="2">
-                                <img src="@_capturedImage" alt="Captured" style="max-width: 100%; max-height: 350px;" />
+                                <img src="@_capturedImage" alt="@L.T("dialogs.camera.captured")" style="max-width: 100%; max-height: 350px;" />
                                 <MudStack Row="true" Spacing="2">
                                     <MudButton Variant="Variant.Filled"
                                                Color="Color.Success"
                                                StartIcon="@Icons.Material.Filled.Check"
                                                OnClick="AcceptCapture">
-                                        Use This
+                                        @L.T("dialogs.camera.useThis")
                                     </MudButton>
                                     <MudButton Variant="Variant.Outlined"
                                                Color="Color.Secondary"
                                                StartIcon="@Icons.Material.Filled.Refresh"
                                                OnClick="RetakePhoto">
-                                        Retake
+                                        @L.T("dialogs.camera.retake")
                                     </MudButton>
                                 </MudStack>
                             </MudStack>
@@ -89,18 +91,18 @@
                                    Size="Size.Large"
                                    StartIcon="@Icons.Material.Filled.CameraAlt"
                                    OnClick="CapturePhoto">
-                            Capture
+                            @L.T("dialogs.camera.capture")
                         </MudButton>
                     </MudStack>
                     <MudText Typo="Typo.caption" Align="Align.Center" Color="Color.Secondary" Style="margin-top: 8px;">
-                        Position your document within the camera view and tap Capture
+                        @L.T("dialogs.camera.positionHint")
                     </MudText>
                 }
             }
         </MudStack>
     </DialogContent>
     <DialogActions>
-        <MudButton OnClick="Cancel" Color="Color.Default">Cancel</MudButton>
+        <MudButton OnClick="Cancel" Color="Color.Default">@L.T("common.cancel")</MudButton>
     </DialogActions>
 </MudDialog>
 
@@ -174,7 +176,7 @@
             if (!_cameraStarted)
             {
                 _showManualStart = true;
-                _errorMessage = "Failed to start camera. Please ensure camera permissions are granted.";
+                _errorMessage = L.T("dialogs.camera.failedToStart");
                 StateHasChanged();
             }
         }

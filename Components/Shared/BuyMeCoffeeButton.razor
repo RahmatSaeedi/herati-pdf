@@ -1,4 +1,6 @@
+@using PdfMerger.Client.Services
 @inject IJSRuntime JSRuntime
+@inject ILocalizationService L
 
 <!-- Floating Buy Me a Coffee Button -->
 <div style="position: fixed; bottom: 24px; right: 24px; z-index: 1000;">
@@ -16,7 +18,7 @@
                          Style="color: #6F4E37;" />
                 <MudText Typo="Typo.button"
                          Style="color: #6F4E37; font-weight: 600; white-space: nowrap;">
-                    @(_isHovered ? "Support This Project!" : "Buy Me a Coffee")
+                    @(_isHovered ? L.T("coffee.supportProject") : L.T("coffee.buyMeCoffee"))
                 </MudText>
                 <div @onclick:stopPropagation="true">
                     <MudIconButton Icon="@Icons.Material.Filled.Close"
@@ -48,27 +50,26 @@
                      Style="font-size: 64px;" />
 
             <MudText Typo="Typo.h5" Align="Align.Center" Style="font-weight: 600;">
-                Support Stitch PDF Development
+                @L.T("coffee.supportTitle")
             </MudText>
 
             <MudText Typo="Typo.body1" Align="Align.Center">
-                Stitch PDF is <strong>free and open source</strong>, built with passion to provide
-                powerful PDF tools while protecting your privacy.
+                @((MarkupString)L.T("coffee.supportDescription"))
             </MudText>
 
             <MudPaper Elevation="0" Style="background-color: var(--mud-palette-info-lighten); padding: 16px; border-radius: 8px;">
                 <MudStack Spacing="2">
                     <MudText Typo="Typo.body2">
-                        <MudIcon Icon="@Icons.Material.Filled.Check" Color="Color.Success" Size="Size.Small" /> 100% client-side - your files never leave your device<br/>
-                        <MudIcon Icon="@Icons.Material.Filled.Check" Color="Color.Success" Size="Size.Small" /> Works offline as a Progressive Web App<br/>
-                        <MudIcon Icon="@Icons.Material.Filled.Check" Color="Color.Success" Size="Size.Small" /> No ads, no tracking, no hidden costs<br/>
-                        <MudIcon Icon="@Icons.Material.Filled.Check" Color="Color.Success" Size="Size.Small" /> Regular updates with new features
+                        <MudIcon Icon="@Icons.Material.Filled.Check" Color="Color.Success" Size="Size.Small" /> @L.T("coffee.feature1")<br/>
+                        <MudIcon Icon="@Icons.Material.Filled.Check" Color="Color.Success" Size="Size.Small" /> @L.T("coffee.feature2")<br/>
+                        <MudIcon Icon="@Icons.Material.Filled.Check" Color="Color.Success" Size="Size.Small" /> @L.T("coffee.feature3")<br/>
+                        <MudIcon Icon="@Icons.Material.Filled.Check" Color="Color.Success" Size="Size.Small" /> @L.T("coffee.feature4")
                     </MudText>
                 </MudStack>
             </MudPaper>
 
             <MudText Typo="Typo.body1" Align="Align.Center">
-                If you find this tool useful, consider buying me a coffee to support ongoing development! ☕
+                @L.T("coffee.supportMessage")
             </MudText>
 
             <MudButton Variant="Variant.Filled"
@@ -78,17 +79,17 @@
                        Href="https://buymeacoffee.com/rahmatsaeedi"
                        Target="_blank"
                        Style="font-weight: 600; padding: 12px 32px;">
-                Buy Me a Coffee
+                @L.T("coffee.buyMeCoffee")
             </MudButton>
 
             <MudText Typo="Typo.caption" Align="Align.Center" Color="Color.Secondary">
-                Your support helps keep this project free and ad-free for everyone
+                @L.T("coffee.helpsFree")
             </MudText>
         </MudStack>
     </DialogContent>
     <DialogActions>
         <MudButton OnClick="@(() => _showDialog = false)" Color="Color.Primary">
-            Maybe Later
+            @L.T("coffee.maybeLater")
         </MudButton>
     </DialogActions>
 </MudDialog>

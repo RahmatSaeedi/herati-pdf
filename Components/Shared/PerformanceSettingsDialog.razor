@@ -1,11 +1,12 @@
 @using PdfMerger.Client.Services
 @inject IWebWorkerService WebWorkerService
 @inject ISnackbar Snackbar
+@inject ILocalizationService L
 
 <MudDialog>
     <DialogContent>
         <MudStack Spacing="3">
-            <MudText Typo="Typo.h6">Performance Settings</MudText>
+            <MudText Typo="Typo.h6">@L.T("dialogs.performance.title")</MudText>
 
             <MudPaper Elevation="1" Class="pa-4">
                 <MudStack Spacing="2">
@@ -13,10 +14,10 @@
                         <MudStack Spacing="1">
                             <MudText Typo="Typo.subtitle1" Style="font-weight: 500;">
                                 <MudIcon Icon="@Icons.Material.Filled.Speed" Size="Size.Small" Class="mr-1" />
-                                Web Workers
+                                @L.T("dialogs.performance.webWorkers")
                             </MudText>
                             <MudText Typo="Typo.body2" Color="Color.Secondary">
-                                Process PDFs in background threads for better performance
+                                @L.T("dialogs.performance.webWorkersDescription")
                             </MudText>
                         </MudStack>
                         <MudSwitch @bind-Value="_webWorkersEnabled"
@@ -28,7 +29,7 @@
                     @if (!WebWorkerService.IsSupported)
                     {
                         <MudAlert Severity="Severity.Warning" Dense="true">
-                            Web Workers are not supported in your browser
+                            @L.T("dialogs.performance.notSupported")
                         </MudAlert>
                     }
                     else if (_webWorkersEnabled && WebWorkerService.IsInitialized)
@@ -36,49 +37,43 @@
                         <MudAlert Severity="Severity.Success" Dense="true">
                             <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="1">
                                 <MudIcon Icon="@Icons.Material.Filled.CheckCircle" Size="Size.Small" />
-                                <span>Web Workers active - Processing happens in background</span>
+                                <span>@L.T("dialogs.performance.active")</span>
                             </MudStack>
                         </MudAlert>
                     }
                 </MudStack>
             </MudPaper>
 
-            <MudText Typo="Typo.subtitle2" Style="font-weight: 500;">Performance Benefits</MudText>
+            <MudText Typo="Typo.subtitle2" Style="font-weight: 500;">@L.T("dialogs.performance.benefits")</MudText>
             <MudStack Spacing="2">
                 <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="2">
                     <MudIcon Icon="@Icons.Material.Filled.Speed" Color="Color.Success" Size="Size.Small" />
-                    <MudText Typo="Typo.body2">Faster PDF processing for large files</MudText>
+                    <MudText Typo="Typo.body2">@L.T("dialogs.performance.benefit1")</MudText>
                 </MudStack>
                 <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="2">
                     <MudIcon Icon="@Icons.Material.Filled.TouchApp" Color="Color.Success" Size="Size.Small" />
-                    <MudText Typo="Typo.body2">UI remains responsive during operations</MudText>
+                    <MudText Typo="Typo.body2">@L.T("dialogs.performance.benefit2")</MudText>
                 </MudStack>
                 <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="2">
                     <MudIcon Icon="@Icons.Material.Filled.Memory" Color="Color.Success" Size="Size.Small" />
-                    <MudText Typo="Typo.body2">Better memory management</MudText>
+                    <MudText Typo="Typo.body2">@L.T("dialogs.performance.benefit3")</MudText>
                 </MudStack>
                 <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="2">
                     <MudIcon Icon="@Icons.Material.Filled.ViewInAr" Color="Color.Success" Size="Size.Small" />
-                    <MudText Typo="Typo.body2">Parallel processing of multiple files</MudText>
+                    <MudText Typo="Typo.body2">@L.T("dialogs.performance.benefit4")</MudText>
                 </MudStack>
             </MudStack>
 
             <MudDivider />
 
-            <MudText Typo="Typo.subtitle2" Style="font-weight: 500;">Recommended Settings</MudText>
+            <MudText Typo="Typo.subtitle2" Style="font-weight: 500;">@L.T("dialogs.performance.recommended")</MudText>
             <MudAlert Severity="Severity.Info" Dense="true">
-                Enable Web Workers for the best performance when:
-                <ul style="margin: 8px 0 0 20px; padding: 0;">
-                    <li>Merging 3+ PDF files</li>
-                    <li>Processing files larger than 5MB</li>
-                    <li>Using batch operations</li>
-                    <li>Performing image-heavy conversions</li>
-                </ul>
+                @L.T("dialogs.performance.recommendedInfo")
             </MudAlert>
         </MudStack>
     </DialogContent>
     <DialogActions>
-        <MudButton OnClick="Close" Color="Color.Primary">Close</MudButton>
+        <MudButton OnClick="Close" Color="Color.Primary">@L.T("common.close")</MudButton>
     </DialogActions>
 </MudDialog>
 
@@ -116,23 +111,23 @@
                 var success = await WebWorkerService.InitializeAsync();
                 if (success)
                 {
-                    Snackbar.Add("Web Workers enabled - Processing will be faster!", Severity.Success);
+                    Snackbar.Add(L.T("dialogs.performance.enabled"), Severity.Success);
                 }
                 else
                 {
                     _webWorkersEnabled = false;
-                    Snackbar.Add("Failed to initialize Web Workers", Severity.Error);
+                    Snackbar.Add(L.T("dialogs.performance.failedToInitialize"), Severity.Error);
                 }
             }
             catch (Exception ex)
             {
                 _webWorkersEnabled = false;
-                Snackbar.Add($"Error: {ex.Message}", Severity.Error);
+                Snackbar.Add($"{L.T("common.error")}: {ex.Message}", Severity.Error);
             }
         }
         else if (!_webWorkersEnabled)
         {
-            Snackbar.Add("Web Workers disabled - Using standard processing", Severity.Info);
+            Snackbar.Add(L.T("dialogs.performance.disabled"), Severity.Info);
         }
 
         StateHasChanged();

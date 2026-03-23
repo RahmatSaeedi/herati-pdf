@@ -1,5 +1,7 @@
 @using PdfMerger.Client.Models
+@using PdfMerger.Client.Services
 @inject IDialogService DialogService
+@inject ILocalizationService L
 
 <MudPaper Elevation="2" Class="file-card" Style="position: relative; overflow: hidden; border-radius: 12px; cursor: grab; width: 100%; display: flex; flex-direction: column;">
     @* Image Section *@
@@ -22,7 +24,7 @@
         {
             <MudStack AlignItems="AlignItems.Center" Spacing="2">
                 <MudProgressCircular Color="Color.Primary" Size="Size.Medium" Indeterminate="true" />
-                <MudText Typo="Typo.caption" Color="Color.Secondary">Loading...</MudText>
+                <MudText Typo="Typo.caption" Color="Color.Secondary">@L.T("fileList.loading")</MudText>
             </MudStack>
         }
 
@@ -49,7 +51,7 @@
                     opacity: 0; transition: opacity 0.2s ease; background: rgba(0,0,0,0.75);
                     border-radius: 8px; padding: 8px 16px; display: flex; align-items: center; gap: 6px; z-index: 2;">
             <MudIcon Icon="@Icons.Material.Filled.DragIndicator" Size="Size.Medium" Style="color: white;" />
-            <MudText Typo="Typo.body2" Style="color: white; font-weight: 500;">Drag to reorder</MudText>
+            <MudText Typo="Typo.body2" Style="color: white; font-weight: 500;">@L.T("fileList.dragToReorder")</MudText>
         </div>
     </div>
 
@@ -66,7 +68,7 @@
                 @if (File.PageCount.HasValue && File.PageCount.Value > 0)
                 {
                     <MudChip T="string" Size="Size.Small" Color="Color.Success" Variant="Variant.Outlined">
-                        @File.PageCount.Value @(File.PageCount.Value == 1 ? "Page" : "Pages")
+                        @File.PageCount.Value @(File.PageCount.Value == 1 ? L.T("fileList.page") : L.T("fileList.pages"))
                     </MudChip>
                 }
                 <MudText Typo="Typo.body2" Color="Color.Secondary">
@@ -75,7 +77,7 @@
             </MudStack>
             <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="1">
                 <MudText Typo="Typo.caption" Color="Color.Secondary" Style="font-style: italic;">
-                    Position
+                    @L.T("fileList.position")
                 </MudText>
                 <MudNumericField @bind-Value="_positionInput"
                                  Variant="Variant.Outlined"
@@ -90,7 +92,7 @@
                                  HelperText=""
                                  Class="compact-number-input" />
                 <MudText Typo="Typo.caption" Color="Color.Secondary" Style="font-style: italic;">
-                    of @_maxPosition
+                    @L.T("fileList.of") @_maxPosition
                 </MudText>
             </MudStack>
 
@@ -104,20 +106,20 @@
                                Size="Size.Small"
                                StartIcon="@Icons.Material.Filled.GridOn"
                                OnClick="OpenPageSelector">
-                        Select Pages
+                        @L.T("fileList.selectPages")
                     </MudButton>
 
                     @if (File.SelectedPages.Any())
                     {
                         <MudChip T="string" Size="Size.Small" Color="Color.Primary" Variant="Variant.Text">
-                            @File.SelectedPages.Count of @File.PageCount pages
+                            @L.T("fileList.pagesSelected", File.SelectedPages.Count, File.PageCount)
                         </MudChip>
                     }
 
                     @if (File.PageRotations.Any())
                     {
                         <MudChip T="string" Size="Size.Small" Color="Color.Info" Variant="Variant.Text" Icon="@Icons.Material.Filled.Rotate90DegreesCcw">
-                            @File.PageRotations.Count rotated
+                            @L.T("fileList.rotated", File.PageRotations.Count)
                         </MudChip>
                     }
                 }
@@ -127,11 +129,11 @@
                     <MudIconButton Icon="@Icons.Material.Filled.RotateLeft"
                                    Size="Size.Small"
                                    OnClick="() => RotateFile(-90)"
-                                   title="Rotate Left 90°" />
+                                   title="@L.T("fileList.rotateLeft")" />
                     <MudIconButton Icon="@Icons.Material.Filled.RotateRight"
                                    Size="Size.Small"
                                    OnClick="() => RotateFile(90)"
-                                   title="Rotate Right 90°" />
+                                   title="@L.T("fileList.rotateRight")" />
                 </MudButtonGroup>
 
                 @if (File.Rotation != 0)
@@ -147,13 +149,13 @@
                            Size="Size.Small"
                            StartIcon="@Icons.Material.Filled.Settings"
                            OnClick="OpenFileSettings">
-                    Settings
+                    @L.T("fileList.settings")
                 </MudButton>
 
                 @if (File.ConversionOverrides != null)
                 {
                     <MudChip T="string" Size="Size.Small" Color="Color.Secondary" Variant="Variant.Text" Icon="@Icons.Material.Filled.Tune">
-                        Custom
+                        @L.T("fileList.custom")
                     </MudChip>
                 }
             </MudStack>
@@ -342,26 +344,26 @@
     {
         return File.ContentType switch
         {
-            "application/pdf" => "PDF Document",
-            "image/png" => "PNG Image",
-            "image/jpeg" or "image/jpg" => "JPEG Image",
-            "image/webp" => "WebP Image",
-            "image/gif" => "GIF Image",
-            "image/bmp" or "image/x-ms-bmp" => "BMP Image",
-            "image/svg+xml" => "SVG Vector",
-            "image/heic" or "image/heif" => "HEIC Image",
-            "image/tiff" => "TIFF Image",
-            "image/avif" => "AVIF Image",
-            "text/plain" => "Text Document",
-            "text/markdown" => "Markdown Document",
-            "text/csv" => "CSV Spreadsheet",
-            "text/html" => "HTML Document",
-            "application/vnd.openxmlformats-officedocument.wordprocessingml.document" => "Word Document",
-            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" => "Excel Spreadsheet",
-            "application/vnd.ms-excel" => "Excel Spreadsheet (XLS)",
-            "application/vnd.oasis.opendocument.spreadsheet" => "ODS Spreadsheet",
-            "application/zip" or "application/x-zip-compressed" => "ZIP Archive",
-            _ => "Unknown"
+            "application/pdf" => L.T("fileList.pdfDocument"),
+            "image/png" => L.T("fileList.pngImage"),
+            "image/jpeg" or "image/jpg" => L.T("fileList.jpegImage"),
+            "image/webp" => L.T("fileList.webpImage"),
+            "image/gif" => L.T("fileList.gifImage"),
+            "image/bmp" or "image/x-ms-bmp" => L.T("fileList.bmpImage"),
+            "image/svg+xml" => L.T("fileList.svgVector"),
+            "image/heic" or "image/heif" => L.T("fileList.heicImage"),
+            "image/tiff" => L.T("fileList.tiffImage"),
+            "image/avif" => L.T("fileList.avifImage"),
+            "text/plain" => L.T("fileList.textDocument"),
+            "text/markdown" => L.T("fileList.markdownDocument"),
+            "text/csv" => L.T("fileList.csvSpreadsheet"),
+            "text/html" => L.T("fileList.htmlDocument"),
+            "application/vnd.openxmlformats-officedocument.wordprocessingml.document" => L.T("fileList.wordDocument"),
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" => L.T("fileList.excelSpreadsheet"),
+            "application/vnd.ms-excel" => L.T("fileList.excelSpreadsheetXls"),
+            "application/vnd.oasis.opendocument.spreadsheet" => L.T("fileList.odsSpreadsheet"),
+            "application/zip" or "application/x-zip-compressed" => L.T("fileList.zipArchive"),
+            _ => L.T("fileList.unknown")
         };
     }
 

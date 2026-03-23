@@ -1,7 +1,8 @@
 @using PdfMerger.Client.Services
 @inject IThemeService ThemeService
+@inject ILocalizationService Localization
 
-<MudThemeProvider Theme="_theme" @bind-IsDarkMode="@_isDarkMode" />
+<MudThemeProvider Theme="_theme" @bind-IsDarkMode="@_isDarkMode" RightToLeft="@_isRtl" />
 <MudPopoverProvider />
 <MudDialogProvider />
 <MudSnackbarProvider />
@@ -15,11 +16,27 @@
 
 @code {
     private bool _isDarkMode;
+    private bool _isRtl;
 
     protected override async Task OnInitializedAsync()
     {
+        // Initialize localization first
+        await Localization.InitializeAsync();
+        _isRtl = Localization.IsRtl;
+        Localization.OnLanguageChanged += OnLanguageChanged;
+
+        // Initialize theme
         _isDarkMode = await ThemeService.GetIsDarkModeAsync();
         ThemeService.OnThemeChanged += OnThemeChanged;
+    }
+
+    private void OnLanguageChanged()
+    {
+        InvokeAsync(() =>
+        {
+            _isRtl = Localization.IsRtl;
+            StateHasChanged();
+        });
     }
 
     private void OnThemeChanged()
@@ -34,6 +51,7 @@
     public void Dispose()
     {
         ThemeService.OnThemeChanged -= OnThemeChanged;
+        Localization.OnLanguageChanged -= OnLanguageChanged;
     }
 
     private MudTheme _theme = new()

@@ -4,6 +4,7 @@
 @using MudBlazor
 @inject IJSRuntime JSRuntime
 @inject ITouchGestureService TouchGestureService
+@inject ILocalizationService L
 
 <MudDialog>
     <DialogContent>
@@ -19,7 +20,7 @@
                                        Disabled="@(_currentPage <= 1)"
                                        Color="Color.Primary" />
                         <MudText Typo="Typo.body1">
-                            Page <strong>@_currentPage</strong> of <strong>@PageCount</strong>
+                            @L.T("common.page") <strong>@_currentPage</strong> @L.T("common.of") <strong>@PageCount</strong>
                         </MudText>
                         <MudIconButton Icon="@Icons.Material.Filled.ChevronRight"
                                        OnClick="NextPage"
@@ -32,17 +33,17 @@
                                        OnClick="ZoomOut"
                                        Disabled="@(_zoomLevel <= 0.5)"
                                        Color="Color.Secondary"
-                                       title="Zoom Out" />
+                                       title="@L.T("pdfPreview.zoomOut")" />
                         <MudText Typo="Typo.body2">@((_zoomLevel * 100).ToString("F0"))%</MudText>
                         <MudIconButton Icon="@Icons.Material.Filled.ZoomIn"
                                        OnClick="ZoomIn"
                                        Disabled="@(_zoomLevel >= 3.0)"
                                        Color="Color.Secondary"
-                                       title="Zoom In" />
+                                       title="@L.T("pdfPreview.zoomIn")" />
                         <MudIconButton Icon="@Icons.Material.Filled.FitScreen"
                                        OnClick="ResetZoom"
                                        Color="Color.Secondary"
-                                       title="Fit to Screen" />
+                                       title="@L.T("pdfPreview.fitToScreen")" />
                     </MudStack>
                 </MudStack>
 
@@ -57,19 +58,19 @@
                     {
                         <MudStack AlignItems="AlignItems.Center" Spacing="2" Style="padding: 40px;">
                             <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
-                            <MudText Typo="Typo.body2" Color="Color.Secondary">Loading page...</MudText>
+                            <MudText Typo="Typo.body2" Color="Color.Secondary">@L.T("pdfPreview.loadingPage")</MudText>
                         </MudStack>
                     }
                 </MudPaper>
             }
             else
             {
-                <MudAlert Severity="Severity.Info">No preview available for this file type.</MudAlert>
+                <MudAlert Severity="Severity.Info">@L.T("pdfPreview.noPreview")</MudAlert>
             }
         </MudStack>
     </DialogContent>
     <DialogActions>
-        <MudButton OnClick="Close" Color="Color.Primary">Close</MudButton>
+        <MudButton OnClick="Close" Color="Color.Primary">@L.T("common.close")</MudButton>
     </DialogActions>
 </MudDialog>
 

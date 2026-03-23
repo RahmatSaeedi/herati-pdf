@@ -1,19 +1,21 @@
 @using PdfMerger.Client.Models
+@using PdfMerger.Client.Services
+@inject ILocalizationService L
 
 <MudDialog>
     <DialogContent>
         <MudStack Spacing="3">
-            <MudText Typo="Typo.h6">Conversion Settings for @FileName</MudText>
+            <MudText Typo="Typo.h6">@L.T("fileSettings.title", FileName)</MudText>
 
             <MudDivider />
 
             @* Toggle: Use Global Settings vs Custom Settings *@
-            <MudSwitch @bind-Value="_useCustomSettings" Color="Color.Primary" Label="Use Custom Settings for This File" />
+            <MudSwitch @bind-Value="_useCustomSettings" Color="Color.Primary" Label="@L.T("fileSettings.useCustomSettings")" />
 
             @if (!_useCustomSettings)
             {
                 <MudAlert Severity="Severity.Info" Variant="Variant.Filled">
-                    This file will use the global conversion settings configured in the main panel.
+                    @L.T("fileSettings.useGlobalInfo")
                 </MudAlert>
             }
             else
@@ -22,31 +24,31 @@
                     <MudStack Spacing="3">
                         @* Page Size *@
                         <MudStack Spacing="1">
-                            <MudText Typo="Typo.subtitle2">Page Size</MudText>
+                            <MudText Typo="Typo.subtitle2">@L.T("fileSettings.pageSize")</MudText>
                             <MudSelect T="PageSize" @bind-Value="_settings.PageSize" Variant="Variant.Outlined" Margin="Margin.Dense">
-                                <MudSelectItem Value="PageSize.A4">A4 (210 × 297 mm)</MudSelectItem>
-                                <MudSelectItem Value="PageSize.A3">A3 (297 × 420 mm)</MudSelectItem>
-                                <MudSelectItem Value="PageSize.A5">A5 (148 × 210 mm)</MudSelectItem>
-                                <MudSelectItem Value="PageSize.Letter">Letter (8.5 × 11 in)</MudSelectItem>
-                                <MudSelectItem Value="PageSize.Legal">Legal (8.5 × 14 in)</MudSelectItem>
-                                <MudSelectItem Value="PageSize.Tabloid">Tabloid (11 × 17 in)</MudSelectItem>
+                                <MudSelectItem Value="PageSize.A4">@L.T("pageSizes.a4")</MudSelectItem>
+                                <MudSelectItem Value="PageSize.A3">@L.T("pageSizes.a3")</MudSelectItem>
+                                <MudSelectItem Value="PageSize.A5">@L.T("pageSizes.a5")</MudSelectItem>
+                                <MudSelectItem Value="PageSize.Letter">@L.T("pageSizes.letter")</MudSelectItem>
+                                <MudSelectItem Value="PageSize.Legal">@L.T("pageSizes.legal")</MudSelectItem>
+                                <MudSelectItem Value="PageSize.Tabloid">@L.T("pageSizes.tabloid")</MudSelectItem>
                             </MudSelect>
                         </MudStack>
 
                         @* Orientation *@
                         <MudStack Spacing="1">
-                            <MudText Typo="Typo.subtitle2">Orientation</MudText>
+                            <MudText Typo="Typo.subtitle2">@L.T("fileSettings.orientation")</MudText>
                             <MudRadioGroup T="PageOrientation" @bind-Value="_settings.Orientation">
                                 <MudRadio T="PageOrientation" Value="PageOrientation.Portrait" Color="Color.Primary">
                                     <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="1">
                                         <MudIcon Icon="@Icons.Material.Filled.Portrait" Size="Size.Small" />
-                                        <MudText>Portrait</MudText>
+                                        <MudText>@L.T("fileSettings.portrait")</MudText>
                                     </MudStack>
                                 </MudRadio>
                                 <MudRadio T="PageOrientation" Value="PageOrientation.Landscape" Color="Color.Primary">
                                     <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="1">
                                         <MudIcon Icon="@Icons.Material.Filled.Landscape" Size="Size.Small" />
-                                        <MudText>Landscape</MudText>
+                                        <MudText>@L.T("fileSettings.landscape")</MudText>
                                     </MudStack>
                                 </MudRadio>
                             </MudRadioGroup>
@@ -54,36 +56,36 @@
 
                         @* Image Crop Mode *@
                         <MudStack Spacing="1">
-                            <MudText Typo="Typo.subtitle2">Image Fitting</MudText>
+                            <MudText Typo="Typo.subtitle2">@L.T("fileSettings.imageFitting")</MudText>
                             <MudSelect T="ImageCropMode" @bind-Value="_settings.CropMode" Variant="Variant.Outlined" Margin="Margin.Dense">
-                                <MudSelectItem Value="ImageCropMode.None">None (Original Size)</MudSelectItem>
-                                <MudSelectItem Value="ImageCropMode.Fit">Fit (Preserve Aspect Ratio)</MudSelectItem>
-                                <MudSelectItem Value="ImageCropMode.Fill">Fill (Crop to Fit)</MudSelectItem>
-                                <MudSelectItem Value="ImageCropMode.Stretch">Stretch (Ignore Aspect Ratio)</MudSelectItem>
+                                <MudSelectItem Value="ImageCropMode.None">@L.T("fileSettings.none")</MudSelectItem>
+                                <MudSelectItem Value="ImageCropMode.Fit">@L.T("fileSettings.fit")</MudSelectItem>
+                                <MudSelectItem Value="ImageCropMode.Fill">@L.T("fileSettings.fill")</MudSelectItem>
+                                <MudSelectItem Value="ImageCropMode.Stretch">@L.T("fileSettings.stretch")</MudSelectItem>
                             </MudSelect>
                         </MudStack>
 
                         @* Image Quality *@
                         <MudStack Spacing="1">
-                            <MudText Typo="Typo.subtitle2">Image Quality: @_settings.ImageQuality%</MudText>
+                            <MudText Typo="Typo.subtitle2">@L.T("fileSettings.imageQuality"): @_settings.ImageQuality%</MudText>
                             <MudSlider @bind-Value="_settings.ImageQuality" Min="50" Max="100" Step="5" Color="Color.Info" />
                         </MudStack>
 
                         @* Image Options *@
-                        <MudSwitch @bind-Value="_settings.CompressImages" Color="Color.Primary" Label="Compress Images" />
-                        <MudSwitch @bind-Value="_settings.AutoRotateFromExif" Color="Color.Primary" Label="Auto-Rotate from EXIF Data" />
+                        <MudSwitch @bind-Value="_settings.CompressImages" Color="Color.Primary" Label="@L.T("fileSettings.compressImages")" />
+                        <MudSwitch @bind-Value="_settings.AutoRotateFromExif" Color="Color.Primary" Label="@L.T("fileSettings.autoRotateExif")" />
                     </MudStack>
                 </MudPaper>
             }
         </MudStack>
     </DialogContent>
     <DialogActions>
-        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton OnClick="Cancel">@L.T("common.cancel")</MudButton>
         @if (_useCustomSettings)
         {
-            <MudButton Color="Color.Secondary" OnClick="ClearCustomSettings">Use Global Settings</MudButton>
+            <MudButton Color="Color.Secondary" OnClick="ClearCustomSettings">@L.T("fileSettings.useGlobalSettings")</MudButton>
         }
-        <MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="Submit">Apply</MudButton>
+        <MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="Submit">@L.T("common.apply")</MudButton>
     </DialogActions>
 </MudDialog>
 

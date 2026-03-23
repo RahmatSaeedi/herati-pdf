@@ -46,4 +46,7 @@ builder.Services.AddScoped<ITemplateService, TemplateService>();
 // Register web worker service for performance optimization
 builder.Services.AddScoped<IWebWorkerService, WebWorkerService>();
 
+// Register localization service
+builder.Services.AddScoped<ILocalizationService, LocalizationService>();
+
 await builder.Build().RunAsync();

@@ -1,17 +1,18 @@
 @using PdfMerger.Client.Services
 @using PdfMerger.Client.Models
 @inject IAdvancedPdfService AdvancedPdfService
+@inject ILocalizationService L
 
 <MudDialog>
     <DialogContent>
         <MudStack Spacing="3">
             @if (!_isProcessing && string.IsNullOrEmpty(_generatedCodeUrl))
             {
-                <MudText Typo="Typo.h6">Generate QR Code or Barcode</MudText>
+                <MudText Typo="Typo.h6">@L.T("dialogs.qrBarcode.title")</MudText>
 
                 @if (Files.Count > 1)
                 {
-                    <MudSelect @bind-Value="_selectedFile" Label="Select PDF File" Variant="Variant.Outlined">
+                    <MudSelect @bind-Value="_selectedFile" Label="@L.T("dialogs.qrBarcode.selectPdfFile", "Select PDF File")" Variant="Variant.Outlined">
                         @foreach (var file in Files)
                         {
                             <MudSelectItem Value="@file">@file.Name</MudSelectItem>
@@ -21,55 +22,55 @@
                 else if (Files.Count == 1)
                 {
                     <MudAlert Severity="Severity.Info">
-                        <strong>File:</strong> @Files[0].Name
+                        <strong>@L.T("common.file"):</strong> @Files[0].Name
                     </MudAlert>
                 }
 
                 <MudRadioGroup @bind-Value="_codeType">
-                    <MudRadio T="string" Value="@("qr")" Color="Color.Primary">QR Code</MudRadio>
-                    <MudRadio T="string" Value="@("barcode")" Color="Color.Primary">Barcode</MudRadio>
+                    <MudRadio T="string" Value="@("qr")" Color="Color.Primary">@L.T("dialogs.qrBarcode.qrCode")</MudRadio>
+                    <MudRadio T="string" Value="@("barcode")" Color="Color.Primary">@L.T("dialogs.qrBarcode.barcode")</MudRadio>
                 </MudRadioGroup>
 
                 <MudTextField @bind-Value="_contentText"
-                              Label="Content / Text"
+                              Label="@L.T("dialogs.qrBarcode.enterContent")"
                               Variant="Variant.Outlined"
                               Lines="3"
                               MaxLength="@(_codeType == "qr" ? 2000 : 100)"
-                              HelperText="@(_codeType == "qr" ? "URL, text, contact info, etc." : "Numbers or text for barcode")"
+                              HelperText="@(_codeType == "qr" ? L.T("dialogs.qrBarcode.qrHelperText", "URL, text, contact info, etc.") : L.T("dialogs.qrBarcode.barcodeHelperText", "Numbers or text for barcode"))"
                               Required="true" />
 
                 @if (_codeType == "barcode")
                 {
-                    <MudSelect @bind-Value="_barcodeFormat" Label="Barcode Format" Variant="Variant.Outlined">
-                        <MudSelectItem Value="@("CODE128")">CODE128 (General purpose)</MudSelectItem>
-                        <MudSelectItem Value="@("EAN13")">EAN-13 (Products)</MudSelectItem>
-                        <MudSelectItem Value="@("UPC")">UPC (Products)</MudSelectItem>
-                        <MudSelectItem Value="@("CODE39")">CODE39 (Alphanumeric)</MudSelectItem>
-                        <MudSelectItem Value="@("ITF14")">ITF-14 (Shipping)</MudSelectItem>
+                    <MudSelect @bind-Value="_barcodeFormat" Label="@L.T("dialogs.qrBarcode.barcodeFormat")" Variant="Variant.Outlined">
+                        <MudSelectItem Value="@("CODE128")">CODE128 (@L.T("dialogs.qrBarcode.generalPurpose", "General purpose"))</MudSelectItem>
+                        <MudSelectItem Value="@("EAN13")">EAN-13 (@L.T("dialogs.qrBarcode.products", "Products"))</MudSelectItem>
+                        <MudSelectItem Value="@("UPC")">UPC (@L.T("dialogs.qrBarcode.products", "Products"))</MudSelectItem>
+                        <MudSelectItem Value="@("CODE39")">CODE39 (@L.T("dialogs.qrBarcode.alphanumeric", "Alphanumeric"))</MudSelectItem>
+                        <MudSelectItem Value="@("ITF14")">ITF-14 (@L.T("dialogs.qrBarcode.shipping", "Shipping"))</MudSelectItem>
                     </MudSelect>
                 }
 
-                <MudNumericField @bind-Value="_pageNumber" Label="Page Number" Variant="Variant.Outlined" Min="0" HelperText="0 = first page, 1 = second page, etc." />
+                <MudNumericField @bind-Value="_pageNumber" Label="@L.T("common.page")" Variant="Variant.Outlined" Min="0" HelperText="@L.T("dialogs.signature.pageNumberHelp", "0 = first page, 1 = second page, etc.")" />
 
                 <MudStack Row="true" Spacing="2">
-                    <MudNumericField @bind-Value="_xPosition" Label="X Position" Variant="Variant.Outlined" Min="0" Max="600" Step="10" />
-                    <MudNumericField @bind-Value="_yPosition" Label="Y Position" Variant="Variant.Outlined" Min="0" Max="800" Step="10" />
+                    <MudNumericField @bind-Value="_xPosition" Label="@L.T("dialogs.signature.xPosition", "X Position")" Variant="Variant.Outlined" Min="0" Max="600" Step="10" />
+                    <MudNumericField @bind-Value="_yPosition" Label="@L.T("dialogs.signature.yPosition", "Y Position")" Variant="Variant.Outlined" Min="0" Max="800" Step="10" />
                 </MudStack>
 
                 <MudStack Row="true" Spacing="2">
-                    <MudNumericField @bind-Value="_codeWidth" Label="Width" Variant="Variant.Outlined" Min="50" Max="400" Step="10" />
-                    <MudNumericField @bind-Value="_codeHeight" Label="Height" Variant="Variant.Outlined" Min="50" Max="400" Step="10" />
+                    <MudNumericField @bind-Value="_codeWidth" Label="@L.T("dialogs.signature.width")" Variant="Variant.Outlined" Min="50" Max="400" Step="10" />
+                    <MudNumericField @bind-Value="_codeHeight" Label="@L.T("dialogs.signature.height")" Variant="Variant.Outlined" Min="50" Max="400" Step="10" />
                 </MudStack>
 
                 <MudAlert Severity="Severity.Info" Dense="true">
                     <MudText Typo="Typo.caption">
-                        @(_codeType == "qr" ? "QR codes can store URLs, text, contact info, WiFi credentials, and more." :
-                          "Barcodes are ideal for product codes, inventory tracking, and shipping labels.")
+                        @(_codeType == "qr" ? L.T("dialogs.qrBarcode.qrInfo", "QR codes can store URLs, text, contact info, WiFi credentials, and more.") :
+                          L.T("dialogs.qrBarcode.barcodeInfo", "Barcodes are ideal for product codes, inventory tracking, and shipping labels."))
                     </MudText>
                 </MudAlert>
 
                 <MudButton Variant="Variant.Outlined" Color="Color.Secondary" OnClick="GeneratePreview" FullWidth="true">
-                    Preview @(_codeType == "qr" ? "QR Code" : "Barcode")
+                    @L.T("common.preview") @(_codeType == "qr" ? L.T("dialogs.qrBarcode.qrCode") : L.T("dialogs.qrBarcode.barcode"))
                 </MudButton>
             }
 
@@ -84,20 +85,20 @@
             @if (!string.IsNullOrEmpty(_generatedCodeUrl))
             {
                 <MudStack Spacing="2">
-                    <MudText Typo="Typo.h6">Generated @(_codeType == "qr" ? "QR Code" : "Barcode")</MudText>
+                    <MudText Typo="Typo.h6">@L.T("dialogs.qrBarcode.generated") @(_codeType == "qr" ? L.T("dialogs.qrBarcode.qrCode") : L.T("dialogs.qrBarcode.barcode"))</MudText>
 
                     <MudPaper Elevation="2" Class="pa-4 d-flex justify-center">
-                        <img src="@_generatedCodeUrl" alt="Generated code" style="max-width: 100%; max-height: 300px;" />
+                        <img src="@_generatedCodeUrl" alt="@L.T("dialogs.qrBarcode.generatedCode")" style="max-width: 100%; max-height: 300px;" />
                     </MudPaper>
 
                     <MudAlert Severity="Severity.Success">
                         <MudText Typo="Typo.body2">
-                            <strong>Content:</strong> @_contentText
+                            <strong>@L.T("dialogs.qrBarcode.content"):</strong> @_contentText
                         </MudText>
                     </MudAlert>
 
                     <MudText Typo="Typo.caption" Color="Color.Secondary">
-                        Page: @_pageNumber | Position: (@_xPosition, @_yPosition) | Size: @_codeWidth x @_codeHeight px
+                        @L.T("common.page"): @_pageNumber | @L.T("dialogs.qrBarcode.position"): (@_xPosition, @_yPosition) | @L.T("dialogs.qrBarcode.size"): @_codeWidth x @_codeHeight px
                     </MudText>
                 </MudStack>
             }
@@ -111,14 +112,14 @@
         </MudStack>
     </DialogContent>
     <DialogActions>
-        <MudButton OnClick="Close">@(string.IsNullOrEmpty(_generatedCodeUrl) ? "Cancel" : "Close")</MudButton>
+        <MudButton OnClick="Close">@(string.IsNullOrEmpty(_generatedCodeUrl) ? L.T("common.cancel") : L.T("common.close"))</MudButton>
         @if (string.IsNullOrEmpty(_generatedCodeUrl) && !_isProcessing)
         {
             <MudButton Color="Color.Primary"
                        Variant="Variant.Filled"
                        OnClick="AddCodeToPdf"
                        Disabled="@(string.IsNullOrEmpty(_contentText) || _selectedFile == null)">
-                Add to PDF
+                @L.T("dialogs.qrBarcode.addToPdf")
             </MudButton>
         }
         @if (!string.IsNullOrEmpty(_generatedCodeUrl))
@@ -126,7 +127,7 @@
             <MudButton Color="Color.Secondary"
                        Variant="Variant.Outlined"
                        OnClick="StartNew">
-                Generate Another
+                @L.T("dialogs.qrBarcode.generateAnother")
             </MudButton>
         }
     </DialogActions>
@@ -162,12 +163,12 @@
     {
         if (string.IsNullOrWhiteSpace(_contentText))
         {
-            _errorMessage = "Please enter content for the code";
+            _errorMessage = L.T("dialogs.qrBarcode.enterContentError");
             return;
         }
 
         _isProcessing = true;
-        _statusMessage = $"Generating {(_codeType == "qr" ? "QR code" : "barcode")}...";
+        _statusMessage = L.T("dialogs.qrBarcode.generating", _codeType == "qr" ? L.T("dialogs.qrBarcode.qrCode") : L.T("dialogs.qrBarcode.barcode"));
         _errorMessage = "";
         StateHasChanged();
 
@@ -199,7 +200,7 @@
 
             if (string.IsNullOrEmpty(_generatedCodeUrl))
             {
-                _errorMessage = $"Failed to generate {(_codeType == "qr" ? "QR code" : "barcode")}";
+                _errorMessage = L.T("dialogs.qrBarcode.failedToGenerate", _codeType == "qr" ? L.T("dialogs.qrBarcode.qrCode") : L.T("dialogs.qrBarcode.barcode"));
             }
         }
         catch (Exception ex)
@@ -220,7 +221,7 @@
         if (_selectedFile == null || string.IsNullOrWhiteSpace(_contentText)) return;
 
         _isProcessing = true;
-        _statusMessage = "Adding code to PDF...";
+        _statusMessage = L.T("dialogs.qrBarcode.addingToPdf");
         _errorMessage = "";
         StateHasChanged();
 
@@ -274,7 +275,7 @@
             }
             else
             {
-                _errorMessage = "Failed to add code to PDF";
+                _errorMessage = L.T("dialogs.qrBarcode.failedToAdd");
             }
         }
         catch (Exception ex)

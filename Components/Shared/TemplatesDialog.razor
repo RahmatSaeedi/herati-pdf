@@ -3,24 +3,25 @@
 @inject ITemplateService TemplateService
 @inject ISnackbar Snackbar
 @inject IDialogService DialogService
+@inject ILocalizationService L
 @implements IDisposable
 
 <MudDialog>
     <DialogContent>
         <MudStack Spacing="3">
             <div class="d-flex justify-space-between align-center">
-                <MudText Typo="Typo.h6">Saved Templates</MudText>
+                <MudText Typo="Typo.h6">@L.T("dialogs.templates.savedTemplates")</MudText>
                 <MudButton Variant="Variant.Filled"
                            Color="Color.Primary"
                            Size="Size.Small"
                            StartIcon="@Icons.Material.Filled.Add"
                            OnClick="OpenCreateTemplateDialog">
-                    Create Template
+                    @L.T("dialogs.templates.createTemplate")
                 </MudButton>
             </div>
 
             <MudTabs Elevation="2" Rounded="true" ApplyEffectsToContainer="true" Color="Color.Primary">
-                <MudTabPanel Text="All" Icon="@Icons.Material.Filled.Apps" BadgeData="@_templates.Count" BadgeColor="Color.Info">
+                <MudTabPanel Text="@L.T("dialogs.templates.all")" Icon="@Icons.Material.Filled.Apps" BadgeData="@_templates.Count" BadgeColor="Color.Info">
                     @if (_templates.Any())
                     {
                         <MudGrid Class="mt-3">
@@ -39,7 +40,7 @@
                                                                    Color="@(template.IsFavorite ? Color.Warning : Color.Default)"
                                                                    Size="Size.Small"
                                                                    OnClick="@(() => ToggleFavorite(template.Id))"
-                                                                   title="@(template.IsFavorite ? "Remove from favorites" : "Add to favorites")" />
+                                                                   title="@(template.IsFavorite ? L.T("dialogs.templates.removeFromFavorites") : L.T("dialogs.templates.addToFavorites"))" />
                                                 </div>
 
                                                 <MudText Typo="Typo.body2" Color="Color.Secondary">
@@ -54,7 +55,7 @@
                                                         </MudText>
                                                     }
                                                     <MudText Typo="Typo.caption" Color="Color.Secondary">
-                                                        Used @template.UsageCount times
+                                                        @L.T("dialogs.templates.usedTimes", template.UsageCount)
                                                     </MudText>
                                                 </MudStack>
                                             </MudStack>
@@ -64,19 +65,19 @@
                                                        Color="Color.Primary"
                                                        StartIcon="@Icons.Material.Filled.PlayArrow"
                                                        OnClick="@(() => ApplyTemplate(template.Id))">
-                                                Apply
+                                                @L.T("common.apply")
                                             </MudButton>
                                             <MudButton Size="Size.Small"
                                                        Color="Color.Secondary"
                                                        StartIcon="@Icons.Material.Filled.Edit"
                                                        OnClick="@(() => EditTemplate(template))">
-                                                Edit
+                                                @L.T("common.edit")
                                             </MudButton>
                                             <MudButton Size="Size.Small"
                                                        Color="Color.Error"
                                                        StartIcon="@Icons.Material.Filled.Delete"
                                                        OnClick="@(() => DeleteTemplate(template.Id))">
-                                                Delete
+                                                @L.T("common.delete")
                                             </MudButton>
                                         </MudCardActions>
                                     </MudCard>
@@ -90,14 +91,14 @@
                             <MudStack AlignItems="AlignItems.Center" Spacing="2">
                                 <MudIcon Icon="@Icons.Material.Filled.LibraryBooks" Size="Size.Large" Color="Color.Secondary" />
                                 <MudText Typo="Typo.body1" Color="Color.Secondary">
-                                    No templates yet. Create your first template!
+                                    @L.T("dialogs.templates.noTemplates")
                                 </MudText>
                             </MudStack>
                         </MudPaper>
                     }
                 </MudTabPanel>
 
-                <MudTabPanel Text="Favorites" Icon="@Icons.Material.Filled.Star" BadgeData="@_favoriteTemplates.Count" BadgeColor="Color.Warning">
+                <MudTabPanel Text="@L.T("dialogs.templates.favorites")" Icon="@Icons.Material.Filled.Star" BadgeData="@_favoriteTemplates.Count" BadgeColor="Color.Warning">
                     @if (_favoriteTemplates.Any())
                     {
                         <MudGrid Class="mt-3">
@@ -125,7 +126,7 @@
                                                        Color="Color.Primary"
                                                        StartIcon="@Icons.Material.Filled.PlayArrow"
                                                        OnClick="@(() => ApplyTemplate(template.Id))">
-                                                Apply
+                                                @L.T("common.apply")
                                             </MudButton>
                                         </MudCardActions>
                                     </MudCard>
@@ -139,7 +140,7 @@
                             <MudStack AlignItems="AlignItems.Center" Spacing="2">
                                 <MudIcon Icon="@Icons.Material.Filled.StarBorder" Size="Size.Large" Color="Color.Secondary" />
                                 <MudText Typo="Typo.body1" Color="Color.Secondary">
-                                    No favorite templates. Star a template to add it here!
+                                    @L.T("dialogs.templates.noFavorites")
                                 </MudText>
                             </MudStack>
                         </MudPaper>
@@ -149,7 +150,7 @@
         </MudStack>
     </DialogContent>
     <DialogActions>
-        <MudButton OnClick="Close" Color="Color.Primary">Close</MudButton>
+        <MudButton OnClick="Close" Color="Color.Primary">@L.T("common.close")</MudButton>
     </DialogActions>
 </MudDialog>
 
@@ -187,7 +188,7 @@
         if (template == null) return;
 
         await TemplateService.IncrementUsageAsync(id);
-        Snackbar.Add($"Template '{template.Name}' applied!", Severity.Success);
+        Snackbar.Add(L.T("success.templateApplied", template.Name), Severity.Success);
         MudDialog.Close(DialogResult.Ok(template));
     }
 
@@ -200,16 +201,16 @@
     private async Task DeleteTemplate(Guid id)
     {
         var confirmed = await DialogService.ShowMessageBox(
-            "Delete Template",
-            "Are you sure you want to delete this template?",
-            yesText: "Delete",
-            cancelText: "Cancel");
+            L.T("dialogs.templates.deleteTemplate"),
+            L.T("dialogs.templates.confirmDelete"),
+            yesText: L.T("common.delete"),
+            cancelText: L.T("common.cancel"));
 
         if (confirmed == true)
         {
             await TemplateService.DeleteTemplateAsync(id);
             await LoadTemplates();
-            Snackbar.Add("Template deleted", Severity.Info);
+            Snackbar.Add(L.T("success.templateDeleted"), Severity.Info);
         }
     }
 

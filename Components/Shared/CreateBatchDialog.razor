@@ -2,44 +2,45 @@
 @using PdfMerger.Client.Services
 @inject IBatchOperationsService BatchService
 @inject ISnackbar Snackbar
+@inject ILocalizationService L
 
 <MudDialog>
     <DialogContent>
         <MudStack Spacing="3">
-            <MudText Typo="Typo.h6">Create Batch Operation</MudText>
+            <MudText Typo="Typo.h6">@L.T("dialogs.createBatch.title")</MudText>
 
             <MudTextField @bind-Value="_batchName"
-                          Label="Batch Name"
+                          Label="@L.T("dialogs.createBatch.batchName")"
                           Variant="Variant.Outlined"
-                          Placeholder="e.g., Compress All PDFs"
+                          Placeholder="@L.T("dialogs.createBatch.batchNamePlaceholder")"
                           Required="true" />
 
             <MudSelect @bind-Value="_operationType"
-                       Label="Operation Type"
+                       Label="@L.T("dialogs.createBatch.operationType")"
                        Variant="Variant.Outlined"
                        Required="true">
                 <MudSelectItem Value="@BatchOperationType.Compress">
                     <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="1">
                         <MudIcon Icon="@Icons.Material.Filled.Compress" Size="Size.Small" />
-                        <span>Compress PDFs</span>
+                        <span>@L.T("dialogs.createBatch.compressPdfs")</span>
                     </MudStack>
                 </MudSelectItem>
                 <MudSelectItem Value="@BatchOperationType.Watermark">
                     <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="1">
                         <MudIcon Icon="@Icons.Material.Filled.Colorize" Size="Size.Small" />
-                        <span>Add Watermark</span>
+                        <span>@L.T("dialogs.createBatch.addWatermark")</span>
                     </MudStack>
                 </MudSelectItem>
                 <MudSelectItem Value="@BatchOperationType.AddPageNumbers">
                     <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="1">
                         <MudIcon Icon="@Icons.Material.Filled.Numbers" Size="Size.Small" />
-                        <span>Add Page Numbers</span>
+                        <span>@L.T("dialogs.createBatch.addPageNumbers")</span>
                     </MudStack>
                 </MudSelectItem>
                 <MudSelectItem Value="@BatchOperationType.PasswordProtect">
                     <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="1">
                         <MudIcon Icon="@Icons.Material.Filled.Lock" Size="Size.Small" />
-                        <span>Password Protect</span>
+                        <span>@L.T("dialogs.createBatch.passwordProtect")</span>
                     </MudStack>
                 </MudSelectItem>
             </MudSelect>
@@ -47,17 +48,17 @@
             @if (_operationType == BatchOperationType.Compress)
             {
                 <MudSelect @bind-Value="_compressionQuality"
-                           Label="Compression Quality"
+                           Label="@L.T("dialogs.createBatch.compressionQuality")"
                            Variant="Variant.Outlined">
-                    <MudSelectItem Value="@("low")">Low (Smaller file, lower quality)</MudSelectItem>
-                    <MudSelectItem Value="@("medium")">Medium (Balanced)</MudSelectItem>
-                    <MudSelectItem Value="@("high")">High (Larger file, better quality)</MudSelectItem>
+                    <MudSelectItem Value="@("low")">@L.T("dialogs.createBatch.qualityLow")</MudSelectItem>
+                    <MudSelectItem Value="@("medium")">@L.T("dialogs.createBatch.qualityMedium")</MudSelectItem>
+                    <MudSelectItem Value="@("high")">@L.T("dialogs.createBatch.qualityHigh")</MudSelectItem>
                 </MudSelect>
             }
             else if (_operationType == BatchOperationType.Watermark)
             {
                 <MudTextField @bind-Value="_watermarkText"
-                              Label="Watermark Text"
+                              Label="@L.T("dialogs.watermark.watermarkText")"
                               Variant="Variant.Outlined"
                               Required="true" />
                 <MudSlider @bind-Value="_watermarkOpacity"
@@ -65,44 +66,43 @@
                            Max="1.0"
                            Step="0.1"
                            Color="Color.Primary">
-                    Opacity: @_watermarkOpacity.ToString("F1")
+                    @L.T("dialogs.watermark.opacity"): @_watermarkOpacity.ToString("F1")
                 </MudSlider>
             }
             else if (_operationType == BatchOperationType.AddPageNumbers)
             {
                 <MudSelect @bind-Value="_pageNumberPosition"
-                           Label="Position"
+                           Label="@L.T("dialogs.pageNumbers.position")"
                            Variant="Variant.Outlined">
-                    <MudSelectItem Value="@("bottom-center")">Bottom Center</MudSelectItem>
-                    <MudSelectItem Value="@("bottom-left")">Bottom Left</MudSelectItem>
-                    <MudSelectItem Value="@("bottom-right")">Bottom Right</MudSelectItem>
-                    <MudSelectItem Value="@("top-center")">Top Center</MudSelectItem>
-                    <MudSelectItem Value="@("top-left")">Top Left</MudSelectItem>
-                    <MudSelectItem Value="@("top-right")">Top Right</MudSelectItem>
+                    <MudSelectItem Value="@("bottom-center")">@L.T("conversionSettings.bottomCenter")</MudSelectItem>
+                    <MudSelectItem Value="@("bottom-left")">@L.T("conversionSettings.bottomLeft")</MudSelectItem>
+                    <MudSelectItem Value="@("bottom-right")">@L.T("conversionSettings.bottomRight")</MudSelectItem>
+                    <MudSelectItem Value="@("top-center")">@L.T("conversionSettings.topCenter")</MudSelectItem>
+                    <MudSelectItem Value="@("top-left")">@L.T("conversionSettings.topLeft")</MudSelectItem>
+                    <MudSelectItem Value="@("top-right")">@L.T("conversionSettings.topRight")</MudSelectItem>
                 </MudSelect>
             }
             else if (_operationType == BatchOperationType.PasswordProtect)
             {
                 <MudTextField @bind-Value="_password"
-                              Label="Password"
+                              Label="@L.T("dialogs.protect.userPassword")"
                               Variant="Variant.Outlined"
                               InputType="InputType.Password"
                               Required="true" />
             }
 
             <MudAlert Severity="Severity.Info" Dense="true">
-                This will process <strong>@Files.Count files</strong> with the selected operation.
-                You can monitor progress in the Batch Operations panel.
+                @L.T("dialogs.createBatch.willProcess", Files.Count)
             </MudAlert>
         </MudStack>
     </DialogContent>
     <DialogActions>
-        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton OnClick="Cancel">@L.T("common.cancel")</MudButton>
         <MudButton Color="Color.Primary"
                    Variant="Variant.Filled"
                    OnClick="CreateAndExecuteBatch"
                    Disabled="@(!IsValid())">
-            Create & Start
+            @L.T("dialogs.createBatch.createAndStart")
         </MudButton>
     </DialogActions>
 </MudDialog>
@@ -184,12 +184,12 @@
                 await BatchService.ExecuteBatchOperationAsync(batch);
             });
 
-            Snackbar.Add($"Batch operation '{_batchName}' started!", Severity.Success);
+            Snackbar.Add(L.T("dialogs.createBatch.started", _batchName), Severity.Success);
             MudDialog.Close(DialogResult.Ok(batch));
         }
         catch (Exception ex)
         {
-            Snackbar.Add($"Failed to create batch: {ex.Message}", Severity.Error);
+            Snackbar.Add(L.T("dialogs.createBatch.failedToCreate", ex.Message), Severity.Error);
         }
     }
 

@@ -1,0 +1,40 @@
+@using PdfMerger.Client.Services
+@using PdfMerger.Client.Models
+@inject ILocalizationService Localization
+
+<MudMenu Icon="@Icons.Material.Filled.Language"
+         Color="Color.Inherit"
+         AnchorOrigin="Origin.BottomRight"
+         TransformOrigin="Origin.TopRight"
+         Dense="true"
+         title="@Localization.T("common.selectLanguage")">
+    @foreach (var language in Localization.AvailableLanguages)
+    {
+        <MudMenuItem OnClick="@(() => SelectLanguage(language.Code))"
+                     Class="@(language.Code == Localization.CurrentLanguage ? "mud-primary-text" : "")">
+            <div class="d-flex align-center" style="min-width: 180px;">
+                <MudText Style="margin-right: 12px; font-size: 1.2em;">@language.FlagEmoji</MudText>
+                <div class="d-flex flex-column">
+                    <MudText Typo="Typo.body2" Style="@(language.IsRtl ? "font-family: Vazirmatn, sans-serif;" : "")">
+                        @language.NativeName
+                    </MudText>
+                    <MudText Typo="Typo.caption" Color="Color.Secondary">
+                        @language.EnglishName
+                    </MudText>
+                </div>
+                @if (language.Code == Localization.CurrentLanguage)
+                {
+                    <MudSpacer />
+                    <MudIcon Icon="@Icons.Material.Filled.Check" Size="Size.Small" Color="Color.Primary" />
+                }
+            </div>
+        </MudMenuItem>
+    }
+</MudMenu>
+
+@code {
+    private async Task SelectLanguage(string languageCode)
+    {
+        await Localization.SetLanguageAsync(languageCode);
+    }
+}

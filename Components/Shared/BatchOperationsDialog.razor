@@ -5,13 +5,14 @@
 @inject IJSRuntime JSRuntime
 @inject ISnackbar Snackbar
 @inject IDialogService DialogService
+@inject ILocalizationService L
 @implements IDisposable
 
 <MudDialog>
     <DialogContent>
         <MudStack Spacing="3">
             <MudTabs Elevation="2" Rounded="true" ApplyEffectsToContainer="true" Color="Color.Primary">
-                <MudTabPanel Text="Active" Icon="@Icons.Material.Filled.PlayCircle" BadgeData="@_activeBatches.Count" BadgeColor="Color.Success">
+                <MudTabPanel Text="@L.T("dialogs.batch.active")" Icon="@Icons.Material.Filled.PlayCircle" BadgeData="@_activeBatches.Count" BadgeColor="Color.Success">
                     @if (_activeBatches.Any())
                     {
                         <MudStack Spacing="2" Class="mt-3">
@@ -30,7 +31,7 @@
                                                                Color="Color.Error"
                                                                Size="Size.Small"
                                                                OnClick="@(() => CancelBatch(batch.Id))"
-                                                               title="Cancel" />
+                                                               title="@L.T("dialogs.batch.cancelOperation")" />
                                             }
                                         </div>
 
@@ -56,12 +57,12 @@
                                         {
                                             <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="1">
                                                 <MudProgressCircular Size="Size.Small" Indeterminate="true" />
-                                                <MudText Typo="Typo.caption" Color="Color.Info">Processing...</MudText>
+                                                <MudText Typo="Typo.caption" Color="Color.Info">@L.T("common.processing")</MudText>
                                             </MudStack>
                                         }
                                         else if (batch.Status == BatchOperationStatus.Pending)
                                         {
-                                            <MudText Typo="Typo.caption" Color="Color.Secondary">Pending</MudText>
+                                            <MudText Typo="Typo.caption" Color="Color.Secondary">@L.T("dialogs.batch.pending")</MudText>
                                         }
                                     </MudStack>
                                 </MudPaper>
@@ -74,14 +75,14 @@
                             <MudStack AlignItems="AlignItems.Center" Spacing="2">
                                 <MudIcon Icon="@Icons.Material.Filled.CheckCircle" Size="Size.Large" Color="Color.Success" />
                                 <MudText Typo="Typo.body1" Color="Color.Secondary">
-                                    No active batch operations
+                                    @L.T("dialogs.batch.noActiveBatches")
                                 </MudText>
                             </MudStack>
                         </MudPaper>
                     }
                 </MudTabPanel>
 
-                <MudTabPanel Text="History" Icon="@Icons.Material.Filled.History" BadgeData="@_completedBatches.Count" BadgeColor="Color.Info">
+                <MudTabPanel Text="@L.T("dialogs.batch.history")" Icon="@Icons.Material.Filled.History" BadgeData="@_completedBatches.Count" BadgeColor="Color.Info">
                     @if (_completedBatches.Any())
                     {
                         <MudStack Spacing="2" Class="mt-3">
@@ -91,7 +92,7 @@
                                            Size="Size.Small"
                                            StartIcon="@Icons.Material.Filled.ClearAll"
                                            OnClick="ClearHistory">
-                                    Clear History
+                                    @L.T("dialogs.batch.clearHistory")
                                 </MudButton>
                             </div>
 
@@ -109,21 +110,21 @@
                                                 {
                                                     <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="1">
                                                         <MudIcon Icon="@Icons.Material.Filled.CheckCircle" Size="Size.Small" Color="Color.Success" />
-                                                        <MudText Typo="Typo.caption" Color="Color.Success">Completed</MudText>
+                                                        <MudText Typo="Typo.caption" Color="Color.Success">@L.T("dialogs.batch.completed")</MudText>
                                                     </MudStack>
                                                 }
                                                 else if (batch.Status == BatchOperationStatus.Failed)
                                                 {
                                                     <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="1">
                                                         <MudIcon Icon="@Icons.Material.Filled.Error" Size="Size.Small" Color="Color.Error" />
-                                                        <MudText Typo="Typo.caption" Color="Color.Error">Failed</MudText>
+                                                        <MudText Typo="Typo.caption" Color="Color.Error">@L.T("dialogs.batch.failed")</MudText>
                                                     </MudStack>
                                                 }
                                                 else if (batch.Status == BatchOperationStatus.Cancelled)
                                                 {
                                                     <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="1">
                                                         <MudIcon Icon="@Icons.Material.Filled.Cancel" Size="Size.Small" Color="Color.Warning" />
-                                                        <MudText Typo="Typo.caption" Color="Color.Warning">Cancelled</MudText>
+                                                        <MudText Typo="Typo.caption" Color="Color.Warning">@L.T("dialogs.batch.cancelled")</MudText>
                                                     </MudStack>
                                                 }
                                                 <MudIconButton Icon="@Icons.Material.Filled.Download"
@@ -131,7 +132,7 @@
                                                                Size="Size.Small"
                                                                OnClick="@(() => DownloadBatchResults(batch))"
                                                                Disabled="@(batch.Status != BatchOperationStatus.Completed)"
-                                                               title="Download Results" />
+                                                               title="@L.T("dialogs.batch.downloadResults")" />
                                             </MudStack>
                                         </div>
 
@@ -165,7 +166,7 @@
                             <MudStack AlignItems="AlignItems.Center" Spacing="2">
                                 <MudIcon Icon="@Icons.Material.Filled.HistoryToggleOff" Size="Size.Large" Color="Color.Secondary" />
                                 <MudText Typo="Typo.body1" Color="Color.Secondary">
-                                    No batch operation history
+                                    @L.T("dialogs.batch.noHistory")
                                 </MudText>
                             </MudStack>
                         </MudPaper>
@@ -175,7 +176,7 @@
         </MudStack>
     </DialogContent>
     <DialogActions>
-        <MudButton OnClick="Close" Color="Color.Primary">Close</MudButton>
+        <MudButton OnClick="Close" Color="Color.Primary">@L.T("common.close")</MudButton>
     </DialogActions>
 </MudDialog>
 
@@ -207,14 +208,14 @@
     private async Task CancelBatch(Guid batchId)
     {
         await BatchService.CancelBatchOperationAsync(batchId);
-        Snackbar.Add("Batch operation cancelled", Severity.Warning);
+        Snackbar.Add(L.T("dialogs.batch.operationCancelled"), Severity.Warning);
     }
 
     private async Task ClearHistory()
     {
         await BatchService.ClearCompletedBatchOperationsAsync();
         LoadBatches();
-        Snackbar.Add("Batch history cleared", Severity.Info);
+        Snackbar.Add(L.T("dialogs.batch.historyCleared"), Severity.Info);
     }
 
     private async Task DownloadBatchResults(BatchOperation batch)
@@ -227,7 +228,7 @@
 
             if (!successfulItems.Any())
             {
-                Snackbar.Add("No files to download", Severity.Warning);
+                Snackbar.Add(L.T("dialogs.batch.noFilesToDownload"), Severity.Warning);
                 return;
             }
 
@@ -259,7 +260,7 @@
                 }
                 else
                 {
-                    Snackbar.Add("File downloaded", Severity.Success);
+                    Snackbar.Add(L.T("dialogs.batch.fileDownloaded"), Severity.Success);
                 }
             }
             else
@@ -276,12 +277,12 @@
                 }
 
                 await module.InvokeVoidAsync("downloadAsZip", $"batch_{batch.Type}_{DateTime.Now:yyyyMMdd_HHmmss}.zip", zipData);
-                Snackbar.Add($"Downloaded {successfulItems.Count} files as ZIP", Severity.Success);
+                Snackbar.Add(L.T("dialogs.batch.downloadedAsZip", successfulItems.Count), Severity.Success);
             }
         }
         catch (Exception ex)
         {
-            Snackbar.Add($"Download failed: {ex.Message}", Severity.Error);
+            Snackbar.Add(L.T("errors.downloadFailed", ex.Message), Severity.Error);
         }
     }
 

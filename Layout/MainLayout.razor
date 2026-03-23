@@ -2,6 +2,7 @@
 @using PdfMerger.Client.Services
 @using Microsoft.JSInterop
 @inject IThemeService ThemeService
+@inject ILocalizationService L
 @inject IJSRuntime JSRuntime
 @inject IDialogService DialogService
 @implements IDisposable
@@ -13,7 +14,7 @@
         <MudStack Row="true" Justify="Justify.Center" AlignItems="AlignItems.Center" Spacing="2">
             <MudIcon Icon="@Icons.Material.Filled.CloudOff" Size="Size.Small" />
             <MudText Typo="Typo.body2" Style="font-weight: 500;">
-                You're offline - App continues to work with cached data
+                @L.T("layout.offlineMessage")
             </MudText>
         </MudStack>
     </div>
@@ -40,19 +41,20 @@
         </svg>
         <MudText Typo="Typo.h5">Stitch PDF</MudText>
         <MudSpacer />
+        <LanguageSelector />
         <MudIconButton Icon="@Icons.Material.Filled.Help"
                        Color="Color.Inherit"
                        OnClick="OpenHelpDialog"
-                       title="Help & Guide" />
+                       title="@L.T("layout.helpAndGuide")" />
         <MudIconButton Icon="@(_isDarkMode ? Icons.Material.Filled.LightMode : Icons.Material.Filled.DarkMode)"
                        Color="Color.Inherit"
                        OnClick="ToggleTheme"
-                       title="@(_isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode")" />
+                       title="@(_isDarkMode ? L.T("layout.switchToLightMode") : L.T("layout.switchToDarkMode"))" />
         <MudIconButton Icon="@Icons.Custom.Brands.GitHub"
                        Color="Color.Inherit"
                        Href="https://github.com/rahmatsaeedi/stitch-pdf"
                        Target="_blank"
-                       title="View on GitHub" />
+                       title="@L.T("layout.viewOnGitHub")" />
     </MudAppBar>
     <MudMainContent>
         @Body
@@ -152,7 +154,7 @@
             CloseOnEscapeKey = true
         };
 
-        await DialogService.ShowAsync<HelpGuideDialog>("Help & Guide", options);
+        await DialogService.ShowAsync<HelpGuideDialog>(L.T("layout.helpAndGuide"), options);
     }
 
     public void Dispose()

@@ -2,23 +2,24 @@
 @using PdfMerger.Client.Services.Utilities
 @using MudBlazor
 @inject IRecentFilesService RecentFilesService
+@inject ILocalizationService L
 
 <MudDialog>
     <DialogContent>
         <MudStack Spacing="3">
-            <MudText Typo="Typo.h6">Recent Files</MudText>
+            <MudText Typo="Typo.h6">@L.T("dialogs.recentFiles.title")</MudText>
 
             @if (_isLoading)
             {
                 <MudStack AlignItems="AlignItems.Center" Spacing="2" Style="padding: 40px;">
                     <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
-                    <MudText Typo="Typo.body2" Color="Color.Secondary">Loading recent files...</MudText>
+                    <MudText Typo="Typo.body2" Color="Color.Secondary">@L.T("dialogs.recentFiles.loading")</MudText>
                 </MudStack>
             }
             else if (!_recentFiles.Any())
             {
                 <MudAlert Severity="Severity.Info">
-                    No recent files found. Process some files to see them appear here!
+                    @L.T("dialogs.recentFiles.noRecentFiles")
                 </MudAlert>
             }
             else
@@ -41,7 +42,7 @@
                                             @if (file.PageCount > 0)
                                             {
                                                 <MudText Typo="Typo.caption" Color="Color.Secondary">
-                                                    @file.PageCount @(file.PageCount == 1 ? "page" : "pages")
+                                                    @file.PageCount @(file.PageCount == 1 ? L.T("common.page") : L.T("common.pages"))
                                                 </MudText>
                                             }
                                             <MudText Typo="Typo.caption" Color="Color.Secondary">
@@ -53,7 +54,7 @@
                                                    Color="Color.Error"
                                                    Size="Size.Small"
                                                    OnClick="@(() => RemoveFile(file.FileName))"
-                                                   title="Remove from history" />
+                                                   title="@L.T("dialogs.recentFiles.removeFromHistory")" />
                                 </MudStack>
                             </MudListItem>
                             <MudDivider />
@@ -66,13 +67,13 @@
                            StartIcon="@Icons.Material.Filled.ClearAll"
                            OnClick="ClearHistory"
                            FullWidth="true">
-                    Clear All History
+                    @L.T("dialogs.recentFiles.clearHistory")
                 </MudButton>
             }
         </MudStack>
     </DialogContent>
     <DialogActions>
-        <MudButton OnClick="Close" Color="Color.Primary">Close</MudButton>
+        <MudButton OnClick="Close" Color="Color.Primary">@L.T("common.close")</MudButton>
     </DialogActions>
 </MudDialog>
 

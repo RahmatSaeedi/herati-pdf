@@ -1,0 +1,468 @@
+{
+  "meta": {
+    "language": "bal",
+    "direction": "rtl",
+    "name": "بلوچی"
+  },
+  "seo": {
+    "title": "Stitch PDF تبدیل‌کنوک و یک جاہ کنوک - مفت آنلائن PDF ابزار | یک جاہ کنگ، تبدیل کنگ، PDF دستخط",
+    "description": "مفت آنلائن PDF ابزار: PDFان یک جاہ کنگ، DOCX/عکسان PDF ءَ تبدیل کنگ، فائلان کم کنگ، ڈیجیٹل دستخط، واٹرمارک، QR کوڈ، 110+ زبانانی OCR. 100٪ کلائنٹ پاسے پردازش - تیی فائل تیی ڈیوائس چہ نہ روت.",
+    "keywords": "PDF یک جاہ کنوک، PDF تبدیل‌کنوک، PDF یک جاہ کنگ، PDF ءَ تبدیل کنگ، DOCX چہ PDF ءَ، عکس چہ PDF ءَ، PDF کم کنگ، PDF دستخط، ڈیجیٹل دستخط، واٹرمارک PDF، QR کوڈ جنوک"
+  },
+  "common": {
+    "save": "ذخیرہ کنگ",
+    "cancel": "کینسل",
+    "close": "بند کنگ",
+    "delete": "ڈلیٹ",
+    "edit": "ایڈٹ",
+    "add": "شامل کنگ",
+    "remove": "دور کنگ",
+    "upload": "اپلوڈ",
+    "download": "ڈاؤنلوڈ",
+    "process": "پردازش",
+    "processing": "پردازش ءَ ات...",
+    "apply": "لاگو کنگ",
+    "reset": "ری سیٹ",
+    "confirm": "تصدیق",
+    "yes": "ھاں",
+    "no": "نہ",
+    "ok": "ٹھیک",
+    "gotIt": "سمجی!",
+    "viewAll": "ھمک دیستن",
+    "selectLanguage": "زبان انتخاب کنگ",
+    "loading": "لوڈ کنگ ءَ ات...",
+    "error": "خطا",
+    "success": "کامیابی",
+    "warning": "تنبیہ",
+    "info": "معلومات",
+    "tip": "ٹپ",
+    "features": "خصوصیات",
+    "settings": "ترتیبات",
+    "help": "مدد",
+    "search": "ڳولگ",
+    "clear": "صاف کنگ",
+    "clearAll": "ھمک صاف کنگ",
+    "selectAll": "ھمک انتخاب کنگ",
+    "deselectAll": "ھمک انتخاب دور کنگ",
+    "preview": "پیش منظر",
+    "position": "جاہ",
+    "size": "سائز",
+    "page": "صفحہ",
+    "pages": "صفحات",
+    "file": "فائل",
+    "files": "فائلان",
+    "total": "ٹوٹل",
+    "of": "چہ",
+    "to": "ءَ",
+    "from": "چہ",
+    "none": "کس نہ",
+    "low": "کم",
+    "medium": "درمیانی",
+    "high": "گیش",
+    "quality": "کوالٹی",
+    "format": "فارمیٹ",
+    "type": "قسم",
+    "name": "نام",
+    "date": "تاریخ",
+    "custom": "کسٹم"
+  },
+  "app": {
+    "title": "Stitch PDF",
+    "tagline": "PDF یک جاہ کنوک و تبدیل‌کنوک",
+    "subtitle": "PDFان، عکسان و دستاویزان یک PDF ءَ تبدیل یا یک جاہ کن - 100٪ کلائنٹ پاسے پردازش"
+  },
+  "layout": {
+    "helpAndGuide": "مدد و رہنمائی",
+    "switchToLightMode": "روشن موڈ ءَ بدل کنگ",
+    "switchToDarkMode": "تاریک موڈ ءَ بدل کنگ",
+    "viewOnGitHub": "GitHub ءَ دیستن",
+    "offlineMessage": "تو آفلائن ای - ایپ کیش کرتگیں ڈیٹا گون کار کنت"
+  },
+  "home": {
+    "title": "PDF یک جاہ کنوک و تبدیل‌کنوک",
+    "recentFiles": "تازگیں فائلان",
+    "templates": "ٹیمپلیٹان",
+    "performance": "کارکردگی",
+    "scanWithCamera": "کیمرہ گون سکین کنگ",
+    "scanDescription": "دستاویزان سکین کنگ و PDF ءَ تبدیل کنگ واستہ وتی ڈیوائس کیمرہ استفادہ کن",
+    "fileToConvert": "تبدیل کنگی فائل",
+    "filesToMerge": "یک جاہ کنگی فائلان",
+    "noFilesYet": "ابید فائل شامل نہ کرتگ. PDF ءَ تبدیل یا یک جاہ کنگ واستہ فائلان اپلوڈ کن.",
+    "totalSize": "ٹوٹل سائز",
+    "convertToPdf": "PDF ءَ تبدیل کنگ",
+    "mergeToPdf": "PDF ءَ یک جاہ کنگ",
+    "converting": "تبدیل کنگ ءَ ات",
+    "merging": "یک جاہ کنگ ءَ ات",
+    "processingFile": "فائل پردازش ءَ ات {0} چہ {1} ({2}%)",
+    "advancedTools": "پیشرفتہ ابزاران",
+    "advancedToolsTip": "پیشرفتہ ابزاران فعال کنگ واستہ PDF فائل اپلوڈ کن",
+    "batchOperations": "بیچ آپریشنان",
+    "batchOperationsTip": "چند فائلان یک وہدی ءَ بیچ آپریشنان گون پردازش کن"
+  },
+  "upload": {
+    "dropFilesHere": "فائلان ادا ڈراپ کن یا اپلوڈ واستہ کلک کن",
+    "supportedFormats": "PDF، عکسان (PNG، JPG، WebP، GIF، BMP، SVG، HEIC، TIFF، AVIF)، دستاویزان (TXT، MD، CSV، HTML، DOCX، XLSX، XLS، ODS)، ZIP",
+    "maxFileSize": "ھر فائل واستہ زیادہ چہ زیادہ 1GB، ٹوٹل 4GB",
+    "fileAdded": "شامل کرتگ: {0}",
+    "fileRemoved": "دور کرتگ: {0}",
+    "extractedFiles": "'{1}' چہ {0} فائلان استخراج کرتگ (حروف تہجی ترتیب ءَ)",
+    "noSupportedFiles": "'{0}' ءَ کمک سپورٹ کرتگیں فائل دست نہ کپت",
+    "zipExtractError": "'{0}' استخراج نہ بوت: {1}"
+  },
+  "tools": {
+    "addSignature": "دستخط شامل کنگ",
+    "ocrExtractText": "OCR / متن استخراج کنگ",
+    "addQrBarcode": "QR/بارکوڈ شامل کنگ",
+    "splitExtractPages": "جدا/صفحات استخراج کنگ",
+    "addWatermark": "واٹرمارک شامل کنگ",
+    "pageNumbers": "صفحہ نمبران",
+    "compressPdf": "PDF کم کنگ",
+    "passwordProtect": "پاسورڈ محافظت",
+    "batchCompress": "بیچ کمپریس",
+    "batchWatermark": "بیچ واٹرمارک",
+    "batchPageNumbers": "بیچ صفحہ نمبران",
+    "batchPasswordProtect": "بیچ پاسورڈ محافظت"
+  },
+  "conversionSettings": {
+    "title": "تبدیل ترتیبات",
+    "pageSize": "صفحہ سائز",
+    "orientation": "سمت",
+    "portrait": "پورٹریٹ",
+    "landscape": "لینڈسکیپ",
+    "normalizePageSizes": "صفحہ سائزان نارمل کنگ",
+    "normalizeTooltip": "فعال بوتگ وہدی ءَ، ھمک صفحات انتخاب کرتگیں صفحہ سائز ءَ ری سائز بنت. یکسان دستاویز ظاہر واستہ سفارش کرتگ.",
+    "margins": "حاشیہ‌ان",
+    "marginsHelp": "پوائنٹان ءَ، 1 انچ = 72 پوائنٹ",
+    "top": "سر",
+    "bottom": "جیر",
+    "left": "چپ",
+    "right": "راست",
+    "addPageNumbers": "صفحہ نمبران شامل کنگ",
+    "numberPosition": "جاہ",
+    "numberFormat": "فارمیٹ",
+    "numberFormatHelp": "صفحہ نمبر واستہ {0} استفادہ کن (مثلاً 'صفحہ {0}' یا '{0} چہ {1}')",
+    "exportFormat": "ایکسپورٹ فارمیٹ",
+    "pdfStandard": "PDF (سٹینڈرڈ)",
+    "pdfArchival": "PDF/A (آرکائیول)",
+    "compressionLevel": "کمپریشن سطح",
+    "imageQuality": "عکس کوالٹی",
+    "compressImages": "عکسان کم کنگ",
+    "autoRotateExif": "EXIF ڈیٹا چہ آٹو روٹیٹ",
+    "resetToDefaults": "ڈیفالٹ ءَ ری سیٹ",
+    "topLeft": "سر چپ",
+    "topCenter": "سر مرکز",
+    "topRight": "سر راست",
+    "bottomLeft": "جیر چپ",
+    "bottomCenter": "جیر مرکز",
+    "bottomRight": "جیر راست"
+  },
+  "pageSizes": {
+    "a4": "A4 (210 x 297 mm)",
+    "a3": "A3 (297 x 420 mm)",
+    "a5": "A5 (148 x 210 mm)",
+    "letter": "Letter (8.5 x 11 in)",
+    "legal": "Legal (8.5 x 14 in)",
+    "tabloid": "Tabloid (11 x 17 in)"
+  },
+  "features": {
+    "clientSide": "100٪ کلائنٹ پاسے",
+    "fastProcessing": "تیز پردازش",
+    "noUpload": "اپلوڈ ضرورت نہ",
+    "privateSecure": "خصوصی و محفوظ"
+  },
+  "dialogs": {
+    "signature": {
+      "title": "ای-دستخط شامل کنگ",
+      "draw": "کشگ",
+      "type": "ٹائپ",
+      "uploadImage": "عکس اپلوڈ",
+      "clearSignature": "دستخط صاف کنگ",
+      "addToPdf": "PDF ءَ شامل کنگ",
+      "selectPage": "صفحہ انتخاب کنگ",
+      "signaturePosition": "دستخط جاہ",
+      "signatureSize": "دستخط سائز",
+      "width": "چوڑائی",
+      "height": "اوچائی"
+    },
+    "ocr": {
+      "title": "OCR - متن استخراج کنگ",
+      "selectLanguage": "زبان انتخاب کنگ",
+      "extractText": "متن استخراج کنگ",
+      "extracting": "متن استخراج ءَ ات...",
+      "copyToClipboard": "کلپ بورڈ ءَ کاپی کنگ",
+      "exportAs": "ایکسپورٹ کنگ",
+      "exportTxt": "TXT ءَ ایکسپورٹ",
+      "exportJson": "JSON ءَ ایکسپورٹ",
+      "exportCsv": "CSV ءَ ایکسپورٹ",
+      "noTextFound": "دستاویز ءَ متن دست نہ کپت",
+      "ocrComplete": "OCR استخراج پورہ بوت"
+    },
+    "qrBarcode": {
+      "title": "QR کوڈ یا بارکوڈ شامل کنگ",
+      "qrCode": "QR کوڈ",
+      "barcode": "بارکوڈ",
+      "enterContent": "مواد داخل کنگ",
+      "contentType": "مواد قسم",
+      "url": "URL",
+      "text": "متن",
+      "wifi": "WiFi",
+      "contact": "رابطہ",
+      "barcodeFormat": "بارکوڈ فارمیٹ",
+      "errorCorrection": "خطا درستی",
+      "codeSize": "کوڈ سائز"
+    },
+    "split": {
+      "title": "جدا / صفحات استخراج کنگ",
+      "splitMode": "جدا موڈ",
+      "extractPages": "مخصوص صفحات استخراج کنگ",
+      "splitByRange": "صفحہ رینج گون جدا کنگ",
+      "splitEveryN": "ھر N صفحات ءَ جدا کنگ",
+      "pageRanges": "صفحہ رینجان",
+      "pageRangesHelp": "صفحہ نمبران یا رینجان داخل کن (مثلاً 1،3،5-10)",
+      "pagesPerFile": "ھر فائل ءَ صفحات",
+      "splitPdf": "PDF جدا کنگ",
+      "extractSelected": "انتخاب کرتگیں استخراج کنگ"
+    },
+    "watermark": {
+      "title": "واٹرمارک شامل کنگ",
+      "textWatermark": "متن واٹرمارک",
+      "imageWatermark": "عکس واٹرمارک",
+      "watermarkText": "واٹرمارک متن",
+      "fontSize": "فانٹ سائز",
+      "fontColor": "فانٹ رنگ",
+      "opacity": "شفافیت",
+      "rotation": "گھماگ",
+      "position": "جاہ",
+      "allPages": "ھمک صفحات",
+      "specificPages": "مخصوص صفحات",
+      "addWatermark": "واٹرمارک شامل کنگ"
+    },
+    "pageNumbers": {
+      "title": "صفحہ نمبران شامل کنگ",
+      "numberFormat": "نمبر فارمیٹ",
+      "startingNumber": "شروع نمبر",
+      "position": "جاہ",
+      "fontSize": "فانٹ سائز",
+      "fontColor": "فانٹ رنگ",
+      "applyTo": "لاگو کنگ ءَ",
+      "allPages": "ھمک صفحات",
+      "oddPages": "فقط طاق صفحات",
+      "evenPages": "فقط جفت صفحات",
+      "addPageNumbers": "صفحہ نمبران شامل کنگ"
+    },
+    "compress": {
+      "title": "PDF کم کنگ",
+      "compressionLevel": "کمپریشن سطح",
+      "currentSize": "موجودہ سائز",
+      "estimatedSize": "تخمینی سائز",
+      "compress": "کم کنگ"
+    },
+    "protect": {
+      "title": "PDF پاسورڈ محافظت",
+      "userPassword": "یوزر پاسورڈ",
+      "userPasswordHelp": "PDF کھولگ واستہ ضروری",
+      "ownerPassword": "مالک پاسورڈ",
+      "ownerPasswordHelp": "PDF تبدیل کنگ واستہ ضروری",
+      "permissions": "اجازتان",
+      "allowPrinting": "پرنٹ کنگی اجازت",
+      "allowCopying": "کاپی کنگی اجازت",
+      "allowEditing": "ایڈٹ کنگی اجازت",
+      "protectPdf": "PDF محافظت کنگ"
+    },
+    "batch": {
+      "title": "بیچ آپریشنان",
+      "createBatch": "بیچ جنگ",
+      "batchName": "بیچ نام",
+      "operationType": "آپریشن قسم",
+      "filesSelected": "فائلان انتخاب کرتگ",
+      "startBatch": "بیچ شروع کنگ",
+      "batchProgress": "بیچ پیشرفت",
+      "batchComplete": "بیچ آپریشن پورہ بوت",
+      "downloadAll": "ھمک ZIP ءَ ڈاؤنلوڈ کنگ"
+    },
+    "templates": {
+      "title": "ٹیمپلیٹان",
+      "createTemplate": "ٹیمپلیٹ جنگ",
+      "editTemplate": "ٹیمپلیٹ ایڈٹ کنگ",
+      "templateName": "ٹیمپلیٹ نام",
+      "templateType": "ٹیمپلیٹ قسم",
+      "favorite": "پسند",
+      "applyTemplate": "ٹیمپلیٹ لاگو کنگ",
+      "deleteTemplate": "ٹیمپلیٹ ڈلیٹ کنگ",
+      "noTemplates": "ابید ٹیمپلیٹ نہ ھست. وتی ترتیبات ذخیرہ کنگ واستہ یک ٹیمپلیٹ جن.",
+      "builtIn": "بلٹ-ان ٹیمپلیٹان",
+      "custom": "کسٹم ٹیمپلیٹان"
+    },
+    "recentFiles": {
+      "title": "تازگیں فائلان",
+      "noRecentFiles": "تازگیں فائل نہ ھست",
+      "clearHistory": "تاریخ صاف کنگ"
+    },
+    "performance": {
+      "title": "کارکردگی ترتیبات",
+      "webWorkers": "Web Workers",
+      "webWorkersHelp": "گپ فائلان تیز پردازش واستہ فعال کن",
+      "chunkSize": "چنک سائز",
+      "chunkSizeHelp": "یک وہدی ءَ پردازش کنگی فائلانی تعداد"
+    },
+    "camera": {
+      "title": "دستاویز سکین کنگ",
+      "takePhoto": "عکس گرگ",
+      "retake": "دوبارہ گرگ",
+      "usePhoto": "ای عکس استفادہ کنگ",
+      "cameraAccess": "کیمرہ رسائی ضروری",
+      "cameraTip": "بہترین نتیجہ واستہ وش روشنی و مستحکم کیمرہ استفادہ کن"
+    },
+    "mobileSave": {
+      "title": "PDF ذخیرہ کنگ",
+      "saveToDevice": "ڈیوائس ءَ ذخیرہ کنگ",
+      "shareFile": "فائل شیئر کنگ",
+      "openInNewTab": "نویں ٹیب ءَ کھولگ"
+    }
+  },
+  "help": {
+    "title": "Stitch PDF گون شروع کنگ",
+    "privacyNotice": "ھمک پردازش تیی براؤزر ءَ بیت - تیی فائلان ھچوقت تیی ڈیوائس چہ نہ روت! Progressive Web App (PWA) ءَ آفلائن کار کنت.",
+    "quickStart": {
+      "title": "تیز شروع",
+      "step1": "فائلان اپلوڈ کنگ: \"فائلان شامل کنگ\" کلک کن یا PDF/عکسان/دستاویزان ڈریگ و ڈراپ کن",
+      "step2": "ترتیب دیگ: ترتیب بدل واستہ ڈریگ کن، پیش منظر واستہ کلک کن، ناخواستہ فائلان ڈلیٹ کن",
+      "step3": "پردازش: \"PDFان یک جاہ کنگ\" کلک کن یا تبدیل/کم کنگ آپشنان انتخاب کن",
+      "step4": "ڈاؤنلوڈ: وتی پردازش کرتگیں PDF فوری حاصل کن"
+    },
+    "coreFeatures": "اصلی خصوصیات",
+    "mergePdfs": {
+      "title": "چند PDFان یک جاہ کنگ",
+      "description": "2+ PDF فائلان شامل کن، ڈریگ گون ترتیب دے و یک دستاویز ءَ یک جاہ کنگ واستہ \"PDFان یک جاہ کنگ\" کلک کن. بے حد فائل سائز سپورٹ کنت (کلائنٹ پاسے پردازش).",
+      "tip": "کی بورڈ شارٹکٹان استفادہ کن: Ctrl+O (فائلان شامل کنگ)، Ctrl+M (یک جاہ کنگ)"
+    },
+    "convert": {
+      "title": "دستاویزان و عکسان PDF ءَ تبدیل کنگ",
+      "supportedFormats": "سپورٹ کرتگیں فارمیٹان: DOCX، DOC (Microsoft Word)، JPG، PNG، HEIC، TIFF، WebP (عکسان). چند عکسان یک PDF ءَ یک جاہ بنت.",
+      "settings": "تبدیل ترتیبات: صفحہ سائز (A4، Letter، Legal، A3، کسٹم)، سمت (پورٹریٹ/لینڈسکیپ)، عکس کوالٹی، تنظیم کنگی حاشیہ‌ان"
+    },
+    "compress": {
+      "title": "PDFان کم و بہتر کنگ",
+      "levels": "کمپریشن سطحان: کم (90٪ کوالٹی)، درمیانی (70٪ کوالٹی)، گیش (50٪ کوالٹی). عکسان بہتر کنگ و فالتو ڈیٹا دور کنگ گون فائل سائز کم کنت."
+    },
+    "signatures": {
+      "title": "ڈیجیٹل دستخطان شامل کنگ",
+      "methods": "سے دستخط طریقہ: کشگ (ماؤس/ٹچ)، ٹائپ (کسٹم فانٹان گون متن)، اپلوڈ (دستخط عکس فائل). دستخطان ویکٹر گرافکس ءَ شامل بنت."
+    },
+    "ocr": {
+      "title": "OCR - PDFان چہ متن استخراج کنگ (110+ زبانان)",
+      "description": "سکین کرتگیں PDFان و عکسان چہ متن استخراج کنگ. 110+ زبانان سپورٹ. TXT، JSON یا CSV ءَ ایکسپورٹ. متن براہ راست کلپ بورڈ ءَ کاپی کنگ.",
+      "tip": "بہترین نتیجہ: صاف متن گون بالا کوالٹی سکینان استفادہ کن."
+    },
+    "qrBarcode": {
+      "title": "QR کوڈان و بارکوڈان جنگ",
+      "qr": "QR کوڈان: URLان، متن، رابطہ معلومات، WiFi واستہ جنگ. تنظیم کنگی سائز و خطا درستی.",
+      "barcode": "بارکوڈان: Code 128، EAN-13، UPC، Code 39. پروڈکٹ لیبلان، انوینٹری مینجمنٹ واستہ PDF ءَ شامل کنگ."
+    },
+    "watermarks": {
+      "title": "واٹرمارکان و صفحہ نمبران شامل کنگ",
+      "watermark": "واٹرمارکان: تنظیم کنگی شفافیت، جاہ، گھماگ گون متن یا عکس واٹرمارکان شامل کن. دستاویزان محافظت کن یا برانڈنگ شامل کن.",
+      "pageNumbers": "صفحہ نمبران: فارمیٹان (1، 1/10، صفحہ 1، صفحہ 1 چہ 10)، جاہ (سر/جیر، چپ/مرکز/راست)، کسٹم شروع نمبر."
+    },
+    "passwordProtection": {
+      "title": "PDFان پاسورڈ محافظت",
+      "description": "یوزر پاسورڈ (کھولگ واستہ ضروری)، مالک پاسورڈ (تبدیل کنگ واستہ ضروری)، پرنٹ/کاپی/ایڈٹ پابندی. AES انکرپشن استفادہ کنت."
+    },
+    "batchOperations": {
+      "title": "بیچ آپریشنان",
+      "description": "چند فائلان یک وہدی ءَ پردازش کن: یک جاہ کنگ، تبدیل کنگ، کم کنگ، واٹرمارکان یا صفحہ نمبران شامل کنگ. ریئل ٹائم اپڈیٹان گون پیشرفت ٹریک کن. ھمک نتیجہ ZIP ءَ ڈاؤنلوڈ کن."
+    },
+    "templates": {
+      "title": "ٹیمپلیٹان - وتی ترتیبات ذخیرہ کن",
+      "description": "زیاد استفادہ کرتگیں ترتیبات ٹیمپلیٹ ءَ ذخیرہ کن. پہلے چہ سیٹ کرتگیں ٹیمپلیٹان موجود. تیز رسائی واستہ پسندان مارک کن. JSON ءَ ایکسپورٹ گون شیئر کن."
+    },
+    "cameraScanner": {
+      "title": "کیمرہ دستاویز سکینر",
+      "description": "وتی ڈیوائس کیمرہ گون دستاویزان سکین کن. کیمرہ رسائی دے، عکس گر، آٹومیٹک PDF ءَ تبدیل بیت.",
+      "tip": "بہترین نتیجہ واستہ وش روشنی و مستحکم کیمرہ استفادہ کن."
+    },
+    "advancedFeatures": "پیشرفتہ خصوصیات",
+    "webWorkers": "Web Workers (کارکردگی): گپ فائلان تیز پردازش واستہ فعال کن. کارکردگی ترتیبات ءَ رو.",
+    "keyboardShortcuts": "کی بورڈ شارٹکٹان: Ctrl+O (فائلان شامل کنگ)، Ctrl+M (یک جاہ کنگ)، Ctrl+S (ذخیرہ کنگ)، Delete (انتخاب کرتگیں دور کنگ)، Ctrl+D (تاریک موڈ)",
+    "touchGestures": "ٹچ ایماءان (موبائل): چپ/راست سوائپ (نیویگیشن)، زوم واستہ پنچ (پیش منظر)، گیش داب (آپشنان)",
+    "offlineMode": "آفلائن موڈ: مکمل آفلائن استفادہ واستہ PWA ءَ انسٹال کن (انسٹال پرامپٹ کلک کن). ھمک فائلان و پردازش لوکل بیت.",
+    "recentFilesHelp": "تازگیں فائلان: وتی تازگیں کار ءَ تیز رسائی حاصل کن - پرائیویسی واستہ فائل میٹاڈیٹا لوکل ذخیرہ بیت.",
+    "privacySecurity": {
+      "title": "پرائیویسی و سیکیورٹی",
+      "clientSide": "100٪ کلائنٹ پاسے پردازش: ھمک آپریشنان تیی براؤزر ءَ بیت",
+      "noUploads": "فائل اپلوڈ نہ: تیی فائلان ھچوقت تیی ڈیوائس چہ نہ روت",
+      "noStorage": "سرور سٹوریج نہ: بیرونی سرورانی سرءَ کجام ذخیرہ نہ بیت",
+      "noTracking": "ٹریکنگ نہ: تیی دستاویزان و ڈیٹا مکمل خصوصی ماننت",
+      "openSource": "اوپن سورس: شفاف کوڈ کہ تو چیک کن",
+      "worksOffline": "آفلائن کار کنت: شروعی لوڈ پد ءَ انٹرنیٹ ضرورت نہ"
+    },
+    "support": {
+      "title": "ای پراجیکٹ سپورٹ کن",
+      "description": "Stitch PDF مفت و اوپن سورس ات. اگاں فائدہ مند بوت، ڈویلپمنٹ سپورٹ واستہ سوچ:",
+      "buyMeCoffee": "منی واستہ کافی بگر"
+    }
+  },
+  "errors": {
+    "fileRequired": "مہربانی گون پردازش واستہ کم چہ کم 1 فائل شامل کن",
+    "pdfRequired": "مہربانی گون اول PDF فائل شامل کن",
+    "invalidFile": "نادرست فائل",
+    "fileTooLarge": "فائل بازیں گپ: '{0}' ({1}) زیادہ چہ زیادہ {2} چہ گیش ات",
+    "unsupportedFormat": "نہ سپورٹ کرتگیں فائل فارمیٹ: {0}",
+    "outOfMemory": "{0} وہدی ءَ میموری ختم بوت. فائل تیی ڈیوائس واستہ بازیں گپ ات. گوں فائل ازمایش کن یا دگہ براؤزر ٹیبان بند کن.",
+    "cannotRead": "'{0}' وانگ نہ بوت: {1}. فائل لاک یا خراب بوتگ بیت.",
+    "processingFailed": "پردازش ناکام بوت: {0}",
+    "downloadFailed": "ڈاؤنلوڈ ناکام بوت: {0}",
+    "conversionError": "دستاویز تبدیل خطا: {0}. JavaScript ءَ واپس گرگ.",
+    "mergeError": "یک جاہ کنگ آپریشن ناکام بوت: {0}",
+    "compressionError": "کم کنگ ناکام بوت: {0}",
+    "signatureError": "دستخط شامل کنگ ناکام بوت: {0}",
+    "ocrError": "OCR استخراج ناکام بوت: {0}",
+    "qrError": "QR/بارکوڈ شامل کنگ ناکام بوت: {0}",
+    "splitError": "جدا کنگ آپریشن ناکام بوت: {0}",
+    "watermarkError": "واٹرمارک شامل کنگ ناکام بوت: {0}",
+    "pageNumbersError": "صفحہ نمبران شامل کنگ ناکام بوت: {0}",
+    "protectError": "PDF محافظت ناکام بوت: {0}",
+    "cameraAccessDenied": "کیمرہ رسائی رد کرتگ بوت",
+    "networkError": "نیٹورک خطا بوت",
+    "unexpectedError": "غیر متوقع خطا: {0}",
+    "tryAgain": "مہربانی گون دوبارہ کوشش کن",
+    "refreshPage": "صفحہ ریفریش کن و کم فائلان پردازش کن"
+  },
+  "success": {
+    "fileAdded": "شامل کرتگ: {0}",
+    "fileRemoved": "دور کرتگ: {0}",
+    "fileMoved": "{0} جاہ {1} ءَ منتقل کرتگ",
+    "allFilesCleared": "ھمک فائلان صاف کرتگ",
+    "convertedSuccessfully": "کامیابی گون PDF ءَ تبدیل بوت!",
+    "mergedSuccessfully": "{0} فائلان کامیابی گون یک PDF ءَ یک جاہ بوت!",
+    "signatureAdded": "دستخط کامیابی گون شامل بوت!",
+    "ocrComplete": "OCR استخراج پورہ بوت",
+    "textCopied": "متن کلپ بورڈ ءَ کاپی بوت",
+    "qrAdded": "QR/بارکوڈ کامیابی گون شامل بوت!",
+    "splitComplete": "PDF کامیابی گون جدا بوت",
+    "watermarkAdded": "واٹرمارک کامیابی گون شامل بوت!",
+    "pageNumbersAdded": "صفحہ نمبران کامیابی گون شامل بوت!",
+    "compressed": "کم کرتگ! {0}% بچایش ({1})",
+    "alreadyCompressed": "فائل پہلے چہ وش کم کرتگ ات",
+    "passwordProtected": "PDF کامیابی گون پاسورڈ محافظت بوت!",
+    "batchStarted": "بیچ آپریشن شروع بوت! پیشرفت ٹریک کنگ واستہ 'ھمک دیستن' کلک کن.",
+    "batchComplete": "بیچ آپریشن پورہ بوت",
+    "templateApplied": "'{0}' ٹیمپلیٹ ترتیبات لاگو بوت!",
+    "templateSaved": "ٹیمپلیٹ کامیابی گون ذخیرہ بوت",
+    "templateDeleted": "ٹیمپلیٹ ڈلیٹ بوت",
+    "documentScanned": "دستاویز کامیابی گون سکین بوت!",
+    "settingsApplied": "ترتیبات لاگو بوت"
+  },
+  "memory": {
+    "critical": "نازک",
+    "warning": "تنبیہ",
+    "memoryUsage": "میموری استفادہ {0}%",
+    "criticalMessage": "کریش چہ بچگ واستہ کجام فائلان دور کنگ یا یک وہدی ءَ کم فائلان پردازش کنگ واستہ سوچ.",
+    "warningMessage": "گپ فائل پردازش آہستہ تر بیت. میموری آٹومیٹک مینج بیت."
+  },
+  "pwa": {
+    "name": "Stitch PDF",
+    "shortName": "Stitch PDF",
+    "description": "100٪ کلائنٹ پاسے پردازش گون مفت آنلائن PDF یک جاہ کنوک، تبدیل‌کنوک و ایڈیٹر"
+  }
+}

@@ -1,13 +1,15 @@
 @using PdfMerger.Client.Models
+@using PdfMerger.Client.Services
 @using MudBlazor
 @using Microsoft.JSInterop
 @inject IJSRuntime JSRuntime
+@inject ILocalizationService L
 @implements IAsyncDisposable
 
 <MudDialog>
     <DialogContent>
         <MudStack Spacing="3">
-            <MudText Typo="Typo.h6">Select Pages from @FileName</MudText>
+            <MudText Typo="Typo.h6">@L.T("pageSelector.title", FileName)</MudText>
 
             @if (PageCount.HasValue && PageCount.Value > 0)
             {
@@ -16,16 +18,16 @@
                                Color="Color.Primary"
                                Size="Size.Small"
                                OnClick="SelectAll">
-                        Select All (@PageCount)
+                        @L.T("pageSelector.selectAll", PageCount)
                     </MudButton>
                     <MudButton Variant="Variant.Filled"
                                Color="Color.Secondary"
                                Size="Size.Small"
                                OnClick="DeselectAll">
-                        Deselect All
+                        @L.T("pageSelector.deselectAll")
                     </MudButton>
                     <MudText Typo="Typo.body2" Color="Color.Secondary">
-                        Selected: @SelectedPages.Count / @PageCount
+                        @L.T("pageSelector.selected", SelectedPages.Count, PageCount)
                     </MudText>
                 </MudStack>
 
@@ -60,7 +62,7 @@
                                             }
 
                                             <MudText Typo="Typo.body2" Style="font-weight: bold;">
-                                                Page @pageNum
+                                                @L.T("pageSelector.page", pageNum)
                                             </MudText>
 
                                             @if (rotation != 0)
@@ -86,13 +88,13 @@
                                                            Color="Color.Primary"
                                                            Variant="Variant.Filled"
                                                            OnClick="() => RotatePage(pageNum, -90)"
-                                                           title="Rotate Left 90°" />
+                                                           title="@L.T("pageSelector.rotateLeft")" />
                                             <MudIconButton Icon="@Icons.Material.Filled.RotateRight"
                                                            Size="Size.Small"
                                                            Color="Color.Primary"
                                                            Variant="Variant.Filled"
                                                            OnClick="() => RotatePage(pageNum, 90)"
-                                                           title="Rotate Right 90°" />
+                                                           title="@L.T("pageSelector.rotateRight")" />
                                         </MudStack>
                                     </MudCardContent>
                                 </MudCard>
@@ -103,13 +105,13 @@
             }
             else
             {
-                <MudText Color="Color.Secondary">No pages available</MudText>
+                <MudText Color="Color.Secondary">@L.T("pageSelector.noPages")</MudText>
             }
         </MudStack>
     </DialogContent>
     <DialogActions>
-        <MudButton OnClick="Cancel">Cancel</MudButton>
-        <MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="Submit">Apply</MudButton>
+        <MudButton OnClick="Cancel">@L.T("common.cancel")</MudButton>
+        <MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="Submit">@L.T("common.apply")</MudButton>
     </DialogActions>
 </MudDialog>
 

@@ -19,8 +19,9 @@
 @inject IAdvancedPdfService AdvancedPdfService
 @inject IThemeService ThemeService
 @inject IRecentFilesService RecentFilesService
+@inject ILocalizationService L
 
-<PageTitle>PDF Merger & Converter</PageTitle>
+<PageTitle>@L.T("home.title")</PageTitle>
 
 <MudContainer MaxWidth="MaxWidth.Large" Class="mt-8 mb-8">
     <MudStack Spacing="4">
@@ -43,9 +44,9 @@
                     <!-- Signature Icon -->
                     <path d="M60 128 q8,-4 15,0 q8,4 15,0" stroke="#1976d2" stroke-width="2.2" fill="none" stroke-linecap="round"/>
                 </svg>
-                <MudText Typo="Typo.h3" Align="Align.Center" Color="Color.Primary">PDF Merger & Converter</MudText>
+                <MudText Typo="Typo.h3" Align="Align.Center" Color="Color.Primary">@L.T("home.title")</MudText>
                 <MudText Typo="Typo.body1" Align="Align.Center" Color="Color.Secondary">
-                    Convert or merge PDFs, images, and documents into a single PDF - 100% client-side processing
+                    @L.T("app.subtitle")
                 </MudText>
                 <MudStack Row="true" Justify="Justify.Center" Spacing="2" Style="flex-wrap: wrap;">
                     <MudButton Variant="Variant.Text"
@@ -53,21 +54,21 @@
                                StartIcon="@Icons.Material.Filled.History"
                                OnClick="OpenRecentFilesDialog"
                                Size="Size.Small">
-                        Recent Files
+                        @L.T("home.recentFiles")
                     </MudButton>
                     <MudButton Variant="Variant.Text"
                                Color="Color.Primary"
                                StartIcon="@Icons.Material.Filled.LibraryBooks"
                                OnClick="OpenTemplatesDialog"
                                Size="Size.Small">
-                        Templates
+                        @L.T("home.templates")
                     </MudButton>
                     <MudButton Variant="Variant.Text"
                                Color="Color.Success"
                                StartIcon="@Icons.Material.Filled.Speed"
                                OnClick="OpenPerformanceSettings"
                                Size="Size.Small">
-                        Performance
+                        @L.T("home.performance")
                     </MudButton>
                 </MudStack>
             </MudStack>
@@ -81,10 +82,10 @@
                            Color="Color.Primary"
                            StartIcon="@Icons.Material.Filled.CameraAlt"
                            OnClick="OpenCameraScanner">
-                    Scan with Camera
+                    @L.T("home.scanWithCamera")
                 </MudButton>
                 <MudText Typo="Typo.caption" Color="Color.Secondary" Align="Align.Center" Style="width: 100%;">
-                    Use your device camera to scan documents and convert to PDF
+                    @L.T("home.scanDescription")
                 </MudText>
             </MudStack>
         </MudPaper>
@@ -94,12 +95,12 @@
             <MudPaper Elevation="2" Class="pa-6">
                 <MudStack Spacing="3">
                     <div class="d-flex justify-space-between align-center">
-                        <MudText Typo="Typo.h6">@(_files.Count == 1 ? "File to Convert" : $"Files to Merge") (@_files.Count)</MudText>
+                        <MudText Typo="Typo.h6">@(_files.Count == 1 ? L.T("home.fileToConvert") : L.T("home.filesToMerge")) (@_files.Count)</MudText>
                         <MudButton Variant="Variant.Text"
                                    Color="Color.Error"
                                    StartIcon="@Icons.Material.Filled.ClearAll"
                                    OnClick="OnClearAll">
-                            Clear All
+                            @L.T("common.clearAll")
                         </MudButton>
                     </div>
 
@@ -121,7 +122,7 @@
 
                     @* Conversion Settings Panel *@
                     <MudExpansionPanels>
-                        <MudExpansionPanel Text="Conversion Settings" Icon="@Icons.Material.Filled.Settings">
+                        <MudExpansionPanel Text="@L.T("conversionSettings.title")" Icon="@Icons.Material.Filled.Settings">
                             <ConversionSettingsPanel Settings="_conversionSettings" SettingsChanged="OnSettingsChanged" />
                         </MudExpansionPanel>
                     </MudExpansionPanels>
@@ -164,7 +165,7 @@
                                 <div class="d-flex align-center gap-2">
                                     <MudProgressCircular Color="Color.Primary" Size="Size.Small" Indeterminate="true" />
                                     <MudText Typo="Typo.body1" Style="font-weight: 500;">
-                                        @(_files.Count == 1 ? "Converting" : "Merging") @_files.Count @(_files.Count == 1 ? "file" : "files")...
+                                        @(_files.Count == 1 ? L.T("home.converting") : L.T("home.merging")) @_files.Count @L.T("common.files")...
                                     </MudText>
                                 </div>
                                 <MudProgressLinear Color="Color.Primary" Value="@_processingProgress" Size="Size.Medium" Class="rounded" />
@@ -177,7 +178,7 @@
 
                     <div class="d-flex justify-space-between align-center">
                         <MudText Typo="Typo.body2" Color="Color.Secondary">
-                            Total Size: @FormatFileSize(_files.Sum(f => f.Size))
+                            @L.T("home.totalSize"): @FormatFileSize(_files.Sum(f => f.Size))
                         </MudText>
                         <MudButton Variant="Variant.Filled"
                                    Color="Color.Primary"
@@ -192,7 +193,7 @@
                             }
                             else
                             {
-                                <span>@(_files.Count == 1 ? "Convert to PDF" : "Merge to PDF")</span>
+                                <span>@(_files.Count == 1 ? L.T("home.convertToPdf") : L.T("home.mergeToPdf"))</span>
                             }
                         </MudButton>
                     </div>
@@ -202,7 +203,7 @@
                     <MudStack Spacing="2">
                         <MudText Typo="Typo.h6" Color="Color.Primary">
                             <MudIcon Icon="@Icons.Material.Filled.Construction" Class="mr-2" />
-                            Advanced Tools
+                            @L.T("home.advancedTools")
                         </MudText>
                         <MudGrid>
                             <MudItem xs="12" sm="6" md="3">
@@ -212,7 +213,7 @@
                                            StartIcon="@Icons.Material.Filled.Gesture"
                                            OnClick="OpenSignatureDialog"
                                            Disabled="@(!HasPdfFiles())">
-                                    Add Signature
+                                    @L.T("tools.addSignature")
                                 </MudButton>
                             </MudItem>
                             <MudItem xs="12" sm="6" md="3">
@@ -222,7 +223,7 @@
                                            StartIcon="@Icons.Material.Filled.TextFields"
                                            OnClick="OpenOCRDialog"
                                            Disabled="@(!_files.Any())">
-                                    OCR / Extract Text
+                                    @L.T("tools.ocrExtractText")
                                 </MudButton>
                             </MudItem>
                             <MudItem xs="12" sm="6" md="3">
@@ -232,7 +233,7 @@
                                            StartIcon="@Icons.Material.Filled.QrCode"
                                            OnClick="OpenQRDialog"
                                            Disabled="@(!HasPdfFiles())">
-                                    Add QR/Barcode
+                                    @L.T("tools.addQrBarcode")
                                 </MudButton>
                             </MudItem>
                             <MudItem xs="12" sm="6" md="3">
@@ -242,7 +243,7 @@
                                            StartIcon="@Icons.Material.Filled.ContentCut"
                                            OnClick="OpenSplitDialog"
                                            Disabled="@(!HasPdfFiles())">
-                                    Split/Extract Pages
+                                    @L.T("tools.splitExtractPages")
                                 </MudButton>
                             </MudItem>
                             <MudItem xs="12" sm="6" md="3">
@@ -252,7 +253,7 @@
                                            StartIcon="@Icons.Material.Filled.Colorize"
                                            OnClick="OpenWatermarkDialog"
                                            Disabled="@(!HasPdfFiles())">
-                                    Add Watermark
+                                    @L.T("tools.addWatermark")
                                 </MudButton>
                             </MudItem>
                             <MudItem xs="12" sm="6" md="3">
@@ -262,7 +263,7 @@
                                            StartIcon="@Icons.Material.Filled.Numbers"
                                            OnClick="OpenPageNumbersDialog"
                                            Disabled="@(!HasPdfFiles())">
-                                    Page Numbers
+                                    @L.T("tools.pageNumbers")
                                 </MudButton>
                             </MudItem>
                             <MudItem xs="12" sm="6" md="3">
@@ -272,7 +273,7 @@
                                            StartIcon="@Icons.Material.Filled.Compress"
                                            OnClick="OpenCompressDialog"
                                            Disabled="@(!HasPdfFiles())">
-                                    Compress PDF
+                                    @L.T("tools.compressPdf")
                                 </MudButton>
                             </MudItem>
                             <MudItem xs="12" sm="6" md="3">
@@ -282,12 +283,12 @@
                                            StartIcon="@Icons.Material.Filled.Lock"
                                            OnClick="OpenProtectDialog"
                                            Disabled="@(!HasPdfFiles())">
-                                    Password Protect
+                                    @L.T("tools.passwordProtect")
                                 </MudButton>
                             </MudItem>
                         </MudGrid>
                         <MudText Typo="Typo.caption" Color="Color.Secondary" Class="mt-2">
-                            💡 Tip: Upload a PDF file to enable advanced tools
+                            💡 @L.T("common.tip"): @L.T("home.advancedToolsTip")
                         </MudText>
                     </MudStack>
 
@@ -297,14 +298,14 @@
                         <div class="d-flex justify-space-between align-center">
                             <MudText Typo="Typo.h6" Color="Color.Primary">
                                 <MudIcon Icon="@Icons.Material.Filled.WorkOutline" Class="mr-2" />
-                                Batch Operations
+                                @L.T("home.batchOperations")
                             </MudText>
                             <MudButton Variant="Variant.Text"
                                        Color="Color.Info"
                                        Size="Size.Small"
                                        StartIcon="@Icons.Material.Filled.ViewList"
                                        OnClick="OpenBatchOperationsDialog">
-                                View All
+                                @L.T("common.viewAll")
                             </MudButton>
                         </div>
                         <MudGrid>
@@ -315,7 +316,7 @@
                                            StartIcon="@Icons.Material.Filled.Compress"
                                            OnClick="OpenBatchCompressDialog"
                                            Disabled="@(!HasPdfFiles())">
-                                    Batch Compress
+                                    @L.T("tools.batchCompress")
                                 </MudButton>
                             </MudItem>
                             <MudItem xs="12" sm="6">
@@ -325,7 +326,7 @@
                                            StartIcon="@Icons.Material.Filled.Colorize"
                                            OnClick="OpenBatchWatermarkDialog"
                                            Disabled="@(!HasPdfFiles())">
-                                    Batch Watermark
+                                    @L.T("tools.batchWatermark")
                                 </MudButton>
                             </MudItem>
                             <MudItem xs="12" sm="6">
@@ -335,7 +336,7 @@
                                            StartIcon="@Icons.Material.Filled.Numbers"
                                            OnClick="OpenBatchPageNumbersDialog"
                                            Disabled="@(!HasPdfFiles())">
-                                    Batch Page Numbers
+                                    @L.T("tools.batchPageNumbers")
                                 </MudButton>
                             </MudItem>
                             <MudItem xs="12" sm="6">
@@ -345,12 +346,12 @@
                                            StartIcon="@Icons.Material.Filled.Lock"
                                            OnClick="OpenBatchProtectDialog"
                                            Disabled="@(!HasPdfFiles())">
-                                    Batch Password Protect
+                                    @L.T("tools.batchPasswordProtect")
                                 </MudButton>
                             </MudItem>
                         </MudGrid>
                         <MudText Typo="Typo.caption" Color="Color.Secondary" Class="mt-2">
-                            ⚡ Process multiple files simultaneously with batch operations
+                            ⚡ @L.T("home.batchOperationsTip")
                         </MudText>
                     </MudStack>
                 </MudStack>
@@ -360,37 +361,37 @@
         {
             <MudPaper Elevation="1" Class="pa-6">
                 <MudText Typo="Typo.body1" Align="Align.Center" Color="Color.Secondary">
-                    No files added yet. Upload files to convert or merge them into a PDF.
+                    @L.T("home.noFilesYet")
                 </MudText>
             </MudPaper>
         }
 
         <MudPaper Elevation="1" Class="pa-4">
             <MudStack Spacing="2">
-                <MudText Typo="Typo.h6" Color="Color.Primary">Features</MudText>
+                <MudText Typo="Typo.h6" Color="Color.Primary">@L.T("common.features")</MudText>
                 <MudGrid>
                     <MudItem xs="12" sm="6" md="3">
                         <MudStack Row="true" Spacing="2" AlignItems="AlignItems.Center">
                             <MudIcon Icon="@Icons.Material.Filled.Security" Color="Color.Success" />
-                            <MudText Typo="Typo.body2">100% Client-Side</MudText>
+                            <MudText Typo="Typo.body2">@L.T("features.clientSide")</MudText>
                         </MudStack>
                     </MudItem>
                     <MudItem xs="12" sm="6" md="3">
                         <MudStack Row="true" Spacing="2" AlignItems="AlignItems.Center">
                             <MudIcon Icon="@Icons.Material.Filled.Speed" Color="Color.Info" />
-                            <MudText Typo="Typo.body2">Fast Processing</MudText>
+                            <MudText Typo="Typo.body2">@L.T("features.fastProcessing")</MudText>
                         </MudStack>
                     </MudItem>
                     <MudItem xs="12" sm="6" md="3">
                         <MudStack Row="true" Spacing="2" AlignItems="AlignItems.Center">
                             <MudIcon Icon="@Icons.Material.Filled.CloudOff" Color="Color.Warning" />
-                            <MudText Typo="Typo.body2">No Upload Required</MudText>
+                            <MudText Typo="Typo.body2">@L.T("features.noUpload")</MudText>
                         </MudStack>
                     </MudItem>
                     <MudItem xs="12" sm="6" md="3">
                         <MudStack Row="true" Spacing="2" AlignItems="AlignItems.Center">
                             <MudIcon Icon="@Icons.Material.Filled.Lock" Color="Color.Error" />
-                            <MudText Typo="Typo.body2">Private & Secure</MudText>
+                            <MudText Typo="Typo.body2">@L.T("features.privateSecure")</MudText>
                         </MudStack>
                     </MudItem>
                 </MudGrid>

@@ -1,41 +1,43 @@
 @using PdfMerger.Client.Models
+@using PdfMerger.Client.Services
+@inject ILocalizationService L
 
 <MudPaper Elevation="2" Class="pa-4" Style="border-radius: 8px;">
     <MudStack Spacing="3">
         <MudText Typo="Typo.h6">
             <MudIcon Icon="@Icons.Material.Filled.Settings" Size="Size.Small" Class="mr-2" />
-            Conversion Settings
+            @L.T("conversionSettings.title")
         </MudText>
 
         <MudDivider />
 
         @* Page Size *@
         <MudStack Spacing="1">
-            <MudText Typo="Typo.subtitle2">Page Size</MudText>
+            <MudText Typo="Typo.subtitle2">@L.T("conversionSettings.pageSize")</MudText>
             <MudSelect T="PageSize" @bind-Value="Settings.PageSize" Variant="Variant.Outlined" Margin="Margin.Dense">
-                <MudSelectItem Value="PageSize.A4">A4 (210 × 297 mm)</MudSelectItem>
-                <MudSelectItem Value="PageSize.A3">A3 (297 × 420 mm)</MudSelectItem>
-                <MudSelectItem Value="PageSize.A5">A5 (148 × 210 mm)</MudSelectItem>
-                <MudSelectItem Value="PageSize.Letter">Letter (8.5 × 11 in)</MudSelectItem>
-                <MudSelectItem Value="PageSize.Legal">Legal (8.5 × 14 in)</MudSelectItem>
-                <MudSelectItem Value="PageSize.Tabloid">Tabloid (11 × 17 in)</MudSelectItem>
+                <MudSelectItem Value="PageSize.A4">@L.T("pageSizes.a4")</MudSelectItem>
+                <MudSelectItem Value="PageSize.A3">@L.T("pageSizes.a3")</MudSelectItem>
+                <MudSelectItem Value="PageSize.A5">@L.T("pageSizes.a5")</MudSelectItem>
+                <MudSelectItem Value="PageSize.Letter">@L.T("pageSizes.letter")</MudSelectItem>
+                <MudSelectItem Value="PageSize.Legal">@L.T("pageSizes.legal")</MudSelectItem>
+                <MudSelectItem Value="PageSize.Tabloid">@L.T("pageSizes.tabloid")</MudSelectItem>
             </MudSelect>
         </MudStack>
 
         @* Orientation *@
         <MudStack Spacing="1">
-            <MudText Typo="Typo.subtitle2">Orientation</MudText>
+            <MudText Typo="Typo.subtitle2">@L.T("conversionSettings.orientation")</MudText>
             <MudRadioGroup T="PageOrientation" @bind-Value="Settings.Orientation">
                 <MudRadio T="PageOrientation" Value="PageOrientation.Portrait" Color="Color.Primary">
                     <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="1">
                         <MudIcon Icon="@Icons.Material.Filled.Portrait" Size="Size.Small" />
-                        <MudText>Portrait</MudText>
+                        <MudText>@L.T("conversionSettings.portrait")</MudText>
                     </MudStack>
                 </MudRadio>
                 <MudRadio T="PageOrientation" Value="PageOrientation.Landscape" Color="Color.Primary">
                     <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="1">
                         <MudIcon Icon="@Icons.Material.Filled.Landscape" Size="Size.Small" />
-                        <MudText>Landscape</MudText>
+                        <MudText>@L.T("conversionSettings.landscape")</MudText>
                     </MudStack>
                 </MudRadio>
             </MudRadioGroup>
@@ -44,20 +46,20 @@
         @* Normalize Page Sizes *@
         <MudSwitch @bind-Value="Settings.NormalizePageSizes"
                    Color="Color.Primary"
-                   Label="Normalize Page Sizes"
+                   Label="@L.T("conversionSettings.normalizePageSizes")"
                    Class="mt-2">
-            <MudTooltip Text="When enabled, all pages will be resized to match the selected page size. Recommended for consistent document appearance.">
+            <MudTooltip Text="@L.T("conversionSettings.normalizeTooltip")">
                 <MudIcon Icon="@Icons.Material.Filled.Info" Size="Size.Small" Class="ml-1" />
             </MudTooltip>
         </MudSwitch>
 
         @* Margins *@
         <MudExpansionPanels>
-            <MudExpansionPanel Text="Margins (in points, 1 inch = 72 points)">
+            <MudExpansionPanel Text="@($"{L.T("conversionSettings.margins")} ({L.T("conversionSettings.marginsHelp")})")">
                 <MudGrid Spacing="2">
                     <MudItem xs="6">
                         <MudNumericField @bind-Value="Settings.Margins.Top"
-                                         Label="Top"
+                                         Label="@L.T("conversionSettings.top")"
                                          Variant="Variant.Outlined"
                                          Margin="Margin.Dense"
                                          Min="0"
@@ -66,7 +68,7 @@
                     </MudItem>
                     <MudItem xs="6">
                         <MudNumericField @bind-Value="Settings.Margins.Bottom"
-                                         Label="Bottom"
+                                         Label="@L.T("conversionSettings.bottom")"
                                          Variant="Variant.Outlined"
                                          Margin="Margin.Dense"
                                          Min="0"
@@ -75,7 +77,7 @@
                     </MudItem>
                     <MudItem xs="6">
                         <MudNumericField @bind-Value="Settings.Margins.Left"
-                                         Label="Left"
+                                         Label="@L.T("conversionSettings.left")"
                                          Variant="Variant.Outlined"
                                          Margin="Margin.Dense"
                                          Min="0"
@@ -84,7 +86,7 @@
                     </MudItem>
                     <MudItem xs="6">
                         <MudNumericField @bind-Value="Settings.Margins.Right"
-                                         Label="Right"
+                                         Label="@L.T("conversionSettings.right")"
                                          Variant="Variant.Outlined"
                                          Margin="Margin.Dense"
                                          Min="0"
@@ -97,41 +99,41 @@
 
         @* Page Numbering *@
         <MudStack Spacing="1">
-            <MudSwitch @bind-Value="Settings.AddPageNumbers" Color="Color.Primary" Label="Add Page Numbers" />
+            <MudSwitch @bind-Value="Settings.AddPageNumbers" Color="Color.Primary" Label="@L.T("conversionSettings.addPageNumbers")" />
 
             @if (Settings.AddPageNumbers)
             {
                 <MudStack Spacing="2" Class="ml-8">
-                    <MudSelect T="PageNumberPosition" @bind-Value="Settings.NumberPosition" Label="Position" Variant="Variant.Outlined" Margin="Margin.Dense">
-                        <MudSelectItem Value="PageNumberPosition.TopLeft">Top Left</MudSelectItem>
-                        <MudSelectItem Value="PageNumberPosition.TopCenter">Top Center</MudSelectItem>
-                        <MudSelectItem Value="PageNumberPosition.TopRight">Top Right</MudSelectItem>
-                        <MudSelectItem Value="PageNumberPosition.BottomLeft">Bottom Left</MudSelectItem>
-                        <MudSelectItem Value="PageNumberPosition.BottomCenter">Bottom Center</MudSelectItem>
-                        <MudSelectItem Value="PageNumberPosition.BottomRight">Bottom Right</MudSelectItem>
+                    <MudSelect T="PageNumberPosition" @bind-Value="Settings.NumberPosition" Label="@L.T("conversionSettings.numberPosition")" Variant="Variant.Outlined" Margin="Margin.Dense">
+                        <MudSelectItem Value="PageNumberPosition.TopLeft">@L.T("conversionSettings.topLeft")</MudSelectItem>
+                        <MudSelectItem Value="PageNumberPosition.TopCenter">@L.T("conversionSettings.topCenter")</MudSelectItem>
+                        <MudSelectItem Value="PageNumberPosition.TopRight">@L.T("conversionSettings.topRight")</MudSelectItem>
+                        <MudSelectItem Value="PageNumberPosition.BottomLeft">@L.T("conversionSettings.bottomLeft")</MudSelectItem>
+                        <MudSelectItem Value="PageNumberPosition.BottomCenter">@L.T("conversionSettings.bottomCenter")</MudSelectItem>
+                        <MudSelectItem Value="PageNumberPosition.BottomRight">@L.T("conversionSettings.bottomRight")</MudSelectItem>
                     </MudSelect>
 
                     <MudTextField @bind-Value="Settings.NumberFormat"
-                                  Label="Format"
+                                  Label="@L.T("conversionSettings.numberFormat")"
                                   Variant="Variant.Outlined"
                                   Margin="Margin.Dense"
-                                  HelperText="Use {0} for page number (e.g., 'Page {0}' or '{0} of {1}')" />
+                                  HelperText="@L.T("conversionSettings.numberFormatHelp")" />
                 </MudStack>
             }
         </MudStack>
 
         @* Export Format *@
         <MudStack Spacing="1">
-            <MudText Typo="Typo.subtitle2">Export Format</MudText>
+            <MudText Typo="Typo.subtitle2">@L.T("conversionSettings.exportFormat")</MudText>
             <MudRadioGroup T="ExportFormat" @bind-Value="Settings.Format">
-                <MudRadio T="ExportFormat" Value="ExportFormat.PDF" Color="Color.Primary">PDF (Standard)</MudRadio>
-                <MudRadio T="ExportFormat" Value="ExportFormat.PDFA" Color="Color.Primary">PDF/A (Archival)</MudRadio>
+                <MudRadio T="ExportFormat" Value="ExportFormat.PDF" Color="Color.Primary">@L.T("conversionSettings.pdfStandard")</MudRadio>
+                <MudRadio T="ExportFormat" Value="ExportFormat.PDFA" Color="Color.Primary">@L.T("conversionSettings.pdfArchival")</MudRadio>
             </MudRadioGroup>
         </MudStack>
 
         @* Compression *@
         <MudStack Spacing="1">
-            <MudText Typo="Typo.subtitle2">Compression Level</MudText>
+            <MudText Typo="Typo.subtitle2">@L.T("conversionSettings.compressionLevel")</MudText>
             <MudSlider @bind-Value="CompressionValue" Min="0" Max="3" Step="1" Color="Color.Primary">
                 <MudText>@GetCompressionLabel()</MudText>
             </MudSlider>
@@ -139,13 +141,13 @@
 
         @* Image Quality *@
         <MudStack Spacing="1">
-            <MudText Typo="Typo.subtitle2">Image Quality: @Settings.ImageQuality%</MudText>
+            <MudText Typo="Typo.subtitle2">@L.T("conversionSettings.imageQuality"): @Settings.ImageQuality%</MudText>
             <MudSlider @bind-Value="Settings.ImageQuality" Min="50" Max="100" Step="5" Color="Color.Info" />
         </MudStack>
 
         @* Image Options *@
-        <MudSwitch @bind-Value="Settings.CompressImages" Color="Color.Primary" Label="Compress Images" />
-        <MudSwitch @bind-Value="Settings.AutoRotateFromExif" Color="Color.Primary" Label="Auto-Rotate from EXIF Data" />
+        <MudSwitch @bind-Value="Settings.CompressImages" Color="Color.Primary" Label="@L.T("conversionSettings.compressImages")" />
+        <MudSwitch @bind-Value="Settings.AutoRotateFromExif" Color="Color.Primary" Label="@L.T("conversionSettings.autoRotateExif")" />
 
         @* Reset Button *@
         <MudButton Variant="Variant.Outlined"
@@ -153,7 +155,7 @@
                    StartIcon="@Icons.Material.Filled.RestartAlt"
                    OnClick="ResetToDefaults"
                    FullWidth="true">
-            Reset to Defaults
+            @L.T("conversionSettings.resetToDefaults")
         </MudButton>
     </MudStack>
 </MudPaper>
@@ -192,11 +194,11 @@
     {
         return Settings.Compression switch
         {
-            CompressionLevel.None => "None",
-            CompressionLevel.Low => "Low",
-            CompressionLevel.Medium => "Medium",
-            CompressionLevel.High => "High",
-            _ => "Medium"
+            CompressionLevel.None => L.T("common.none"),
+            CompressionLevel.Low => L.T("common.low"),
+            CompressionLevel.Medium => L.T("common.medium"),
+            CompressionLevel.High => L.T("common.high"),
+            _ => L.T("common.medium")
         };
     }
 
