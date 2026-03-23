@@ -1,0 +1,468 @@
+{
+  "meta": {
+    "language": "uz",
+    "direction": "ltr",
+    "name": "Oʻzbekcha"
+  },
+  "seo": {
+    "title": "Stitch PDF Konvertor va Birlashtiruvchi - Bepul Onlayn PDF Vositalari | Birlashtirish, Konvertatsiya, PDF Imzolash",
+    "description": "Bepul onlayn PDF vositalari: PDFlarni birlashtirish, DOCX/rasmlarni PDFga aylantirish, fayllarni siqish, raqamli imzolar, suv belgilari, QR kodlar, 110+ tilda OCR. 100% mijoz tomonida ishlov berish - fayllaringiz qurilmangizdan chiqmaydi.",
+    "keywords": "PDF birlashtiruvchi, PDF konvertor, PDF birlashtirish, PDFga aylantirish, DOCX dan PDFga, rasmdan PDFga, PDF siqish, PDF imzo, raqamli imzo, suv belgisi PDF, QR kod generatori"
+  },
+  "common": {
+    "save": "Saqlash",
+    "cancel": "Bekor qilish",
+    "close": "Yopish",
+    "delete": "Oʻchirish",
+    "edit": "Tahrirlash",
+    "add": "Qoʻshish",
+    "remove": "Olib tashlash",
+    "upload": "Yuklash",
+    "download": "Yuklab olish",
+    "process": "Qayta ishlash",
+    "processing": "Qayta ishlanmoqda...",
+    "apply": "Qoʻllash",
+    "reset": "Tiklash",
+    "confirm": "Tasdiqlash",
+    "yes": "Ha",
+    "no": "Yoʻq",
+    "ok": "OK",
+    "gotIt": "Tushundim!",
+    "viewAll": "Hammasini koʻrish",
+    "selectLanguage": "Tilni tanlash",
+    "loading": "Yuklanmoqda...",
+    "error": "Xato",
+    "success": "Muvaffaqiyat",
+    "warning": "Ogohlantirish",
+    "info": "Maʼlumot",
+    "tip": "Maslahat",
+    "features": "Xususiyatlar",
+    "settings": "Sozlamalar",
+    "help": "Yordam",
+    "search": "Qidirish",
+    "clear": "Tozalash",
+    "clearAll": "Hammasini tozalash",
+    "selectAll": "Hammasini tanlash",
+    "deselectAll": "Tanlovni bekor qilish",
+    "preview": "Oldindan koʻrish",
+    "position": "Joylashuv",
+    "size": "Hajm",
+    "page": "Sahifa",
+    "pages": "Sahifalar",
+    "file": "Fayl",
+    "files": "Fayllar",
+    "total": "Jami",
+    "of": "dan",
+    "to": "ga",
+    "from": "Dan",
+    "none": "Hech qaysi",
+    "low": "Past",
+    "medium": "Oʻrta",
+    "high": "Yuqori",
+    "quality": "Sifat",
+    "format": "Format",
+    "type": "Tur",
+    "name": "Nom",
+    "date": "Sana",
+    "custom": "Maxsus"
+  },
+  "app": {
+    "title": "Stitch PDF",
+    "tagline": "PDF Birlashtiruvchi va Konvertor",
+    "subtitle": "PDFlar, rasmlar va hujjatlarni bitta PDFga aylantiring yoki birlashtiring - 100% mijoz tomonida ishlov berish"
+  },
+  "layout": {
+    "helpAndGuide": "Yordam va Qoʻllanma",
+    "switchToLightMode": "Yorugʻ rejimga oʻtish",
+    "switchToDarkMode": "Qorong'u rejimga oʻtish",
+    "viewOnGitHub": "GitHubda koʻrish",
+    "offlineMessage": "Siz offlayndasiz - Ilova keshlangan maʼlumotlar bilan ishlaydi"
+  },
+  "home": {
+    "title": "PDF Birlashtiruvchi va Konvertor",
+    "recentFiles": "Soʻnggi fayllar",
+    "templates": "Shablonlar",
+    "performance": "Ishlash",
+    "scanWithCamera": "Kamera bilan skanerlash",
+    "scanDescription": "Hujjatlarni skanerlash va PDFga aylantirish uchun qurilma kamerasidan foydalaning",
+    "fileToConvert": "Konvertatsiya qilinadigan fayl",
+    "filesToMerge": "Birlashtirilnadigan fayllar",
+    "noFilesYet": "Hali fayllar qoʻshilmagan. PDFga aylantirish yoki birlashtirish uchun fayllarni yuklang.",
+    "totalSize": "Umumiy hajm",
+    "convertToPdf": "PDFga aylantirish",
+    "mergeToPdf": "PDFga birlashtirish",
+    "converting": "Aylantirilmoqda",
+    "merging": "Birlashtirilmoqda",
+    "processingFile": "Fayl qayta ishlanmoqda {0} / {1} ({2}%)",
+    "advancedTools": "Kengaytirilgan vositalar",
+    "advancedToolsTip": "Kengaytirilgan vositalarni yoqish uchun PDF faylini yuklang",
+    "batchOperations": "Ommaviy operatsiyalar",
+    "batchOperationsTip": "Bir nechta fayllarni ommaviy operatsiyalar bilan bir vaqtda qayta ishlang"
+  },
+  "upload": {
+    "dropFilesHere": "Fayllarni bu yerga tashlang yoki yuklash uchun bosing",
+    "supportedFormats": "PDF, Rasmlar (PNG, JPG, WebP, GIF, BMP, SVG, HEIC, TIFF, AVIF), Hujjatlar (TXT, MD, CSV, HTML, DOCX, XLSX, XLS, ODS), ZIP",
+    "maxFileSize": "Har bir fayl uchun maksimal 1GB, jami 4GB",
+    "fileAdded": "Qoʻshildi: {0}",
+    "fileRemoved": "Olib tashlandi: {0}",
+    "extractedFiles": "'{1}' dan {0} ta fayl ajratib olindi (alifbo tartibida)",
+    "noSupportedFiles": "'{0}' da qoʻllab-quvvatlanadigan fayllar topilmadi",
+    "zipExtractError": "'{0}' ni ajratib boʻlmadi: {1}"
+  },
+  "tools": {
+    "addSignature": "Imzo qoʻshish",
+    "ocrExtractText": "OCR / Matn ajratish",
+    "addQrBarcode": "QR/Shtrix-kod qoʻshish",
+    "splitExtractPages": "Boʻlish/Sahifalarni ajratish",
+    "addWatermark": "Suv belgisi qoʻshish",
+    "pageNumbers": "Sahifa raqamlari",
+    "compressPdf": "PDFni siqish",
+    "passwordProtect": "Parol bilan himoyalash",
+    "batchCompress": "Ommaviy siqish",
+    "batchWatermark": "Ommaviy suv belgisi",
+    "batchPageNumbers": "Ommaviy sahifa raqamlari",
+    "batchPasswordProtect": "Ommaviy parol himoyasi"
+  },
+  "conversionSettings": {
+    "title": "Konvertatsiya sozlamalari",
+    "pageSize": "Sahifa hajmi",
+    "orientation": "Yoʻnalish",
+    "portrait": "Tik",
+    "landscape": "Gorizontal",
+    "normalizePageSizes": "Sahifa hajmlarini normallashtirish",
+    "normalizeTooltip": "Yoqilganda, barcha sahifalar tanlangan sahifa hajmiga oʻzgartiriladi. Izchil hujjat koʻrinishi uchun tavsiya etiladi.",
+    "margins": "Chetlar",
+    "marginsHelp": "nuqtalarda, 1 dyuym = 72 nuqta",
+    "top": "Yuqori",
+    "bottom": "Pastki",
+    "left": "Chap",
+    "right": "Oʻng",
+    "addPageNumbers": "Sahifa raqamlarini qoʻshish",
+    "numberPosition": "Joylashuv",
+    "numberFormat": "Format",
+    "numberFormatHelp": "Sahifa raqami uchun {0} dan foydalaning (masalan, 'Sahifa {0}' yoki '{0} / {1}')",
+    "exportFormat": "Eksport formati",
+    "pdfStandard": "PDF (Standart)",
+    "pdfArchival": "PDF/A (Arxiv)",
+    "compressionLevel": "Siqish darajasi",
+    "imageQuality": "Rasm sifati",
+    "compressImages": "Rasmlarni siqish",
+    "autoRotateExif": "EXIF maʼlumotlaridan avtomatik aylantirish",
+    "resetToDefaults": "Standartga tiklash",
+    "topLeft": "Yuqori chap",
+    "topCenter": "Yuqori markaz",
+    "topRight": "Yuqori oʻng",
+    "bottomLeft": "Pastki chap",
+    "bottomCenter": "Pastki markaz",
+    "bottomRight": "Pastki oʻng"
+  },
+  "pageSizes": {
+    "a4": "A4 (210 x 297 mm)",
+    "a3": "A3 (297 x 420 mm)",
+    "a5": "A5 (148 x 210 mm)",
+    "letter": "Letter (8.5 x 11 in)",
+    "legal": "Legal (8.5 x 14 in)",
+    "tabloid": "Tabloid (11 x 17 in)"
+  },
+  "features": {
+    "clientSide": "100% Mijoz tomonida",
+    "fastProcessing": "Tez ishlov berish",
+    "noUpload": "Yuklash talab qilinmaydi",
+    "privateSecure": "Maxfiy va Xavfsiz"
+  },
+  "dialogs": {
+    "signature": {
+      "title": "Elektron imzo qoʻshish",
+      "draw": "Chizish",
+      "type": "Yozish",
+      "uploadImage": "Rasm yuklash",
+      "clearSignature": "Imzoni tozalash",
+      "addToPdf": "PDFga qoʻshish",
+      "selectPage": "Sahifani tanlash",
+      "signaturePosition": "Imzo joylashuvi",
+      "signatureSize": "Imzo hajmi",
+      "width": "Kenglik",
+      "height": "Balandlik"
+    },
+    "ocr": {
+      "title": "OCR - Matn ajratish",
+      "selectLanguage": "Tilni tanlash",
+      "extractText": "Matn ajratish",
+      "extracting": "Matn ajratilmoqda...",
+      "copyToClipboard": "Buferga nusxalash",
+      "exportAs": "Eksport qilish",
+      "exportTxt": "TXT sifatida eksport",
+      "exportJson": "JSON sifatida eksport",
+      "exportCsv": "CSV sifatida eksport",
+      "noTextFound": "Hujjatda matn topilmadi",
+      "ocrComplete": "OCR ajratish tugallandi"
+    },
+    "qrBarcode": {
+      "title": "QR kod yoki Shtrix-kod qoʻshish",
+      "qrCode": "QR kod",
+      "barcode": "Shtrix-kod",
+      "enterContent": "Kontentni kiriting",
+      "contentType": "Kontent turi",
+      "url": "URL",
+      "text": "Matn",
+      "wifi": "WiFi",
+      "contact": "Kontakt",
+      "barcodeFormat": "Shtrix-kod formati",
+      "errorCorrection": "Xatoni tuzatish",
+      "codeSize": "Kod hajmi"
+    },
+    "split": {
+      "title": "Boʻlish / Sahifalarni ajratish",
+      "splitMode": "Boʻlish rejimi",
+      "extractPages": "Maxsus sahifalarni ajratish",
+      "splitByRange": "Diapazon boʻyicha boʻlish",
+      "splitEveryN": "Har N sahifada boʻlish",
+      "pageRanges": "Sahifa diapazonlari",
+      "pageRangesHelp": "Sahifa raqamlarini yoki diapazonlarini kiriting (masalan, 1,3,5-10)",
+      "pagesPerFile": "Har bir faylda sahifalar",
+      "splitPdf": "PDFni boʻlish",
+      "extractSelected": "Tanlanganlarni ajratish"
+    },
+    "watermark": {
+      "title": "Suv belgisi qoʻshish",
+      "textWatermark": "Matnli suv belgisi",
+      "imageWatermark": "Rasmli suv belgisi",
+      "watermarkText": "Suv belgisi matni",
+      "fontSize": "Shrift hajmi",
+      "fontColor": "Shrift rangi",
+      "opacity": "Shaffoflik",
+      "rotation": "Aylantirish",
+      "position": "Joylashuv",
+      "allPages": "Barcha sahifalar",
+      "specificPages": "Maxsus sahifalar",
+      "addWatermark": "Suv belgisi qoʻshish"
+    },
+    "pageNumbers": {
+      "title": "Sahifa raqamlari qoʻshish",
+      "numberFormat": "Raqam formati",
+      "startingNumber": "Boshlangʻich raqam",
+      "position": "Joylashuv",
+      "fontSize": "Shrift hajmi",
+      "fontColor": "Shrift rangi",
+      "applyTo": "Qoʻllash",
+      "allPages": "Barcha sahifalar",
+      "oddPages": "Faqat toq sahifalar",
+      "evenPages": "Faqat juft sahifalar",
+      "addPageNumbers": "Sahifa raqamlari qoʻshish"
+    },
+    "compress": {
+      "title": "PDFni siqish",
+      "compressionLevel": "Siqish darajasi",
+      "currentSize": "Joriy hajm",
+      "estimatedSize": "Taxminiy hajm",
+      "compress": "Siqish"
+    },
+    "protect": {
+      "title": "PDFni parol bilan himoyalash",
+      "userPassword": "Foydalanuvchi paroli",
+      "userPasswordHelp": "PDFni ochish uchun talab qilinadi",
+      "ownerPassword": "Egasi paroli",
+      "ownerPasswordHelp": "PDFni oʻzgartirish uchun talab qilinadi",
+      "permissions": "Ruxsatlar",
+      "allowPrinting": "Chop etishga ruxsat",
+      "allowCopying": "Nusxalashga ruxsat",
+      "allowEditing": "Tahrirlashga ruxsat",
+      "protectPdf": "PDFni himoyalash"
+    },
+    "batch": {
+      "title": "Ommaviy operatsiyalar",
+      "createBatch": "Ommaviy yaratish",
+      "batchName": "Ommaviy nom",
+      "operationType": "Operatsiya turi",
+      "filesSelected": "ta fayl tanlandi",
+      "startBatch": "Ommaviyni boshlash",
+      "batchProgress": "Ommaviy jarayon",
+      "batchComplete": "Ommaviy operatsiya tugallandi",
+      "downloadAll": "Hammasini ZIP sifatida yuklab olish"
+    },
+    "templates": {
+      "title": "Shablonlar",
+      "createTemplate": "Shablon yaratish",
+      "editTemplate": "Shablonni tahrirlash",
+      "templateName": "Shablon nomi",
+      "templateType": "Shablon turi",
+      "favorite": "Sevimli",
+      "applyTemplate": "Shablonni qoʻllash",
+      "deleteTemplate": "Shablonni oʻchirish",
+      "noTemplates": "Hali shablonlar yoʻq. Sozlamalaringizni saqlash uchun shablon yarating.",
+      "builtIn": "Oʻrnatilgan shablonlar",
+      "custom": "Maxsus shablonlar"
+    },
+    "recentFiles": {
+      "title": "Soʻnggi fayllar",
+      "noRecentFiles": "Soʻnggi fayllar yoʻq",
+      "clearHistory": "Tarixni tozalash"
+    },
+    "performance": {
+      "title": "Ishlash sozlamalari",
+      "webWorkers": "Web Workers",
+      "webWorkersHelp": "Katta fayllarni tezroq qayta ishlash uchun yoqing",
+      "chunkSize": "Boʻlak hajmi",
+      "chunkSizeHelp": "Bir vaqtda qayta ishlanadigan fayllar soni"
+    },
+    "camera": {
+      "title": "Hujjatni skanerlash",
+      "takePhoto": "Rasm olish",
+      "retake": "Qayta olish",
+      "usePhoto": "Bu rasmdan foydalanish",
+      "cameraAccess": "Kamera ruxsati talab qilinadi",
+      "cameraTip": "Eng yaxshi natijalar uchun yaxshi yorugʻlik va barqaror kameradan foydalaning"
+    },
+    "mobileSave": {
+      "title": "PDFni saqlash",
+      "saveToDevice": "Qurilmaga saqlash",
+      "shareFile": "Faylni ulashish",
+      "openInNewTab": "Yangi tabda ochish"
+    }
+  },
+  "help": {
+    "title": "Stitch PDF bilan ishlashni boshlash",
+    "privacyNotice": "Barcha ishlov berish brauzeringizda amalga oshiriladi - fayllaringiz qurilmangizdan chiqmaydi! Progressive Web App (PWA) sifatida offlayn ishlaydi.",
+    "quickStart": {
+      "title": "Tez boshlash",
+      "step1": "Fayllarni yuklash: \"Fayl qoʻshish\" tugmasini bosing yoki PDF/rasm/hujjatlarni sudrab olib tashlang",
+      "step2": "Tartibga solish: Tartibni oʻzgartirish uchun sudrab olib boring, oldindan koʻrish uchun bosing, keraksiz fayllarni oʻchiring",
+      "step3": "Qayta ishlash: \"PDFlarni birlashtirish\" tugmasini bosing yoki konvertatsiya/siqish variantlarini tanlang",
+      "step4": "Yuklab olish: Qayta ishlangan PDFni darhol oling"
+    },
+    "coreFeatures": "Asosiy xususiyatlar",
+    "mergePdfs": {
+      "title": "Bir nechta PDFlarni birlashtirish",
+      "description": "2+ PDF fayl qoʻshing, sudrab tartibni oʻzgartiring va bitta hujjatga birlashtirish uchun \"PDFlarni birlashtirish\" tugmasini bosing. Cheksiz fayl hajmini qoʻllab-quvvatlaydi (mijoz tomonida ishlov berish).",
+      "tip": "Klaviatura yorliqlaridan foydalaning: Ctrl+O (fayllar qoʻshish), Ctrl+M (birlashtirish)"
+    },
+    "convert": {
+      "title": "Hujjatlar va rasmlarni PDFga aylantirish",
+      "supportedFormats": "Qoʻllab-quvvatlanadigan formatlar: DOCX, DOC (Microsoft Word), JPG, PNG, HEIC, TIFF, WebP (rasmlar). Bir nechta rasmlarni bitta PDFga birlashtirish mumkin.",
+      "settings": "Konvertatsiya sozlamalari: Sahifa hajmi (A4, Letter, Legal, A3, Maxsus), Yoʻnalish (Tik/Gorizontal), Rasm sifati, Sozlanishi mumkin boʻlgan chetlar"
+    },
+    "compress": {
+      "title": "PDFlarni siqish va optimallashtirish",
+      "levels": "Siqish darajalari: Past (90% sifat), Oʻrta (70% sifat), Yuqori (50% sifat). Rasmlarni optimallashtirish va ortiqcha maʼlumotlarni olib tashlash orqali fayl hajmini kamaytiradi."
+    },
+    "signatures": {
+      "title": "Raqamli imzolar qoʻshish",
+      "methods": "Uchta imzo usuli: Chizish (sichqoncha/sensorli), Yozish (maxsus shriftlar bilan matn), Yuklash (imzo rasm fayli). Imzolar vektor grafika sifatida qoʻshiladi."
+    },
+    "ocr": {
+      "title": "OCR - PDFlardan matn ajratish (110+ til)",
+      "description": "Skanerlangan PDF va rasmlardan matn ajratish. 110+ tilni qoʻllab-quvvatlash. TXT, JSON yoki CSV sifatida eksport. Matnni toʻgʻridan-toʻgʻri buferga nusxalash.",
+      "tip": "Eng yaxshi natijalar: Aniq matnli yuqori sifatli skanerlardan foydalaning."
+    },
+    "qrBarcode": {
+      "title": "QR kodlar va shtrix-kodlar yaratish",
+      "qr": "QR kodlar: URL, matn, kontakt maʼlumotlari, WiFi uchun yarating. Sozlanishi mumkin boʻlgan hajm va xatoni tuzatish.",
+      "barcode": "Shtrix-kodlar: Code 128, EAN-13, UPC, Code 39. Mahsulot yorliqlari, inventar boshqaruvi uchun PDFga qoʻshing."
+    },
+    "watermarks": {
+      "title": "Suv belgilari va sahifa raqamlari qoʻshish",
+      "watermark": "Suv belgilari: Sozlanishi mumkin boʻlgan shaffoflik, joylashuv, aylantirish bilan matn yoki rasm suv belgilari qoʻshing. Hujjatlarni himoyalang yoki brending qoʻshing.",
+      "pageNumbers": "Sahifa raqamlari: Formatlar (1, 1/10, Sahifa 1, Sahifa 1 dan 10), Joylashuv (Yuqori/Pastki, Chap/Markaz/Oʻng), Maxsus boshlangʻich raqam."
+    },
+    "passwordProtection": {
+      "title": "PDFlarni parol bilan himoyalash",
+      "description": "Foydalanuvchi paroli (ochish uchun talab qilinadi), Egasi paroli (oʻzgartirish uchun talab qilinadi), Chop etish/nusxalash/tahrirlashni cheklash. AES shifrlashdan foydalanadi."
+    },
+    "batchOperations": {
+      "title": "Ommaviy operatsiyalar",
+      "description": "Bir vaqtda bir nechta fayllarni qayta ishlang: birlashtirish, aylantirish, siqish, suv belgilari yoki sahifa raqamlari qoʻshish. Real vaqtda yangilanishlar bilan jarayonni kuzating. Barcha natijalarni ZIP sifatida yuklab oling."
+    },
+    "templates": {
+      "title": "Shablonlar - Sozlamalaringizni saqlang",
+      "description": "Tez-tez ishlatiladigan sozlamalarni shablon sifatida saqlang. Oldindan sozlangan shablonlar mavjud. Tez kirish uchun sevimlilarni belgilang. JSON sifatida eksport qilib ulashing."
+    },
+    "cameraScanner": {
+      "title": "Kamera hujjat skaneri",
+      "description": "Qurilma kamerangiz bilan hujjatlarni skanerlang. Kamera ruxsatini bering, rasm oling, avtomatik ravishda PDFga aylanadi.",
+      "tip": "Eng yaxshi natijalar uchun yaxshi yorugʻlik va barqaror kameradan foydalaning."
+    },
+    "advancedFeatures": "Kengaytirilgan xususiyatlar",
+    "webWorkers": "Web Workers (Ishlash): Katta fayllarni tezroq qayta ishlash uchun yoqing. Ishlash sozlamalariga oʻting.",
+    "keyboardShortcuts": "Klaviatura yorliqlari: Ctrl+O (Fayllar qoʻshish), Ctrl+M (Birlashtirish), Ctrl+S (Saqlash), Delete (Tanlanganlarni oʻchirish), Ctrl+D (Qorong'u rejim)",
+    "touchGestures": "Sensorli harakatlar (Mobil): Chapga/oʻngga surish (navigatsiya), Kattalashtirish uchun chimchiqlash (oldindan koʻrish), Uzoq bosish (variantlar)",
+    "offlineMode": "Offlayn rejim: Butunlay offlayn ishlatish uchun PWA sifatida oʻrnating (oʻrnatish soʻrovini bosing). Barcha fayllar va ishlov berish mahalliy ravishda amalga oshiriladi.",
+    "recentFilesHelp": "Soʻnggi fayllar: Soʻnggi ishingizga tezda kiring - maxfiylik uchun fayl metadatasi mahalliy saqlanadi.",
+    "privacySecurity": {
+      "title": "Maxfiylik va Xavfsizlik",
+      "clientSide": "100% Mijoz tomonida ishlov berish: Barcha operatsiyalar brauzeringizda amalga oshiriladi",
+      "noUploads": "Fayl yuklash yoʻq: Fayllaringiz qurilmangizdan chiqmaydi",
+      "noStorage": "Server saqlashi yoʻq: Tashqi serverlarda hech narsa saqlanmaydi",
+      "noTracking": "Kuzatuv yoʻq: Hujjatlaringiz va maʼlumotlaringiz butunlay maxfiy qoladi",
+      "openSource": "Ochiq manba: Koʻrib chiqishingiz mumkin boʻlgan shaffof kod",
+      "worksOffline": "Offlayn ishlaydi: Dastlabki yuklashdan keyin internet talab qilinmaydi"
+    },
+    "support": {
+      "title": "Bu loyihani qoʻllab-quvvatlang",
+      "description": "Stitch PDF bepul va ochiq manbali. Agar foydali boʻlsa, rivojlanishni qoʻllab-quvvatlashni koʻrib chiqing:",
+      "buyMeCoffee": "Menga kofe olib bering"
+    }
+  },
+  "errors": {
+    "fileRequired": "Qayta ishlash uchun kamida 1 ta fayl qoʻshing",
+    "pdfRequired": "Avval PDF fayl qoʻshing",
+    "invalidFile": "Yaroqsiz fayl",
+    "fileTooLarge": "Fayl juda katta: '{0}' ({1}) maksimal {2} dan oshib ketdi",
+    "unsupportedFormat": "Qoʻllab-quvvatlanmaydigan fayl formati: {0}",
+    "outOfMemory": "{0} paytida xotira tugadi. Fayl qurilmangiz uchun juda katta. Kichikroq fayl sinab koʻring yoki boshqa brauzer tablarini yoping.",
+    "cannotRead": "'{0}' ni oʻqib boʻlmaydi: {1}. Fayl qulflangan yoki buzilgan boʻlishi mumkin.",
+    "processingFailed": "Qayta ishlash muvaffaqiyatsiz: {0}",
+    "downloadFailed": "Yuklab olish muvaffaqiyatsiz: {0}",
+    "conversionError": "Hujjat konvertatsiya xatosi: {0}. JavaScript ga qaytilmoqda.",
+    "mergeError": "Birlashtirish operatsiyasi muvaffaqiyatsiz: {0}",
+    "compressionError": "Siqish muvaffaqiyatsiz: {0}",
+    "signatureError": "Imzo qoʻshib boʻlmadi: {0}",
+    "ocrError": "OCR ajratish muvaffaqiyatsiz: {0}",
+    "qrError": "QR/Shtrix-kod qoʻshib boʻlmadi: {0}",
+    "splitError": "Boʻlish operatsiyasi muvaffaqiyatsiz: {0}",
+    "watermarkError": "Suv belgisi qoʻshib boʻlmadi: {0}",
+    "pageNumbersError": "Sahifa raqamlari qoʻshib boʻlmadi: {0}",
+    "protectError": "PDFni himoyalab boʻlmadi: {0}",
+    "cameraAccessDenied": "Kamera ruxsati rad etildi",
+    "networkError": "Tarmoq xatosi yuz berdi",
+    "unexpectedError": "Kutilmagan xato: {0}",
+    "tryAgain": "Qaytadan urinib koʻring",
+    "refreshPage": "Sahifani yangilang va kamroq fayllarni qayta ishlang"
+  },
+  "success": {
+    "fileAdded": "Qoʻshildi: {0}",
+    "fileRemoved": "Olib tashlandi: {0}",
+    "fileMoved": "{0} {1} pozitsiyasiga koʻchirildi",
+    "allFilesCleared": "Barcha fayllar tozalandi",
+    "convertedSuccessfully": "Muvaffaqiyatli PDFga aylantirildi!",
+    "mergedSuccessfully": "{0} ta fayl muvaffaqiyatli bitta PDFga birlashtirildi!",
+    "signatureAdded": "Imzo muvaffaqiyatli qoʻshildi!",
+    "ocrComplete": "OCR ajratish tugallandi",
+    "textCopied": "Matn buferga nusxalandi",
+    "qrAdded": "QR/Shtrix-kod muvaffaqiyatli qoʻshildi!",
+    "splitComplete": "PDF muvaffaqiyatli boʻlindi",
+    "watermarkAdded": "Suv belgisi muvaffaqiyatli qoʻshildi!",
+    "pageNumbersAdded": "Sahifa raqamlari muvaffaqiyatli qoʻshildi!",
+    "compressed": "Siqildi! {0}% tejaldi ({1})",
+    "alreadyCompressed": "Fayl allaqachon yaxshi siqilgan",
+    "passwordProtected": "PDF muvaffaqiyatli parol bilan himoyalandi!",
+    "batchStarted": "Ommaviy operatsiya boshlandi! Jarayonni kuzatish uchun 'Hammasini koʻrish' tugmasini bosing.",
+    "batchComplete": "Ommaviy operatsiya tugallandi",
+    "templateApplied": "'{0}' shablon sozlamalari qoʻllandi!",
+    "templateSaved": "Shablon muvaffaqiyatli saqlandi",
+    "templateDeleted": "Shablon oʻchirildi",
+    "documentScanned": "Hujjat muvaffaqiyatli skanerlandi!",
+    "settingsApplied": "Sozlamalar qoʻllandi"
+  },
+  "memory": {
+    "critical": "Kritik",
+    "warning": "Ogohlantirish",
+    "memoryUsage": "Xotira foydalanishi {0}%",
+    "criticalMessage": "Nosozliklarning oldini olish uchun baʼzi fayllarni olib tashlashni yoki bir vaqtda kamroq fayllarni qayta ishlashni koʻrib chiqing.",
+    "warningMessage": "Katta fayllerni qayta ishlash sekinroq boʻlishi mumkin. Xotira avtomatik boshqariladi."
+  },
+  "pwa": {
+    "name": "Stitch PDF",
+    "shortName": "Stitch PDF",
+    "description": "100% mijoz tomonida ishlov berish bilan bepul onlayn PDF birlashtiruvchi, konvertor va muharriri"
+  }
+}

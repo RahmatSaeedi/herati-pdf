@@ -1,0 +1,468 @@
+{
+  "meta": {
+    "language": "tk",
+    "direction": "ltr",
+    "name": "Türkmençe"
+  },
+  "seo": {
+    "title": "Stitch PDF Öwrüji we Birleşdiriji - Mugt Onlaýn PDF Gurallary | Birleşdirmek, Öwürmek, PDF Gol çekmek",
+    "description": "Mugt onlaýn PDF gurallary: PDFleri birleşdirmek, DOCX/suratlary PDFe öwürmek, faýllary gysmak, sanly gollar, suw bellikleri, QR kodlar, 110+ dilde OCR. 100% müşderi tarapynda işlemek - faýllaryňyz enjamyňyzdan çykmaýar.",
+    "keywords": "PDF birleşdiriji, PDF öwrüji, PDF birleşdirmek, PDFe öwürmek, DOCX-dan PDFe, suratdan PDFe, PDF gysmak, PDF gol, sanly gol, suw belligi PDF, QR kod generatory"
+  },
+  "common": {
+    "save": "Saklamak",
+    "cancel": "Ýatyrmak",
+    "close": "Ýapmak",
+    "delete": "Öçürmek",
+    "edit": "Üýtgetmek",
+    "add": "Goşmak",
+    "remove": "Aýyrmak",
+    "upload": "Ýüklemek",
+    "download": "Göçürip almak",
+    "process": "Işlemek",
+    "processing": "Işlenýär...",
+    "apply": "Ulanmak",
+    "reset": "Täzeden başlamak",
+    "confirm": "Tassyklamak",
+    "yes": "Hawa",
+    "no": "Ýok",
+    "ok": "OK",
+    "gotIt": "Düşündim!",
+    "viewAll": "Hemmesini görmek",
+    "selectLanguage": "Dil saýlamak",
+    "loading": "Ýüklenýär...",
+    "error": "Ýalňyşlyk",
+    "success": "Üstünlik",
+    "warning": "Duýduryş",
+    "info": "Maglumat",
+    "tip": "Maslahat",
+    "features": "Aýratynlyklar",
+    "settings": "Sazlamalar",
+    "help": "Kömek",
+    "search": "Gözlemek",
+    "clear": "Arassalamak",
+    "clearAll": "Hemmesini arassalamak",
+    "selectAll": "Hemmesini saýlamak",
+    "deselectAll": "Saýlawy ýatyrmak",
+    "preview": "Öňünden görmek",
+    "position": "Ýerleşiş",
+    "size": "Ölçeg",
+    "page": "Sahypa",
+    "pages": "Sahypalar",
+    "file": "Faýl",
+    "files": "Faýllar",
+    "total": "Jemi",
+    "of": "-den",
+    "to": "-e",
+    "from": "-dan",
+    "none": "Hiç biri",
+    "low": "Pes",
+    "medium": "Orta",
+    "high": "Ýokary",
+    "quality": "Hil",
+    "format": "Format",
+    "type": "Görnüş",
+    "name": "At",
+    "date": "Sene",
+    "custom": "Özbaşdak"
+  },
+  "app": {
+    "title": "Stitch PDF",
+    "tagline": "PDF Birleşdiriji we Öwrüji",
+    "subtitle": "PDFleri, suratlary we resminamalary bir PDFe öwüriň ýa-da birleşdiriň - 100% müşderi tarapynda işlemek"
+  },
+  "layout": {
+    "helpAndGuide": "Kömek we Gollanma",
+    "switchToLightMode": "Ýagty režime geçmek",
+    "switchToDarkMode": "Garaňky režime geçmek",
+    "viewOnGitHub": "GitHub-da görmek",
+    "offlineMessage": "Siz offlaýn - Programma keşlenen maglumatlar bilen işleýär"
+  },
+  "home": {
+    "title": "PDF Birleşdiriji we Öwrüji",
+    "recentFiles": "Soňky faýllar",
+    "templates": "Şablonlar",
+    "performance": "Öndürijilik",
+    "scanWithCamera": "Kamera bilen skanerlemek",
+    "scanDescription": "Resminamalary skanerlemek we PDFe öwürmek üçin enjamyňyzyň kamerasyny ulanyň",
+    "fileToConvert": "Öwrüljek faýl",
+    "filesToMerge": "Birleşdiriljek faýllar",
+    "noFilesYet": "Heniz faýl goşulmady. Öwürmek ýa-da birleşdirmek üçin faýllary ýükläň.",
+    "totalSize": "Umumy ölçeg",
+    "convertToPdf": "PDFe öwürmek",
+    "mergeToPdf": "PDFe birleşdirmek",
+    "converting": "Öwrülýär",
+    "merging": "Birleşdirilýär",
+    "processingFile": "Faýl işlenýär {0} / {1} ({2}%)",
+    "advancedTools": "Ösen gurallar",
+    "advancedToolsTip": "Ösen gurallary açmak üçin PDF faýlyny ýükläň",
+    "batchOperations": "Toparyň amallary",
+    "batchOperationsTip": "Birnäçe faýly topar amallary bilen bir wagtda işläň"
+  },
+  "upload": {
+    "dropFilesHere": "Faýllary şu ýere taşlaň ýa-da ýüklemek üçin basyň",
+    "supportedFormats": "PDF, Suratlar (PNG, JPG, WebP, GIF, BMP, SVG, HEIC, TIFF, AVIF), Resminamalar (TXT, MD, CSV, HTML, DOCX, XLSX, XLS, ODS), ZIP",
+    "maxFileSize": "Her faýl üçin iň köp 1GB, jemi 4GB",
+    "fileAdded": "Goşuldy: {0}",
+    "fileRemoved": "Aýryldy: {0}",
+    "extractedFiles": "'{1}'-dan {0} faýl çykaryldy (elipbiý tertibinde)",
+    "noSupportedFiles": "'{0}'-da goldanylýan faýl tapylmady",
+    "zipExtractError": "'{0}' çykaryp bolmady: {1}"
+  },
+  "tools": {
+    "addSignature": "Gol goşmak",
+    "ocrExtractText": "OCR / Tekst çykarmak",
+    "addQrBarcode": "QR/Ştrix-kod goşmak",
+    "splitExtractPages": "Bölmek/Sahypalary çykarmak",
+    "addWatermark": "Suw belligi goşmak",
+    "pageNumbers": "Sahypa belgileri",
+    "compressPdf": "PDF gysmak",
+    "passwordProtect": "Parol bilen goramak",
+    "batchCompress": "Topar gysmak",
+    "batchWatermark": "Topar suw belligi",
+    "batchPageNumbers": "Topar sahypa belgileri",
+    "batchPasswordProtect": "Topar parol goragy"
+  },
+  "conversionSettings": {
+    "title": "Öwüriş sazlamalary",
+    "pageSize": "Sahypa ölçegi",
+    "orientation": "Ugrukdyryş",
+    "portrait": "Dik",
+    "landscape": "Kese",
+    "normalizePageSizes": "Sahypa ölçeglerini kadalaşdyrmak",
+    "normalizeTooltip": "Işledilende, ähli sahypalar saýlanan sahypa ölçegine laýyk gelýär. Yzygiderli resminama görnüşi üçin maslahat berilýär.",
+    "margins": "Gyralary",
+    "marginsHelp": "nokatda, 1 dýuým = 72 nokat",
+    "top": "Ýokary",
+    "bottom": "Aşak",
+    "left": "Çep",
+    "right": "Sag",
+    "addPageNumbers": "Sahypa belgilerini goşmak",
+    "numberPosition": "Ýerleşiş",
+    "numberFormat": "Format",
+    "numberFormatHelp": "Sahypa belgisi üçin {0} ulanyň (mysal üçin, 'Sahypa {0}' ýa-da '{0} / {1}')",
+    "exportFormat": "Eksport formaty",
+    "pdfStandard": "PDF (Standart)",
+    "pdfArchival": "PDF/A (Arhiw)",
+    "compressionLevel": "Gysyş derejesi",
+    "imageQuality": "Surat hili",
+    "compressImages": "Suratlary gysmak",
+    "autoRotateExif": "EXIF maglumatlaryndan awtomatik öwürmek",
+    "resetToDefaults": "Başlangyja täzeden başlamak",
+    "topLeft": "Ýokary çep",
+    "topCenter": "Ýokary merkez",
+    "topRight": "Ýokary sag",
+    "bottomLeft": "Aşaky çep",
+    "bottomCenter": "Aşaky merkez",
+    "bottomRight": "Aşaky sag"
+  },
+  "pageSizes": {
+    "a4": "A4 (210 x 297 mm)",
+    "a3": "A3 (297 x 420 mm)",
+    "a5": "A5 (148 x 210 mm)",
+    "letter": "Letter (8.5 x 11 in)",
+    "legal": "Legal (8.5 x 14 in)",
+    "tabloid": "Tabloid (11 x 17 in)"
+  },
+  "features": {
+    "clientSide": "100% Müşderi tarapynda",
+    "fastProcessing": "Çalt işlemek",
+    "noUpload": "Ýüklemek gerek däl",
+    "privateSecure": "Şahsy we Howpsuz"
+  },
+  "dialogs": {
+    "signature": {
+      "title": "E-gol goşmak",
+      "draw": "Çyzmak",
+      "type": "Ýazmak",
+      "uploadImage": "Surat ýüklemek",
+      "clearSignature": "Goly arassalamak",
+      "addToPdf": "PDFe goşmak",
+      "selectPage": "Sahypa saýlamak",
+      "signaturePosition": "Gol ýerleşişi",
+      "signatureSize": "Gol ölçegi",
+      "width": "Giňlik",
+      "height": "Beýiklik"
+    },
+    "ocr": {
+      "title": "OCR - Tekst çykarmak",
+      "selectLanguage": "Dil saýlamak",
+      "extractText": "Tekst çykarmak",
+      "extracting": "Tekst çykarylýar...",
+      "copyToClipboard": "Klipborda göçürmek",
+      "exportAs": "Eksport etmek",
+      "exportTxt": "TXT hökmünde eksport",
+      "exportJson": "JSON hökmünde eksport",
+      "exportCsv": "CSV hökmünde eksport",
+      "noTextFound": "Resminamada tekst tapylmady",
+      "ocrComplete": "OCR çykarylyşy tamamlandy"
+    },
+    "qrBarcode": {
+      "title": "QR kod ýa-da Ştrix-kod goşmak",
+      "qrCode": "QR kod",
+      "barcode": "Ştrix-kod",
+      "enterContent": "Mazmuny giriziň",
+      "contentType": "Mazmun görnüşi",
+      "url": "URL",
+      "text": "Tekst",
+      "wifi": "WiFi",
+      "contact": "Kontakt",
+      "barcodeFormat": "Ştrix-kod formaty",
+      "errorCorrection": "Ýalňyşlygy düzetmek",
+      "codeSize": "Kod ölçegi"
+    },
+    "split": {
+      "title": "Bölmek / Sahypalary çykarmak",
+      "splitMode": "Bölmek režimi",
+      "extractPages": "Belli sahypalary çykarmak",
+      "splitByRange": "Aralyga görä bölmek",
+      "splitEveryN": "Her N sahypada bölmek",
+      "pageRanges": "Sahypa aralyklary",
+      "pageRangesHelp": "Sahypa belgilerini ýa-da aralyklary giriziň (mysal üçin, 1,3,5-10)",
+      "pagesPerFile": "Her faýlda sahypalar",
+      "splitPdf": "PDF bölmek",
+      "extractSelected": "Saýlananlary çykarmak"
+    },
+    "watermark": {
+      "title": "Suw belligi goşmak",
+      "textWatermark": "Tekst suw belligi",
+      "imageWatermark": "Surat suw belligi",
+      "watermarkText": "Suw belligi teksti",
+      "fontSize": "Şrift ölçegi",
+      "fontColor": "Şrift reňki",
+      "opacity": "Aç-açanlyk",
+      "rotation": "Öwrüm",
+      "position": "Ýerleşiş",
+      "allPages": "Ähli sahypalar",
+      "specificPages": "Belli sahypalar",
+      "addWatermark": "Suw belligi goşmak"
+    },
+    "pageNumbers": {
+      "title": "Sahypa belgilerini goşmak",
+      "numberFormat": "Belgi formaty",
+      "startingNumber": "Başlangyç belgi",
+      "position": "Ýerleşiş",
+      "fontSize": "Şrift ölçegi",
+      "fontColor": "Şrift reňki",
+      "applyTo": "Ulanmak",
+      "allPages": "Ähli sahypalar",
+      "oddPages": "Diňe täk sahypalar",
+      "evenPages": "Diňe jüp sahypalar",
+      "addPageNumbers": "Sahypa belgilerini goşmak"
+    },
+    "compress": {
+      "title": "PDF gysmak",
+      "compressionLevel": "Gysyş derejesi",
+      "currentSize": "Häzirki ölçeg",
+      "estimatedSize": "Çaklanylýan ölçeg",
+      "compress": "Gysmak"
+    },
+    "protect": {
+      "title": "PDF parol bilen goramak",
+      "userPassword": "Ulanyjy paroly",
+      "userPasswordHelp": "PDF açmak üçin gerek",
+      "ownerPassword": "Eýesiniň paroly",
+      "ownerPasswordHelp": "PDF üýtgetmek üçin gerek",
+      "permissions": "Rugsat",
+      "allowPrinting": "Çap etmäge rugsat",
+      "allowCopying": "Göçürmäge rugsat",
+      "allowEditing": "Üýtgetmäge rugsat",
+      "protectPdf": "PDF goramak"
+    },
+    "batch": {
+      "title": "Topar amallary",
+      "createBatch": "Topar döretmek",
+      "batchName": "Topar ady",
+      "operationType": "Amal görnüşi",
+      "filesSelected": "faýl saýlandy",
+      "startBatch": "Topary başlamak",
+      "batchProgress": "Topar prosesi",
+      "batchComplete": "Topar amaly tamamlandy",
+      "downloadAll": "Hemmesini ZIP hökmünde göçürip almak"
+    },
+    "templates": {
+      "title": "Şablonlar",
+      "createTemplate": "Şablon döretmek",
+      "editTemplate": "Şablony üýtgetmek",
+      "templateName": "Şablon ady",
+      "templateType": "Şablon görnüşi",
+      "favorite": "Halaýan",
+      "applyTemplate": "Şablony ulanmak",
+      "deleteTemplate": "Şablony öçürmek",
+      "noTemplates": "Heniz şablon ýok. Sazlamalaryňyzy saklamak üçin şablon dörediň.",
+      "builtIn": "Gurlan şablonlar",
+      "custom": "Özbaşdak şablonlar"
+    },
+    "recentFiles": {
+      "title": "Soňky faýllar",
+      "noRecentFiles": "Soňky faýl ýok",
+      "clearHistory": "Taryhyy arassalamak"
+    },
+    "performance": {
+      "title": "Öndürijilik sazlamalary",
+      "webWorkers": "Web Workers",
+      "webWorkersHelp": "Uly faýllary çalt işlemek üçin açyň",
+      "chunkSize": "Bölek ölçegi",
+      "chunkSizeHelp": "Bir wagtda işlenjek faýllaryň sany"
+    },
+    "camera": {
+      "title": "Resminama skanerlemek",
+      "takePhoto": "Surat almak",
+      "retake": "Täzeden almak",
+      "usePhoto": "Bu suraty ulanmak",
+      "cameraAccess": "Kamera rugsat gerek",
+      "cameraTip": "Iň gowy netije üçin oňat ýagtylyk we durnukly kamera ulanyň"
+    },
+    "mobileSave": {
+      "title": "PDF saklamak",
+      "saveToDevice": "Enjama saklamak",
+      "shareFile": "Faýl paýlaşmak",
+      "openInNewTab": "Täze tabda açmak"
+    }
+  },
+  "help": {
+    "title": "Stitch PDF bilen başlamak",
+    "privacyNotice": "Ähli işlemek brauzeriňizde bolýar - faýllaryňyz enjamyňyzdan çykmaýar! Progressive Web App (PWA) hökmünde offlaýn işleýär.",
+    "quickStart": {
+      "title": "Çalt başlamak",
+      "step1": "Faýllary ýüklemek: \"Faýl goşmak\" basyň ýa-da PDF/surat/resminamalary süýräp taşlaň",
+      "step2": "Tertiplemek: Tertibi üýtgetmek üçin süýräň, öňünden görmek üçin basyň, gereksiz faýllary öçüriň",
+      "step3": "Işlemek: \"PDFleri birleşdirmek\" basyň ýa-da öwüriş/gysyş saýlamalaryny saýlaň",
+      "step4": "Göçürip almak: Işlenen PDFi dessine alyň"
+    },
+    "coreFeatures": "Esasy aýratynlyklar",
+    "mergePdfs": {
+      "title": "Birnäçe PDF birleşdirmek",
+      "description": "2+ PDF faýl goşuň, süýräp tertip üýtgediň we bir resminama birleşdirmek üçin \"PDFleri birleşdirmek\" basyň. Çäksiz faýl ölçegini goldaýar (müşderi tarapynda işlemek).",
+      "tip": "Klawiatura gysgaltmalaryny ulanyň: Ctrl+O (faýl goşmak), Ctrl+M (birleşdirmek)"
+    },
+    "convert": {
+      "title": "Resminamalary we suratlary PDFe öwürmek",
+      "supportedFormats": "Goldanýan formatlar: DOCX, DOC (Microsoft Word), JPG, PNG, HEIC, TIFF, WebP (suratlar). Birnäçe suraty bir PDFe birleşdirip bolýar.",
+      "settings": "Öwüriş sazlamalary: Sahypa ölçegi (A4, Letter, Legal, A3, Özbaşdak), Ugrukdyryş (Dik/Kese), Surat hili, Sazlap bolýan gyralar"
+    },
+    "compress": {
+      "title": "PDFleri gysmak we optimizirlemek",
+      "levels": "Gysyş derejeleri: Pes (90% hil), Orta (70% hil), Ýokary (50% hil). Suratlary optimizirlemek we gereksiz maglumatlary aýyrmak arkaly faýl ölçegini azaldýar."
+    },
+    "signatures": {
+      "title": "Sanly gollar goşmak",
+      "methods": "Üç gol usuly: Çyzmak (syçan/duýgy), Ýazmak (özbaşdak şriftler bilen tekst), Ýüklemek (gol surat faýly). Gollar wektor grafika hökmünde goşulýar."
+    },
+    "ocr": {
+      "title": "OCR - PDFlerden tekst çykarmak (110+ dil)",
+      "description": "Skanerlenen PDF we suratlardan tekst çykarmak. 110+ dil goldawy. TXT, JSON ýa-da CSV hökmünde eksport. Teksti gönüden-göni klipborda göçürmek.",
+      "tip": "Iň gowy netijeler: Aýdyň tekst bilen ýokary hilli skanerleri ulanyň."
+    },
+    "qrBarcode": {
+      "title": "QR kodlar we ştrix-kodlar döretmek",
+      "qr": "QR kodlar: URL, tekst, kontakt maglumatlary, WiFi üçin dörediň. Sazlap bolýan ölçeg we ýalňyşlygy düzetmek.",
+      "barcode": "Ştrix-kodlar: Code 128, EAN-13, UPC, Code 39. Önüm bellikleri, inwentar dolandyryşy üçin PDFe goşuň."
+    },
+    "watermarks": {
+      "title": "Suw bellikleri we sahypa belgilerini goşmak",
+      "watermark": "Suw bellikleri: Sazlap bolýan aç-açanlyk, ýerleşiş, öwrüm bilen tekst ýa-da surat suw bellikleri goşuň. Resminamalary goraň ýa-da marka goşuň.",
+      "pageNumbers": "Sahypa belgileri: Formatlar (1, 1/10, Sahypa 1, Sahypa 1-den 10), Ýerleşiş (Ýokary/Aşak, Çep/Merkez/Sag), Özbaşdak başlangyç belgi."
+    },
+    "passwordProtection": {
+      "title": "PDFleri parol bilen goramak",
+      "description": "Ulanyjy paroly (açmak üçin gerek), Eýesiniň paroly (üýtgetmek üçin gerek), Çap etmegi/göçürmegi/üýtgetmegi çäklendirmek. AES şifrlemesini ulanýar."
+    },
+    "batchOperations": {
+      "title": "Topar amallary",
+      "description": "Birnäçe faýly bir wagtda işläň: birleşdirmek, öwürmek, gysmak, suw bellikleri ýa-da sahypa belgilerini goşmak. Hakyky wagtda täzelenmeler bilen prosesi yzarlaň. Ähli netijeleri ZIP hökmünde göçürip alyň."
+    },
+    "templates": {
+      "title": "Şablonlar - Sazlamalaryňyzy saklaň",
+      "description": "Köp ulanylýan sazlamalary şablon hökmünde saklaň. Öňünden sazlanan şablonlar bar. Çalt girmek üçin halanlary belläň. JSON hökmünde eksport edip paýlaşyň."
+    },
+    "cameraScanner": {
+      "title": "Kamera resminama skaneri",
+      "description": "Enjamyňyzyň kamerasy bilen resminamalary skanerläň. Kamera rugsadyny beriň, surat alyň, awtomatik PDFe öwrülýär.",
+      "tip": "Iň gowy netijeler üçin oňat ýagtylyk we durnukly kamera ulanyň."
+    },
+    "advancedFeatures": "Ösen aýratynlyklar",
+    "webWorkers": "Web Workers (Öndürijilik): Uly faýllary çalt işlemek üçin açyň. Öndürijilik sazlamalaryna gidiň.",
+    "keyboardShortcuts": "Klawiatura gysgaltmalary: Ctrl+O (Faýl goşmak), Ctrl+M (Birleşdirmek), Ctrl+S (Saklamak), Delete (Saýlananlary öçürmek), Ctrl+D (Garaňky režim)",
+    "touchGestures": "Duýgy hereketi (Mobil): Çepe/saga süýşürmek (nawigasiýa), Ulaltmak üçin çymçylamak (öňünden görmek), Uzyn basmak (saýlamalar)",
+    "offlineMode": "Offlaýn režim: Doly offlaýn ulanmak üçin PWA hökmünde guruň (gurnamak soragyny basyň). Ähli faýllar we işlemek ýerli bolýar.",
+    "recentFilesHelp": "Soňky faýllar: Soňky işiňize çalt giriň - gizlinlik üçin faýl metadatasy ýerli saklanýar.",
+    "privacySecurity": {
+      "title": "Gizlinlik we Howpsuzlyk",
+      "clientSide": "100% Müşderi tarapynda işlemek: Ähli amallar brauzeriňizde bolýar",
+      "noUploads": "Faýl ýüklemek ýok: Faýllaryňyz enjamyňyzdan çykmaýar",
+      "noStorage": "Serwer saklamagy ýok: Daşky serwerlerde hiç zat saklanmaýar",
+      "noTracking": "Yzarlamak ýok: Resminamalaryňyz we maglumatlaryňyz doly gizlin galýar",
+      "openSource": "Açyk çeşme: Gözden geçirip boljak açyk kod",
+      "worksOffline": "Offlaýn işleýär: Başlangyç ýüklenmeden soň internet gerek däl"
+    },
+    "support": {
+      "title": "Bu taslamany goldaň",
+      "description": "Stitch PDF mugt we açyk çeşme. Peýdaly bolsa, ösüşi goldamagy göz öňünde tutuň:",
+      "buyMeCoffee": "Maňa kofe satyn alyň"
+    }
+  },
+  "errors": {
+    "fileRequired": "Işlemek üçin azyndan 1 faýl goşuň",
+    "pdfRequired": "Ilki PDF faýl goşuň",
+    "invalidFile": "Nädogry faýl",
+    "fileTooLarge": "Faýl gaty uly: '{0}' ({1}) iň köp {2}-den geçdi",
+    "unsupportedFormat": "Goldanmaýan faýl formaty: {0}",
+    "outOfMemory": "{0} wagtynda ýat gutardy. Faýl enjamyňyz üçin gaty uly. Kiçiräk faýl synap görüň ýa-da beýleki brauzer tablaryny ýapyň.",
+    "cannotRead": "'{0}' okap bolmady: {1}. Faýl gulplanandyr ýa-da zaýalanandyr.",
+    "processingFailed": "Işlemek başarmady: {0}",
+    "downloadFailed": "Göçürip almak başarmady: {0}",
+    "conversionError": "Resminama öwüriş ýalňyşlygy: {0}. JavaScript-e gaýdylýar.",
+    "mergeError": "Birleşdirmek amaly başarmady: {0}",
+    "compressionError": "Gysmak başarmady: {0}",
+    "signatureError": "Gol goşup bolmady: {0}",
+    "ocrError": "OCR çykarylyşy başarmady: {0}",
+    "qrError": "QR/Ştrix-kod goşup bolmady: {0}",
+    "splitError": "Bölmek amaly başarmady: {0}",
+    "watermarkError": "Suw belligi goşup bolmady: {0}",
+    "pageNumbersError": "Sahypa belgilerini goşup bolmady: {0}",
+    "protectError": "PDF gorap bolmady: {0}",
+    "cameraAccessDenied": "Kamera rugsady ret edildi",
+    "networkError": "Tor ýalňyşlygy ýüze çykdy",
+    "unexpectedError": "Garaşylmadyk ýalňyşlyk: {0}",
+    "tryAgain": "Gaýtadan synap görüň",
+    "refreshPage": "Sahypany täzeläň we az faýl işläň"
+  },
+  "success": {
+    "fileAdded": "Goşuldy: {0}",
+    "fileRemoved": "Aýryldy: {0}",
+    "fileMoved": "{0} {1} ýerine geçirildi",
+    "allFilesCleared": "Ähli faýllar arassalandy",
+    "convertedSuccessfully": "Üstünlikli PDFe öwrüldi!",
+    "mergedSuccessfully": "{0} faýl üstünlikli bir PDFe birleşdirildi!",
+    "signatureAdded": "Gol üstünlikli goşuldy!",
+    "ocrComplete": "OCR çykarylyşy tamamlandy",
+    "textCopied": "Tekst klipborda göçürildi",
+    "qrAdded": "QR/Ştrix-kod üstünlikli goşuldy!",
+    "splitComplete": "PDF üstünlikli bölündi",
+    "watermarkAdded": "Suw belligi üstünlikli goşuldy!",
+    "pageNumbersAdded": "Sahypa belgileri üstünlikli goşuldy!",
+    "compressed": "Gysyldy! {0}% tygşytlandy ({1})",
+    "alreadyCompressed": "Faýl eýýäm oňat gysylgy",
+    "passwordProtected": "PDF üstünlikli parol bilen goraldy!",
+    "batchStarted": "Topar amaly başlady! Prosesi yzarlamak üçin 'Hemmesini görmek' basyň.",
+    "batchComplete": "Topar amaly tamamlandy",
+    "templateApplied": "'{0}' şablon sazlamalary ulanyldy!",
+    "templateSaved": "Şablon üstünlikli saklandy",
+    "templateDeleted": "Şablon öçürildi",
+    "documentScanned": "Resminama üstünlikli skanerlenildi!",
+    "settingsApplied": "Sazlamalar ulanyldy"
+  },
+  "memory": {
+    "critical": "Tankytly",
+    "warning": "Duýduryş",
+    "memoryUsage": "Ýat ulanyşy {0}%",
+    "criticalMessage": "Çökmäniň öňüni almak üçin käbir faýllary aýyrmagy ýa-da bir wagtda az faýl işlemegi göz öňünde tutuň.",
+    "warningMessage": "Uly faýl işlemegi has haýal bolup biler. Ýat awtomatik dolandyrylýar."
+  },
+  "pwa": {
+    "name": "Stitch PDF",
+    "shortName": "Stitch PDF",
+    "description": "100% müşderi tarapynda işlemek bilen mugt onlaýn PDF birleşdiriji, öwrüji we redaktory"
+  }
+}
