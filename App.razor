@@ -9,7 +9,7 @@
 
 @if (_isInitialized)
 {
-    <MudRTLProvider RightToLeft="@_isRtl">
+    <MudRTLProvider RightToLeft="@_isRtl" @key="_currentLanguage">
         <Router AppAssembly="@typeof(App).Assembly" NotFoundPage="typeof(Pages.NotFound)">
             <Found Context="routeData">
                 <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)"/>
@@ -32,12 +32,14 @@ else
     private bool _isDarkMode;
     private bool _isRtl;
     private bool _isInitialized;
+    private string _currentLanguage = "en";
 
     protected override async Task OnInitializedAsync()
     {
         // Initialize localization first
         await Localization.InitializeAsync();
         _isRtl = Localization.IsRtl;
+        _currentLanguage = Localization.CurrentLanguage;
         Localization.OnLanguageChanged += OnLanguageChanged;
 
         // Initialize theme
@@ -53,6 +55,7 @@ else
         InvokeAsync(() =>
         {
             _isRtl = Localization.IsRtl;
+            _currentLanguage = Localization.CurrentLanguage;
             StateHasChanged();
         });
     }
