@@ -326,9 +326,16 @@
     },
     "compress": {
       "title": "فشرده‌سازی PDF",
+      "selectPdfFile": "انتخاب فایل PDF",
       "compressionLevel": "سطح فشرده‌سازی",
+      "qualityHigh": "بلند (بهترین کیفیت)",
+      "qualityMedium": "متوسط (متعادل)",
+      "qualityLow": "پایین (کوچک‌ترین فایل)",
+      "qualityInfo": "کیفیت بلندتر جزئیات بیشتری را نگه می‌داره اما اندازه فایل بیشتر می‌شه.",
       "currentSize": "اندازه فعلی",
-      "estimatedSize": "اندازه تخمینی",
+      "compressing": "در حال فشرده‌سازی...",
+      "alreadyOptimized": "فایل قبلاً خوب بهینه‌سازی شده",
+      "failed": "فشرده‌سازی ناموفق بود",
       "compress": "فشرده‌سازی"
     },
     "protect": {

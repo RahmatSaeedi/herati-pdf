@@ -331,9 +331,16 @@
     },
     "compress": {
       "title": "PDF gysmak",
+      "selectPdfFile": "PDF faýly saýlamak",
       "compressionLevel": "Gysyş derejesi",
+      "qualityHigh": "Ýokary (iň gowy hil)",
+      "qualityMedium": "Orta (deňagramly)",
+      "qualityLow": "Pes (iň kiçi faýl)",
+      "qualityInfo": "Ýokary hil has köp jikme-jigi saklaýar, emma faýlyň ölçegi ulalyp biler.",
       "currentSize": "Häzirki ölçeg",
-      "estimatedSize": "Çaklanylýan ölçeg",
+      "compressing": "Gysylýar...",
+      "alreadyOptimized": "Faýl öňden gowy optimizirlenipdir",
+      "failed": "Gysyş başa barmady",
       "compress": "Gysmak"
     },
     "protect": {

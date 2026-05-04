@@ -331,9 +331,16 @@
     },
     "compress": {
       "title": "PDF کمپریس کړئ",
+      "selectPdfFile": "PDF فایل غوره کړئ",
       "compressionLevel": "د کمپریس کچه",
+      "qualityHigh": "لوړ (غوره کیفیت)",
+      "qualityMedium": "منځنی (متوازن)",
+      "qualityLow": "ټیټ (تر ټولو کوچنی فایل)",
+      "qualityInfo": "لوړ کیفیت ډیرې توضیحات ساتي خو د فایل اندازه لویه کیږي.",
       "currentSize": "اوسنۍ اندازه",
-      "estimatedSize": "اټکل شوې اندازه",
+      "compressing": "کمپریس روان دی...",
+      "alreadyOptimized": "فایل دمخه ښه اصلاح شوی دی",
+      "failed": "کمپریس ناکام شو",
       "compress": "کمپریس کړئ"
     },
     "protect": {

@@ -325,9 +325,16 @@
     },
     "compress": {
       "title": "Compress PDF",
+      "selectPdfFile": "Select PDF File",
       "compressionLevel": "Compression Level",
+      "qualityHigh": "High (best quality)",
+      "qualityMedium": "Medium (balanced)",
+      "qualityLow": "Low (smallest file)",
+      "qualityInfo": "Higher quality preserves more detail but results in a larger file size.",
       "currentSize": "Current Size",
-      "estimatedSize": "Estimated Size",
+      "compressing": "Compressing...",
+      "alreadyOptimized": "File is already well optimized",
+      "failed": "Compression failed",
       "compress": "Compress"
     },
     "protect": {
