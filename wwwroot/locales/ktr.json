@@ -331,9 +331,16 @@
     },
     "compress": {
       "title": "PDF کوچنیول",
+      "selectPdfFile": "PDF فایل غوره کول",
       "compressionLevel": "د کوچنیولو کچه",
+      "qualityHigh": "لوړ (غوره کیفیت)",
+      "qualityMedium": "منځنی (متوازن)",
+      "qualityLow": "ټیټ (تر ټولو کوچنی فایل)",
+      "qualityInfo": "لوړ کیفیت ډیر توضیحات ساتي خو د فایل اندازه لویه کیږي.",
       "currentSize": "اوسنی اندازه",
-      "estimatedSize": "اټکل شوې اندازه",
+      "compressing": "کوچنیول روان دی...",
+      "alreadyOptimized": "فایل دمخه ښه برابر دی",
+      "failed": "کوچنیول ناکام شو",
       "compress": "کوچنیول"
     },
     "protect": {

@@ -331,9 +331,16 @@
     },
     "compress": {
       "title": "PDF کم کنگ",
+      "selectPdfFile": "PDF فائل گچینگ",
       "compressionLevel": "کمپریشن سطح",
+      "qualityHigh": "زیادہ (بہترین معیار)",
+      "qualityMedium": "درمیانی (متوازن)",
+      "qualityLow": "کم (کوچکترین فائل)",
+      "qualityInfo": "زیادہ معیار بیشتر جزئیات نگہداری کنت بلے فائل سائز بزرگتر بیت.",
       "currentSize": "موجودہ سائز",
-      "estimatedSize": "تخمینی سائز",
+      "compressing": "کم کنگ ءَ...",
+      "alreadyOptimized": "فائل پیشا ءَ خوب بهینه بیتگ",
+      "failed": "کمپریشن ناموفق بیت",
       "compress": "کم کنگ"
     },
     "protect": {

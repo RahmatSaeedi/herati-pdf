@@ -1427,43 +1427,31 @@
 
     private async Task OpenCompressDialog()
     {
-        var pdfFile = _files.FirstOrDefault(f => f.ContentType == "application/pdf");
-        if (pdfFile == null) return;
+        var pdfFiles = _files.Where(f => f.ContentType == "application/pdf").ToList();
 
-        var confirmed = await DialogService.ShowMessageBox(
-            "Compress PDF",
-            "This will reduce the PDF file size. Continue?",
-            yesText: "Compress", cancelText: "Cancel");
-
-        if (confirmed == true)
+        if (!pdfFiles.Any())
         {
-            try
-            {
-                _isProcessing = true;
-                StateHasChanged();
+            Snackbar.Add("⚠️ No PDF files to compress.", Severity.Warning);
+            return;
+        }
 
-                var compressed = await AdvancedPdfService.CompressPdfAsync(pdfFile.Data, quality: "medium");
+        var parameters = new DialogParameters { { "Files", pdfFiles } };
+        var dialog = await DialogService.ShowAsync<CompressDialog>("Compress PDF",
+            parameters, new DialogOptions { MaxWidth = MaxWidth.Small, FullWidth = true });
 
-                if (compressed != null && compressed.Length < pdfFile.Data.Length)
-                {
-                    var oldSize = pdfFile.Size;
-                    pdfFile.Data = compressed;
-                    pdfFile.Size = compressed.Length;
-                    var savedPercent = ((oldSize - compressed.Length) / (double)oldSize) * 100;
-                    Snackbar.Add($"✅ Compressed! Saved {savedPercent:F1}% ({FormatFileSize(oldSize - compressed.Length)})", Severity.Success);
-                }
-                else
-                {
-                    Snackbar.Add("ℹ️ File is already well compressed", Severity.Info);
-                }
-            }
-            catch (Exception ex)
+        var result = await dialog.Result;
+
+        if (!result.Canceled && result.Data is byte[] compressed)
+        {
+            var pdfFile = pdfFiles.FirstOrDefault();
+            if (pdfFile != null)
             {
-                Snackbar.Add($"Error: {ex.Message}", Severity.Error);
-            }
-            finally
-            {
-                _isProcessing = false;
+                var oldSize = pdfFile.Size;
+                pdfFile.Data = compressed;
+                pdfFile.Size = compressed.Length;
+                var savedPercent = ((oldSize - compressed.Length) / (double)oldSize) * 100;
+                await GenerateThumbnailAsync(pdfFile);
+                Snackbar.Add($"✅ Compressed! Saved {savedPercent:F1}% ({FormatFileSize(oldSize - compressed.Length)})", Severity.Success);
                 StateHasChanged();
             }
         }

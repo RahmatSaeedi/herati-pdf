@@ -1,0 +1,147 @@
+@using PdfMerger.Client.Services
+@using PdfMerger.Client.Models
+@inject IAdvancedPdfService AdvancedPdfService
+@inject ILocalizationService L
+
+<MudDialog>
+    <DialogContent>
+        <MudStack Spacing="3">
+            @if (!_isProcessing && string.IsNullOrEmpty(_resultMessage))
+            {
+                <MudText Typo="Typo.h6">@L.T("dialogs.compress.title")</MudText>
+
+                @if (Files.Count > 1)
+                {
+                    <MudSelect @bind-Value="_selectedFile" Label="@L.T("dialogs.compress.selectPdfFile")" Variant="Variant.Outlined">
+                        @foreach (var file in Files)
+                        {
+                            <MudSelectItem Value="@file">@file.Name</MudSelectItem>
+                        }
+                    </MudSelect>
+                }
+                else if (Files.Count == 1)
+                {
+                    <MudAlert Severity="Severity.Info">
+                        <strong>@L.T("common.file"):</strong> @Files[0].Name
+                    </MudAlert>
+                }
+
+                @if (_selectedFile != null)
+                {
+                    <MudText Typo="Typo.body2" Color="Color.Secondary">
+                        @L.T("dialogs.compress.currentSize"): <strong>@FormatSize(_selectedFile.Size)</strong>
+                    </MudText>
+                }
+
+                <MudSelect @bind-Value="_quality" Label="@L.T("dialogs.compress.compressionLevel")" Variant="Variant.Outlined">
+                    <MudSelectItem Value=@("high")>@L.T("dialogs.compress.qualityHigh")</MudSelectItem>
+                    <MudSelectItem Value=@("medium")>@L.T("dialogs.compress.qualityMedium")</MudSelectItem>
+                    <MudSelectItem Value=@("low")>@L.T("dialogs.compress.qualityLow")</MudSelectItem>
+                </MudSelect>
+
+                <MudAlert Severity="Severity.Info" Dense="true">
+                    <MudText Typo="Typo.caption">@L.T("dialogs.compress.qualityInfo")</MudText>
+                </MudAlert>
+            }
+
+            @if (_isProcessing)
+            {
+                <MudStack Spacing="2" AlignItems="AlignItems.Center">
+                    <MudProgressCircular Color="Color.Primary" Size="Size.Large" Indeterminate="true" />
+                    <MudText Typo="Typo.h6">@L.T("dialogs.compress.compressing")</MudText>
+                </MudStack>
+            }
+
+            @if (!string.IsNullOrEmpty(_resultMessage))
+            {
+                <MudAlert Severity="Severity.Success">@_resultMessage</MudAlert>
+            }
+
+            @if (!string.IsNullOrEmpty(_errorMessage))
+            {
+                <MudAlert Severity="@_errorSeverity">@_errorMessage</MudAlert>
+            }
+        </MudStack>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Close">@(string.IsNullOrEmpty(_resultMessage) ? L.T("common.cancel") : L.T("common.close"))</MudButton>
+        @if (string.IsNullOrEmpty(_resultMessage) && !_isProcessing)
+        {
+            <MudButton Color="Color.Primary"
+                       Variant="Variant.Filled"
+                       OnClick="CompressPdf"
+                       Disabled="@(_selectedFile == null)">
+                @L.T("dialogs.compress.compress")
+            </MudButton>
+        }
+    </DialogActions>
+</MudDialog>
+
+@code {
+    [CascadingParameter] private IMudDialogInstance MudDialog { get; set; } = null!;
+
+    [Parameter] public List<FileItem> Files { get; set; } = new();
+
+    private FileItem? _selectedFile;
+    private string _quality = "medium";
+    private bool _isProcessing;
+    private string _resultMessage = "";
+    private string _errorMessage = "";
+    private Severity _errorSeverity = Severity.Error;
+
+    protected override void OnInitialized()
+    {
+        _selectedFile = Files.FirstOrDefault();
+    }
+
+    private async Task CompressPdf()
+    {
+        if (_selectedFile == null) return;
+
+        _isProcessing = true;
+        _errorMessage = "";
+        StateHasChanged();
+
+        try
+        {
+            var compressed = await AdvancedPdfService.CompressPdfAsync(_selectedFile.Data, quality: _quality);
+
+            if (compressed != null && compressed.Length < _selectedFile.Data.Length)
+            {
+                MudDialog.Close(DialogResult.Ok(compressed));
+            }
+            else if (compressed != null)
+            {
+                _errorMessage = L.T("dialogs.compress.alreadyOptimized");
+                _errorSeverity = Severity.Info;
+            }
+            else
+            {
+                _errorMessage = L.T("dialogs.compress.failed");
+                _errorSeverity = Severity.Error;
+            }
+        }
+        catch (Exception ex)
+        {
+            _errorMessage = $"Error: {ex.Message}";
+            _errorSeverity = Severity.Error;
+            Console.WriteLine($"Compress error: {ex}");
+        }
+        finally
+        {
+            _isProcessing = false;
+            StateHasChanged();
+        }
+    }
+
+    private string FormatSize(long bytes)
+    {
+        string[] sizes = { "B", "KB", "MB", "GB" };
+        double len = bytes;
+        int order = 0;
+        while (len >= 1024 && order < sizes.Length - 1) { order++; len /= 1024; }
+        return $"{len:0.##} {sizes[order]}";
+    }
+
+    private void Close() => MudDialog.Cancel();
+}

@@ -331,9 +331,16 @@
     },
     "compress": {
       "title": "PDFni siqish",
+      "selectPdfFile": "PDF faylni tanlash",
       "compressionLevel": "Siqish darajasi",
+      "qualityHigh": "Yuqori (eng yaxshi sifat)",
+      "qualityMedium": "O'rta (muvozanatli)",
+      "qualityLow": "Past (eng kichik fayl)",
+      "qualityInfo": "Yuqori sifat ko'proq tafsilotlarni saqlaydi, lekin fayl hajmi kattalashadi.",
       "currentSize": "Joriy hajm",
-      "estimatedSize": "Taxminiy hajm",
+      "compressing": "Siqilmoqda...",
+      "alreadyOptimized": "Fayl allaqachon yaxshi optimallashtirilgan",
+      "failed": "Siqish muvaffaqiyatsiz bo'ldi",
       "compress": "Siqish"
     },
     "protect": {
