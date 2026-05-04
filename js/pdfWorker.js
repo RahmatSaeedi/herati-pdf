@@ -100,24 +100,47 @@ async function mergePdfs(files, options) {
 }
 
 async function compressPdf(pdfBytes, quality) {
-    if (!pdfLib) throw new Error('PDF-LIB not initialized');
+    if (!pdfLib || !pdfjsLib) throw new Error('PDF libraries not initialized');
+
+    const qualitySettings = {
+        high:   { scale: 2.0, jpegQuality: 0.85 },
+        medium: { scale: 1.5, jpegQuality: 0.72 },
+        low:    { scale: 1.0, jpegQuality: 0.60 }
+    };
+    const settings = qualitySettings[quality] || qualitySettings.medium;
+
+    const uint8Array = pdfBytes instanceof Uint8Array ? pdfBytes : new Uint8Array(pdfBytes);
+    const loadingTask = pdfjsLib.getDocument({ data: uint8Array });
+    const pdf = await loadingTask.promise;
 
     const { PDFDocument } = pdfLib;
-    const pdfDoc = await PDFDocument.load(pdfBytes);
+    const newPdfDoc = await PDFDocument.create();
 
-    // Compression is handled by save options
-    const saveOptions = {
-        useObjectStreams: true,
-        addDefaultPage: false
-    };
+    for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+        const page = await pdf.getPage(pageNum);
+        const renderViewport = page.getViewport({ scale: settings.scale });
 
-    if (quality === 'high') {
-        saveOptions.objectsPerTick = 50;
-    } else if (quality === 'low') {
-        saveOptions.objectsPerTick = 500;
+        const canvas = new OffscreenCanvas(
+            Math.round(renderViewport.width),
+            Math.round(renderViewport.height)
+        );
+        const ctx = canvas.getContext('2d');
+        await page.render({ canvasContext: ctx, viewport: renderViewport }).promise;
+
+        const blob = await canvas.convertToBlob({ type: 'image/jpeg', quality: settings.jpegQuality });
+        const jpegBytes = new Uint8Array(await blob.arrayBuffer());
+
+        const origViewport = page.getViewport({ scale: 1.0 });
+        const jpegImage = await newPdfDoc.embedJpg(jpegBytes);
+        const newPage = newPdfDoc.addPage([origViewport.width, origViewport.height]);
+        newPage.drawImage(jpegImage, {
+            x: 0, y: 0,
+            width: origViewport.width,
+            height: origViewport.height
+        });
     }
 
-    const compressedBytes = await pdfDoc.save(saveOptions);
+    const compressedBytes = await newPdfDoc.save({ useObjectStreams: true });
     return compressedBytes.buffer;
 }
 

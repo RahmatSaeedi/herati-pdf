@@ -254,31 +254,63 @@ export async function addPageNumbers(pdfBytes, options = {}) {
     }
 }
 
-// Compress PDF (reduce file size)
+// Compress PDF by rendering each page to JPEG via PDF.js then rebuilding with pdf-lib.
+// objectsPerTick is a JS scheduling hint, not a compression parameter — actual size
+// reduction requires re-encoding the rasterised page content as JPEG.
 export async function compressPDF(pdfBytes, quality = 'medium') {
     try {
-        const pdfDoc = await PDFLib.PDFDocument.load(pdfBytes);
-
-        // Compression options based on quality
-        const compressionOptions = {
-            high: { objectsPerTick: 50, updateFieldAppearances: false },
-            medium: { objectsPerTick: 200, updateFieldAppearances: false },
-            low: { objectsPerTick: 500, updateFieldAppearances: false }
+        const qualitySettings = {
+            high:   { scale: 2.0, jpegQuality: 0.85 },
+            medium: { scale: 1.5, jpegQuality: 0.72 },
+            low:    { scale: 1.0, jpegQuality: 0.60 }
         };
+        const settings = qualitySettings[quality] || qualitySettings.medium;
 
-        const options = compressionOptions[quality] || compressionOptions.medium;
+        const uint8Array = pdfBytes instanceof Uint8Array ? pdfBytes : new Uint8Array(pdfBytes);
+        const loadingTask = pdfjsLib.getDocument({ data: uint8Array });
+        const pdf = await loadingTask.promise;
 
-        const pdfBytesResult = await pdfDoc.save({
-            useObjectStreams: true,
-            addDefaultPage: false,
-            ...options
-        });
+        const newPdfDoc = await PDFLib.PDFDocument.create();
 
-        return new Uint8Array(pdfBytesResult);
+        for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+            const page = await pdf.getPage(pageNum);
+            // Render at requested scale for quality control
+            const renderViewport = page.getViewport({ scale: settings.scale });
+            const canvas = document.createElement('canvas');
+            canvas.width  = Math.round(renderViewport.width);
+            canvas.height = Math.round(renderViewport.height);
+            const ctx = canvas.getContext('2d', { willReadFrequently: true });
+            await page.render({ canvasContext: ctx, viewport: renderViewport }).promise;
+
+            // Re-encode rendered bitmap as JPEG
+            const jpegDataUrl = canvas.toDataURL('image/jpeg', settings.jpegQuality);
+            const jpegBytes = _dataUrlToBytes(jpegDataUrl);
+
+            // Embed into new PDF at the original page dimensions (PDF points, scale=1)
+            const origViewport = page.getViewport({ scale: 1.0 });
+            const jpegImage = await newPdfDoc.embedJpg(jpegBytes);
+            const newPage = newPdfDoc.addPage([origViewport.width, origViewport.height]);
+            newPage.drawImage(jpegImage, {
+                x: 0, y: 0,
+                width: origViewport.width,
+                height: origViewport.height
+            });
+        }
+
+        const compressedBytes = await newPdfDoc.save({ useObjectStreams: true });
+        return new Uint8Array(compressedBytes);
     } catch (error) {
         console.error('Error compressing PDF:', error);
         return null;
     }
+}
+
+function _dataUrlToBytes(dataUrl) {
+    const base64 = dataUrl.split(',')[1];
+    const binary = atob(base64);
+    const bytes = new Uint8Array(binary.length);
+    for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+    return bytes;
 }
 
 // Protect PDF with password
