@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "N3pNM1E9j1w=",
+  "dgSpecHash": "CLsTRi4A/N0=",
   "success": true,
-  "projectFilePath": "C:\\Users\\rahmat\\AI\\PDF-Merger\\PdfMerger.Client\\PdfMerger.Client.csproj",
+  "projectFilePath": "C:\\Users\\rahmat\\AI\\GitHub\\Stitch PDF - ML\\PdfMerger.Client.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rahmat\\.nuget\\packages\\csvhelper\\33.1.0\\csvhelper.33.1.0.nupkg.sha512",
     "C:\\Users\\rahmat\\.nuget\\packages\\documentformat.openxml\\3.3.0\\documentformat.openxml.3.3.0.nupkg.sha512",
@@ -47,8 +47,7 @@
     "C:\\Users\\rahmat\\.nuget\\packages\\serialize.linq\\4.0.167\\serialize.linq.4.0.167.nupkg.sha512",
     "C:\\Users\\rahmat\\.nuget\\packages\\system.io.packaging\\8.0.1\\system.io.packaging.8.0.1.nupkg.sha512",
     "C:\\Users\\rahmat\\.nuget\\packages\\tewr.blazorworker.backgroundservice\\6.0.0\\tewr.blazorworker.backgroundservice.6.0.0.nupkg.sha512",
-    "C:\\Users\\rahmat\\.nuget\\packages\\tewr.blazorworker.core\\6.0.0\\tewr.blazorworker.core.6.0.0.nupkg.sha512",
-    "C:\\Users\\rahmat\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\10.0.1\\microsoft.netcore.app.runtime.mono.browser-wasm.10.0.1.nupkg.sha512"
+    "C:\\Users\\rahmat\\.nuget\\packages\\tewr.blazorworker.core\\6.0.0\\tewr.blazorworker.core.6.0.0.nupkg.sha512"
   ],
   "logs": []
 }

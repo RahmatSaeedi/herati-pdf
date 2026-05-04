@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd:*)",
+      "Bash(xargs:*)",
+      "Bash(tree:*)",
+      "Bash(dotnet build:*)",
+      "Bash(dir:*)",
+      "Bash(findstr:*)",
+      "Bash(grep:*)",
+      "Bash(timeout:*)",
+      "Bash(curl:*)",
+      "Bash(node -e:*)",
+      "Bash(python -c:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git remote add:*)",
+      "Bash(git push:*)",
+      "Bash(netstat:*)",
+      "Bash(ping:*)",
+      "Bash(dotnet run:*)",
+      "Bash(taskkill:*)",
+      "Bash(cmd.exe /c \"taskkill /F /PID 24076\")",
+      "Bash(powershell:*)",
+      "Bash(jq -r 'paths\\(scalars\\) | join\\(\".\"\\)' /c/Users/rahmat/AI/GitHub/\"Stitch PDF - ML\"/wwwroot/locales/en.json)",
+      "Bash(jq -r 'paths\\(scalars\\) | join\\(\".\"\\)' /c/Users/rahmat/AI/GitHub/\"Stitch PDF - ML\"/wwwroot/locales/ps.json)",
+      "Bash(python3 -c 'import json,sys; d=json.load\\(open\\('\\\\''__TRACKED_VAR__'\\\\''\\)\\); print\\('\\\\''downloaded:'\\\\'', '\\\\''success.downloaded'\\\\'' in d.get\\('\\\\''success'\\\\'',{}\\)\\); print\\('\\\\''openedInNewTab:'\\\\'', '\\\\''openedInNewTab'\\\\'' in d.get\\('\\\\''dialogs'\\\\'',{}\\).get\\('\\\\''mobileSave'\\\\'',{}\\)\\); print\\('\\\\''mobileSave.title absent:'\\\\'', '\\\\''title'\\\\'' not in d.get\\('\\\\''dialogs'\\\\'',{}\\).get\\('\\\\''mobileSave'\\\\'',{}\\)\\); print\\('\\\\''protect.selectPdfFile:'\\\\'', '\\\\''selectPdfFile'\\\\'' in d.get\\('\\\\''dialogs'\\\\'',{}\\).get\\('\\\\''protect'\\\\'',{}\\)\\); print\\('\\\\''batch.active:'\\\\'', '\\\\''active'\\\\'' in d.get\\('\\\\''dialogs'\\\\'',{}\\).get\\('\\\\''batch'\\\\'',{}\\)\\); print\\('\\\\''templates.savedTemplates:'\\\\'', '\\\\''savedTemplates'\\\\'' in d.get\\('\\\\''dialogs'\\\\'',{}\\).get\\('\\\\''templates'\\\\'',{}\\)\\); print\\('\\\\''recentFiles.loading:'\\\\'', '\\\\''loading'\\\\'' in d.get\\('\\\\''dialogs'\\\\'',{}\\).get\\('\\\\''recentFiles'\\\\'',{}\\)\\); print\\('\\\\''performance.webWorkersDescription:'\\\\'', '\\\\''webWorkersDescription'\\\\'' in d.get\\('\\\\''dialogs'\\\\'',{}\\).get\\('\\\\''performance'\\\\'',{}\\)\\); print\\('\\\\''camera.notAvailable:'\\\\'', '\\\\''notAvailable'\\\\'' in d.get\\('\\\\''dialogs'\\\\'',{}\\).get\\('\\\\''camera'\\\\'',{}\\)\\); print\\('\\\\''watermark.selectPdfFile:'\\\\'', '\\\\''selectPdfFile'\\\\'' in d.get\\('\\\\''dialogs'\\\\'',{}\\).get\\('\\\\''watermark'\\\\'',{}\\)\\); print\\('\\\\''pageNumbers.formatPageOnly:'\\\\'', '\\\\''formatPageOnly'\\\\'' in d.get\\('\\\\''dialogs'\\\\'',{}\\).get\\('\\\\''pageNumbers'\\\\'',{}\\)\\)')"
+    ]
+  }
+}

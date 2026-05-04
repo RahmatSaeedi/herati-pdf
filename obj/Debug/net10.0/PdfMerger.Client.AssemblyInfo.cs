@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PdfMerger.Client")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6bf09cdfb68a90e4de862f6422c50d8466d103fb")]
 [assembly: System.Reflection.AssemblyProductAttribute("PdfMerger.Client")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PdfMerger.Client")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
