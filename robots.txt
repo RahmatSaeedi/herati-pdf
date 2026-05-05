@@ -1,5 +1,5 @@
-# robots.txt for Herati PDF
-# https://rahmatsaeedi.github.io/herati-stitch-pdf/
+﻿# robots.txt for Herati PDF
+# https://rahmatsaeedi.github.io/herati-pdf/
 
 User-agent: *
 Allow: /
@@ -10,4 +10,4 @@ Disallow: /_framework/
 Disallow: /_content/
 
 # Sitemap
-Sitemap: https://rahmatsaeedi.github.io/herati-stitch-pdf/sitemap.xml
+Sitemap: https://rahmatsaeedi.github.io/herati-pdf/sitemap.xml
