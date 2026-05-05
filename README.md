@@ -2,11 +2,11 @@
 
 # دری | Dari
 
-# Stitch PDF - تبدیل‌کننده و ادغام‌کننده PDF
+# Herati PDF - تبدیل‌کننده و ادغام‌کننده PDF
 
 <div align="center">
 
-![Stitch PDF Logo](wwwroot/icon-192.png)
+![Herati PDF Logo](wwwroot/icon-192.png)
 
 **یک ابزار قدرتمند و محرمانه برای کار با PDF که کاملاً در مرورگر شما اجرا می‌شود**
 
@@ -23,11 +23,11 @@
 
 ## 🎯 مرور کلی
 
-**Stitch PDF** یک ابزار مدرن و پر از امکانات برای کار با PDF است که به عنوان یک برنامه وب پیشرفته (PWA) با استفاده از Blazor WebAssembly ساخته شده است. برخلاف ابزارهای سنتی PDF، Stitch همه چیز را **۱۰۰٪ در سمت کاربر** پردازش می‌کند — فایل‌های شما هرگز از مرورگر خارج نمی‌شوند و حریم خصوصی و امنیت کامل تضمین می‌شود.
+**Herati PDF** یک ابزار مدرن و پر از امکانات برای کار با PDF است که به عنوان یک برنامه وب پیشرفته (PWA) با استفاده از Blazor WebAssembly ساخته شده است. برخلاف ابزارهای سنتی PDF، Herati PDF همه چیز را **۱۰۰٪ در سمت کاربر** پردازش می‌کند — فایل‌های شما هرگز از مرورگر خارج نمی‌شوند و حریم خصوصی و امنیت کامل تضمین می‌شود.
 
-چه نیاز به ادغام PDF داشته باشید، چه تبدیل اسناد به PDF، افزودن امضا، استخراج متن با OCR، یا اعمال واترمارک، Stitch همه را بدون نیاز به اتصال اینترنت یا آپلود به سرور انجام می‌دهد.
+چه نیاز به ادغام PDF داشته باشید، چه تبدیل اسناد به PDF، افزودن امضا، استخراج متن با OCR، یا اعمال واترمارک، Herati PDF همه را بدون نیاز به اتصال اینترنت یا آپلود به سرور انجام می‌دهد.
 
-### چرا Stitch؟
+### چرا Herati PDF؟
 
 - **🔒 حریم خصوصی اول** - تمام پردازش‌ها در مرورگر شما انجام می‌شود. فایل‌های شما در دستگاه شما می‌مانند.
 - **⚡ سرعت بالا** - بدون رفت و برگشت به سرور. فایل‌ها را فوراً پردازش کنید.
@@ -145,11 +145,11 @@
 
 # پښتو | Pashto
 
-# Stitch PDF - د PDF بدلونکی او یوځای کونکی
+# Herati PDF - د PDF بدلونکی او یوځای کونکی
 
 <div align="center">
 
-![Stitch PDF Logo](wwwroot/icon-192.png)
+![Herati PDF Logo](wwwroot/icon-192.png)
 
 **یو پیاوړی او خصوصي وسیله د PDF سره د کار لپاره چې په بشپړ ډول ستاسو په براوزر کې کار کوي**
 
@@ -166,11 +166,11 @@
 
 ## 🎯 عمومي کتنه
 
-**Stitch PDF** د PDF سره د کار لپاره یوه عصري او ډکه وسیله ده چې د پرمختللي ویب اپلیکیشن (PWA) په توګه د Blazor WebAssembly په کارولو سره جوړه شوې. د دودیزو PDF وسیلو برعکس، Stitch هرڅه **۱۰۰٪ د کارونکي په اړخ** پروسس کوي — ستاسو فایلونه هیڅکله له براوزر څخه نه وځي، او بشپړ محرمیت او امنیت تضمین کیږي.
+**Herati PDF** د PDF سره د کار لپاره یوه عصري او ډکه وسیله ده چې د پرمختللي ویب اپلیکیشن (PWA) په توګه د Blazor WebAssembly په کارولو سره جوړه شوې. د دودیزو PDF وسیلو برعکس، Herati PDF هرڅه **۱۰۰٪ د کارونکي په اړخ** پروسس کوي — ستاسو فایلونه هیڅکله له براوزر څخه نه وځي، او بشپړ محرمیت او امنیت تضمین کیږي.
 
-که تاسو د PDF یوځای کولو ته اړتیا لرئ، که سندونه PDF ته بدلول، لاسلیک اضافه کول، د OCR سره متن استخراج کول، یا واټرمارک پلي کول، Stitch دا ټول کار پرته له انټرنیټ اتصال یا سرور ته اپلوډ کولو سره ترسره کوي.
+که تاسو د PDF یوځای کولو ته اړتیا لرئ، که سندونه PDF ته بدلول، لاسلیک اضافه کول، د OCR سره متن استخراج کول، یا واټرمارک پلي کول، Herati PDF دا ټول کار پرته له انټرنیټ اتصال یا سرور ته اپلوډ کولو سره ترسره کوي.
 
-### ولې Stitch؟
+### ولې Herati PDF؟
 
 - **🔒 محرمیت لومړی** - ټول پروسس ستاسو په براوزر کې ترسره کیږي. ستاسو فایلونه ستاسو په وسیله کې پاتې کیږي.
 - **⚡ ډیر چټک** - پرته له سرور ته تګ راتګ. فایلونه سمدستي پروسس کړئ.
@@ -286,11 +286,11 @@
 
 # English
 
-# Stitch PDF Converter & Merger
+# Herati PDF
 
 <div align="center">
 
-![Stitch PDF Logo](wwwroot/icon-192.png)
+![Herati PDF Logo](wwwroot/icon-192.png)
 
 **A powerful, privacy-first PDF manipulation tool that runs entirely in your browser**
 
@@ -307,11 +307,11 @@
 
 ## 🎯 Overview
 
-**Stitch PDF** is a modern, feature-rich PDF manipulation tool built as a Progressive Web App (PWA) using Blazor WebAssembly. Unlike traditional PDF tools, Stitch processes everything **100% client-side** — your files never leave your browser, ensuring complete privacy and security.
+**Herati PDF** is a modern, feature-rich PDF manipulation tool built as a Progressive Web App (PWA) using Blazor WebAssembly. Unlike traditional PDF tools, Herati PDF processes everything **100% client-side** — your files never leave your browser, ensuring complete privacy and security.
 
-Whether you need to merge PDFs, convert documents to PDF, add signatures, extract text with OCR, or apply watermarks, Stitch does it all without requiring an internet connection or server uploads.
+Whether you need to merge PDFs, convert documents to PDF, add signatures, extract text with OCR, or apply watermarks, Herati PDF does it all without requiring an internet connection or server uploads.
 
-### Why Stitch?
+### Why Herati PDF?
 
 - **🔒 Privacy First** - All processing happens in your browser. Your files stay on your device.
 - **⚡ Lightning Fast** - No server round-trips. Process files instantly.
@@ -421,7 +421,7 @@ Convert the following formats to PDF:
 
 ### Option 1: Use Online (Recommended)
 
-Simply visit your [deployed URL](https://rahmatsaeedi.github.io/herati-pdf/) and start using Stitch immediately. No installation required!
+Simply visit your [deployed URL](https://rahmatsaeedi.github.io/herati-pdf/) and start using Herati PDF immediately. No installation required!
 
 ### Option 2: Install as PWA
 
@@ -715,6 +715,6 @@ If you find this project useful, please consider:
 
 **Made with ❤️ using Blazor WebAssembly**
 
-[⬆ Back to Top](#stitch-pdf-converter--merger)
+[⬆ Back to Top](#herati-pdf)
 
 </div>
