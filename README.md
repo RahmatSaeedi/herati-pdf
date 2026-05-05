@@ -1,4 +1,4 @@
-<div dir="rtl" align="right">
+﻿<div dir="rtl" align="right">
 
 # دری | Dari
 
@@ -110,7 +110,7 @@
 
 ### گزینه ۱: استفاده آنلاین (توصیه شده)
 
-به سادگی از [لینک برنامه](https://rahmatsaeedi.github.io/herati-stitch-pdf/) بازدید کنید و بلافاصله شروع به استفاده کنید. نیازی به نصب نیست!
+به سادگی از [لینک برنامه](https://rahmatsaeedi.github.io/herati-pdf/) بازدید کنید و بلافاصله شروع به استفاده کنید. نیازی به نصب نیست!
 
 ### گزینه ۲: نصب به عنوان PWA
 
@@ -253,7 +253,7 @@
 
 ### لومړی اختیار: آنلاین کارول (سپارښتنه)
 
-په ساده ډول [د اپلیکیشن لینک](https://rahmatsaeedi.github.io/herati-stitch-pdf/) ته لاړ شئ او سمدستي کارول پیل کړئ. نصب ته اړتیا نشته!
+په ساده ډول [د اپلیکیشن لینک](https://rahmatsaeedi.github.io/herati-pdf/) ته لاړ شئ او سمدستي کارول پیل کړئ. نصب ته اړتیا نشته!
 
 ### دوهم اختیار: د PWA په توګه نصب
 
@@ -421,7 +421,7 @@ Convert the following formats to PDF:
 
 ### Option 1: Use Online (Recommended)
 
-Simply visit your [deployed URL](https://rahmatsaeedi.github.io/herati-stitch-pdf/) and start using Stitch immediately. No installation required!
+Simply visit your [deployed URL](https://rahmatsaeedi.github.io/herati-pdf/) and start using Stitch immediately. No installation required!
 
 ### Option 2: Install as PWA
 
@@ -675,8 +675,8 @@ This project is built on the shoulders of giants. Special thanks to:
 
 ### Get Help
 
-- **Issues**: [Report a Bug](https://github.com/RahmatSaeedi/herati-stitch-pdf/issues)
-- **Discussions**: [Community Forum](https://github.com/RahmatSaeedi/herati-stitch-pdf/discussions)
+- **Issues**: [Report a Bug](https://github.com/rahmatsaeedi/herati-pdf/issues)
+- **Discussions**: [Community Forum](https://github.com/rahmatsaeedi/herati-pdf/discussions)
 
 ### Frequently Asked Questions
 

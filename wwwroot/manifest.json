@@ -1,9 +1,9 @@
-{
+﻿{
   "name": "Herati PDF",
   "short_name": "Herati PDF",
   "description": "Free PDF toolkit: merge, convert, compress, sign PDFs with OCR in 110+ languages. 100% client-side processing - your files never leave your device. Works offline.",
-  "start_url": "/herati-stitch-pdf/",
-  "scope": "/herati-stitch-pdf/",
+  "start_url": "/herati-pdf/",
+  "scope": "/herati-pdf/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#1976d2",
@@ -41,7 +41,7 @@
       "name": "Merge PDFs",
       "short_name": "Merge",
       "description": "Quick access to merge PDF files",
-      "url": "/herati-stitch-pdf/?action=merge",
+      "url": "/herati-pdf/?action=merge",
       "icons": [
         {
           "src": "icon-192.png",
@@ -53,7 +53,7 @@
       "name": "Scan Document",
       "short_name": "Scan",
       "description": "Scan a document with your camera",
-      "url": "/herati-stitch-pdf/?action=scan",
+      "url": "/herati-pdf/?action=scan",
       "icons": [
         {
           "src": "icon-192.png",
@@ -65,7 +65,7 @@
       "name": "Recent Files",
       "short_name": "Recent",
       "description": "View recent files",
-      "url": "/herati-stitch-pdf/?action=recent",
+      "url": "/herati-pdf/?action=recent",
       "icons": [
         {
           "src": "icon-192.png",
@@ -77,7 +77,7 @@
       "name": "Sign PDF",
       "short_name": "Sign",
       "description": "Add signature to PDF",
-      "url": "/herati-stitch-pdf/?action=sign",
+      "url": "/herati-pdf/?action=sign",
       "icons": [
         {
           "src": "icon-192.png",
@@ -87,7 +87,7 @@
     }
   ],
   "share_target": {
-    "action": "/herati-stitch-pdf/",
+    "action": "/herati-pdf/",
     "method": "POST",
     "enctype": "multipart/form-data",
     "params": {
