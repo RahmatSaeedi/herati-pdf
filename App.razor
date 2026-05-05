@@ -3,13 +3,13 @@
 @inject ILocalizationService Localization
 
 <MudThemeProvider Theme="_theme" @bind-IsDarkMode="@_isDarkMode" />
-<MudPopoverProvider />
-<MudDialogProvider />
-<MudSnackbarProvider />
 
 @if (_isInitialized)
 {
     <MudRTLProvider RightToLeft="@_isRtl" @key="_currentLanguage">
+        <MudPopoverProvider />
+        <MudDialogProvider />
+        <MudSnackbarProvider />
         <Router AppAssembly="@typeof(App).Assembly" NotFoundPage="typeof(Pages.NotFound)">
             <Found Context="routeData">
                 <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)"/>
