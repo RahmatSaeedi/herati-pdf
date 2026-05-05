@@ -237,7 +237,7 @@
 
         var result = await dialog.Result;
 
-        if (!result.Canceled)
+        if (result is { Canceled: false })
         {
             await LoadTemplates();
         }
@@ -256,7 +256,7 @@
         var dialog = await DialogService.ShowAsync<CreateEditTemplateDialog>("Create Template", options);
         var result = await dialog.Result;
 
-        if (!result.Canceled)
+        if (result is { Canceled: false })
         {
             await LoadTemplates();
         }

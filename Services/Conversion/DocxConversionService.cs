@@ -201,12 +201,12 @@ public class DocxConversionService : IDocumentConversionService, IAsyncDisposabl
 
         var styles = new List<string>();
 
-        if (properties.Bold != null && properties.Bold.Val != false)
+        if (properties.Bold != null && (properties.Bold.Val is null || (bool)properties.Bold.Val))
         {
             styles.Add("font-weight: bold");
         }
 
-        if (properties.Italic != null && properties.Italic.Val != false)
+        if (properties.Italic != null && (properties.Italic.Val is null || (bool)properties.Italic.Val))
         {
             styles.Add("font-style: italic");
         }

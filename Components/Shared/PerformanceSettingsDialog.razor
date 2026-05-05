@@ -21,9 +21,9 @@
                             </MudText>
                         </MudStack>
                         <MudSwitch @bind-Value="_webWorkersEnabled"
+                                   @bind-Value:after="OnWebWorkersToggled"
                                    Color="Color.Primary"
-                                   Disabled="@(!WebWorkerService.IsSupported)"
-                                   CheckedChanged="OnWebWorkersToggled" />
+                                   Disabled="@(!WebWorkerService.IsSupported)" />
                     </div>
 
                     @if (!WebWorkerService.IsSupported)

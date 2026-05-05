@@ -286,7 +286,7 @@
         var dialog = await DialogService.ShowAsync<PageSelector>("Page Selection", parameters, options);
         var result = await dialog.Result;
 
-        if (!result.Canceled && result.Data != null)
+        if (result is { Canceled: false, Data: not null })
         {
             // Update the file's selected pages and rotations
             dynamic data = result.Data;
@@ -317,7 +317,7 @@
         var dialog = await DialogService.ShowAsync<FileConversionSettingsDialog>("File Conversion Settings", parameters, options);
         var result = await dialog.Result;
 
-        if (!result.Canceled && result.Data != null)
+        if (result is { Canceled: false, Data: not null })
         {
             dynamic data = result.Data;
             File.ConversionOverrides = data.Settings;

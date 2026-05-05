@@ -183,7 +183,7 @@
                     LightColor = "#ffffff"
                 };
 
-                _generatedCodeUrl = await AdvancedPdfService.GenerateQRCodeAsync(_contentText, options);
+                _generatedCodeUrl = await AdvancedPdfService.GenerateQRCodeAsync(_contentText, options) ?? "";
             }
             else
             {
@@ -195,7 +195,7 @@
                     FontSize = 12
                 };
 
-                _generatedCodeUrl = await AdvancedPdfService.GenerateBarcodeAsync(_contentText, _barcodeFormat, options);
+                _generatedCodeUrl = await AdvancedPdfService.GenerateBarcodeAsync(_contentText, _barcodeFormat, options) ?? "";
             }
 
             if (string.IsNullOrEmpty(_generatedCodeUrl))

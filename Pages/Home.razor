@@ -1205,7 +1205,7 @@
         var dialog = await DialogService.ShowAsync<CameraScannerDialog>("Scan Document", options);
         var result = await dialog.Result;
 
-        if (!result.Canceled && result.Data is string imageDataUrl)
+        if (result is { Canceled: false, Data: string imageDataUrl })
         {
             try
             {
@@ -1246,7 +1246,7 @@
             new DialogOptions { MaxWidth = MaxWidth.Medium, FullWidth = true });
         var result = await dialog.Result;
 
-        if (!result.Canceled && result.Data is SignatureResult signatureResult)
+        if (result is { Canceled: false, Data: SignatureResult signatureResult })
         {
             // Get the first PDF file
             var pdfFile = _files.FirstOrDefault(f => f.ContentType == "application/pdf");
@@ -1334,7 +1334,7 @@
 
         var result = await dialog.Result;
 
-        if (!result.Canceled && result.Data is byte[] pdfData)
+        if (result is { Canceled: false, Data: byte[] pdfData })
         {
             var pdfFile = pdfFiles.FirstOrDefault();
             if (pdfFile != null)
@@ -1381,7 +1381,7 @@
 
         var result = await dialog.Result;
 
-        if (!result.Canceled && result.Data is byte[] pdfData)
+        if (result is { Canceled: false, Data: byte[] pdfData })
         {
             var pdfFile = pdfFiles.FirstOrDefault();
             if (pdfFile != null)
@@ -1411,7 +1411,7 @@
 
         var result = await dialog.Result;
 
-        if (!result.Canceled && result.Data is byte[] pdfData)
+        if (result is { Canceled: false, Data: byte[] pdfData })
         {
             var pdfFile = pdfFiles.FirstOrDefault();
             if (pdfFile != null)
@@ -1441,7 +1441,7 @@
 
         var result = await dialog.Result;
 
-        if (!result.Canceled && result.Data is byte[] compressed)
+        if (result is { Canceled: false, Data: byte[] compressed })
         {
             var pdfFile = pdfFiles.FirstOrDefault();
             if (pdfFile != null)
@@ -1473,7 +1473,7 @@
 
         var result = await dialog.Result;
 
-        if (!result.Canceled && result.Data is byte[] pdfData)
+        if (result is { Canceled: false, Data: byte[] pdfData })
         {
             var pdfFile = pdfFiles.FirstOrDefault();
             if (pdfFile != null)
@@ -1512,7 +1512,7 @@
         var dialog = await DialogService.ShowAsync<CreateBatchDialog>("Create Batch Compress", parameters, options);
         var result = await dialog.Result;
 
-        if (!result.Canceled)
+        if (result is { Canceled: false })
         {
             Snackbar.Add("Batch compress operation started! Check 'View All' to monitor progress.", Severity.Info);
         }
@@ -1529,7 +1529,7 @@
         var dialog = await DialogService.ShowAsync<CreateBatchDialog>("Create Batch Watermark", parameters, options);
         var result = await dialog.Result;
 
-        if (!result.Canceled)
+        if (result is { Canceled: false })
         {
             Snackbar.Add("Batch watermark operation started! Check 'View All' to monitor progress.", Severity.Info);
         }
@@ -1546,7 +1546,7 @@
         var dialog = await DialogService.ShowAsync<CreateBatchDialog>("Create Batch Page Numbers", parameters, options);
         var result = await dialog.Result;
 
-        if (!result.Canceled)
+        if (result is { Canceled: false })
         {
             Snackbar.Add("Batch page numbers operation started! Check 'View All' to monitor progress.", Severity.Info);
         }
@@ -1563,7 +1563,7 @@
         var dialog = await DialogService.ShowAsync<CreateBatchDialog>("Create Batch Password Protect", parameters, options);
         var result = await dialog.Result;
 
-        if (!result.Canceled)
+        if (result is { Canceled: false })
         {
             Snackbar.Add("Batch password protect operation started! Check 'View All' to monitor progress.", Severity.Info);
         }
@@ -1583,7 +1583,7 @@
         var dialog = await DialogService.ShowAsync<TemplatesDialog>("Templates", options);
         var result = await dialog.Result;
 
-        if (!result.Canceled && result.Data is Template template)
+        if (result is { Canceled: false, Data: Template template })
         {
             // Template was applied - use settings from template
             if (template.Type == TemplateType.ConversionSettings || template.Type == TemplateType.MergeSettings)
