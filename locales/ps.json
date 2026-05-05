@@ -1,11 +1,11 @@
-{
+﻿{
   "meta": {
     "language": "ps",
     "direction": "rtl",
     "name": "پښتو"
   },
   "seo": {
-    "title": "Stitch PDF - وړیا آنلاین PDF اوزار | یوځای کول، بدلول، لاسلیک کول",
+    "title": "Herati PDF - وړیا آنلاین PDF اوزار | یوځای کول، بدلول، لاسلیک کول",
     "description": "وړیا آنلاین PDF اوزار: PDF یوځای کول، DOCX/انځورونه PDF ته بدلول، کمپریس کول، ډیجیټل لاسلیک، واټرمارک، QR کوډ، OCR په ۱۱۰+ ژبو. ۱۰۰٪ محلي پروسس - ستاسو فایلونه ستاسو وسیله نه وځي.",
     "keywords": "PDF یوځای کول، PDF بدلول، PDF ته بدلول، DOCX PDF ته، انځور PDF ته، PDF کمپریس، PDF لاسلیک، ډیجیټل لاسلیک، واټرمارک PDF، QR کوډ جوړول"
   },
@@ -67,7 +67,7 @@
     "custom": "دودیز"
   },
   "app": {
-    "title": "Stitch PDF",
+    "title": "Herati PDF",
     "tagline": "PDF یوځای کول او بدلول",
     "subtitle": "PDF، انځورونه او سندونه په یو PDF کې یوځای یا بدل کړئ - ۱۰۰٪ محلي پروسس"
   },
@@ -569,7 +569,7 @@
     }
   },
   "help": {
-    "title": "له Stitch PDF سره پیل کړئ",
+    "title": "له Herati PDF سره پیل کړئ",
     "privacyNotice": "ټول پروسس ستاسو په براوزر کې ترسره کیږي - ستاسو فایلونه ستاسو وسیله نه وځي! د PWA په توګه آفلاین کار کوي.",
     "quickStart": {
       "title": "چټک پیل",
@@ -646,7 +646,7 @@
     },
     "support": {
       "title": "د دې پروژې ملاتړ وکړئ",
-      "description": "Stitch PDF وړیا او خلاص سرچینه ده. که تاسو ته ګټور وو، د پراختیا ملاتړ وکړئ:",
+      "description": "Herati PDF وړیا او خلاص سرچینه ده. که تاسو ته ګټور وو، د پراختیا ملاتړ وکړئ:",
       "buyMeCoffee": "ماته یو قهوه راواخلئ"
     }
   },
@@ -710,15 +710,15 @@
     "warningMessage": "د لویو فایلونو پروسس ممکن ورو وي. حافظه به په اوتومات ډول اداره شي."
   },
   "pwa": {
-    "name": "Stitch PDF",
-    "shortName": "Stitch PDF",
+    "name": "Herati PDF",
+    "shortName": "Herati PDF",
     "description": "وړیا آنلاین PDF یوځای کول، بدلول او سمول د ۱۰۰٪ محلي پروسس سره"
   },
   "coffee": {
     "buyMeCoffee": "ماته یو قهوه راواخلئ",
     "supportProject": "دا پروژه ملاتړ وکړئ!",
-    "supportTitle": "د Stitch PDF د پراختیا ملاتړ",
-    "supportDescription": "Stitch PDF <strong>وړیا او خلاص سرچینه</strong> ده، د لیوالتیا سره جوړ شوې ترڅو ستاسو د محرمیت د ساتنې سره پرمختللي PDF اوزار وړاندې کړي.",
+    "supportTitle": "د Herati PDF د پراختیا ملاتړ",
+    "supportDescription": "Herati PDF <strong>وړیا او خلاص سرچینه</strong> ده، د لیوالتیا سره جوړ شوې ترڅو ستاسو د محرمیت د ساتنې سره پرمختللي PDF اوزار وړاندې کړي.",
     "feature1": "۱۰۰٪ محلي - ستاسو فایلونه هیڅکله ستاسو وسیله نه وځي",
     "feature2": "د Progressive Web App په توګه آفلاین کار کوي",
     "feature3": "هیڅ اعلان، هیڅ تعقیب، هیڅ پټ لګښتونه",

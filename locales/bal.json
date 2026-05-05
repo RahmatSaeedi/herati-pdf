@@ -1,11 +1,11 @@
-{
+﻿{
   "meta": {
     "language": "bal",
     "direction": "rtl",
     "name": "بلوچی"
   },
   "seo": {
-    "title": "Stitch PDF تبدیل‌کنوک و یک جاہ کنوک - مفت آنلائن PDF ابزار | یک جاہ کنگ، تبدیل کنگ، PDF دستخط",
+    "title": "Herati PDF تبدیل‌کنوک و یک جاہ کنوک - مفت آنلائن PDF ابزار | یک جاہ کنگ، تبدیل کنگ، PDF دستخط",
     "description": "مفت آنلائن PDF ابزار: PDFان یک جاہ کنگ، DOCX/عکسان PDF ءَ تبدیل کنگ، فائلان کم کنگ، ڈیجیٹل دستخط، واٹرمارک، QR کوڈ، 110+ زبانانی OCR. 100٪ کلائنٹ پاسے پردازش - تیی فائل تیی ڈیوائس چہ نہ روت.",
     "keywords": "PDF یک جاہ کنوک، PDF تبدیل‌کنوک، PDF یک جاہ کنگ، PDF ءَ تبدیل کنگ، DOCX چہ PDF ءَ، عکس چہ PDF ءَ، PDF کم کنگ، PDF دستخط، ڈیجیٹل دستخط، واٹرمارک PDF، QR کوڈ جنوک"
   },
@@ -67,7 +67,7 @@
     "custom": "کسٹم"
   },
   "app": {
-    "title": "Stitch PDF",
+    "title": "Herati PDF",
     "tagline": "PDF یک جاہ کنوک و تبدیل‌کنوک",
     "subtitle": "PDFان، عکسان و دستاویزان یک PDF ءَ تبدیل یا یک جاہ کن - 100٪ کلائنٹ پاسے پردازش"
   },
@@ -569,7 +569,7 @@
     }
   },
   "help": {
-    "title": "Stitch PDF گون شروع کنگ",
+    "title": "Herati PDF گون شروع کنگ",
     "privacyNotice": "ھمک پردازش تیی براؤزر ءَ بیت - تیی فائلان ھچوقت تیی ڈیوائس چہ نہ روت! Progressive Web App (PWA) ءَ آفلائن کار کنت.",
     "quickStart": {
       "title": "تیز شروع",
@@ -646,7 +646,7 @@
     },
     "support": {
       "title": "ای پراجیکٹ سپورٹ کن",
-      "description": "Stitch PDF مفت و اوپن سورس ات. اگاں فائدہ مند بوت، ڈویلپمنٹ سپورٹ واستہ سوچ:",
+      "description": "Herati PDF مفت و اوپن سورس ات. اگاں فائدہ مند بوت، ڈویلپمنٹ سپورٹ واستہ سوچ:",
       "buyMeCoffee": "منی واستہ کافی بگر"
     }
   },
@@ -710,15 +710,15 @@
     "warningMessage": "گپ فائل پردازش آہستہ تر بیت. میموری آٹومیٹک مینج بیت."
   },
   "pwa": {
-    "name": "Stitch PDF",
-    "shortName": "Stitch PDF",
+    "name": "Herati PDF",
+    "shortName": "Herati PDF",
     "description": "100٪ کلائنٹ پاسے پردازش گون مفت آنلائن PDF یک جاہ کنوک، تبدیل‌کنوک و ایڈیٹر"
   },
   "coffee": {
     "buyMeCoffee": "منی واستہ کافی بگر",
     "supportProject": "ای پراجیکٹ سپورٹ کن!",
-    "supportTitle": "Stitch PDF ڈویلپمنٹ سپورٹ",
-    "supportDescription": "Stitch PDF <strong>مفت و اوپن سورس</strong> ات، اشتیاق گون جوڑ کرتگ تا تیی پرائیویسی گون قوی PDF ابزاران وڑا کنت.",
+    "supportTitle": "Herati PDF ڈویلپمنٹ سپورٹ",
+    "supportDescription": "Herati PDF <strong>مفت و اوپن سورس</strong> ات، اشتیاق گون جوڑ کرتگ تا تیی پرائیویسی گون قوی PDF ابزاران وڑا کنت.",
     "feature1": "100٪ کلائنٹ پاسے - تیی فائلان ھچوقت تیی ڈیوائس چہ نہ روت",
     "feature2": "Progressive Web App ءَ آفلائن کار کنت",
     "feature3": "ھیچ اشتہار، ھیچ ٹریکنگ، ھیچ پنہانی لاگت",

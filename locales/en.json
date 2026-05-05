@@ -1,11 +1,11 @@
-{
+﻿{
   "meta": {
     "language": "en",
     "direction": "ltr",
     "name": "English"
   },
   "seo": {
-    "title": "Stitch PDF Converter & Merger - Free Online PDF Tools | Merge, Convert, Sign PDFs",
+    "title": "Herati PDF Converter & Merger - Free Online PDF Tools | Merge, Convert, Sign PDFs",
     "description": "Free online PDF toolkit: merge PDFs, convert DOCX/images to PDF, compress files, add digital signatures, watermarks, QR codes, OCR in 110+ languages. 100% client-side processing - your files never leave your device.",
     "keywords": "PDF merger, PDF converter, merge PDF, convert to PDF, DOCX to PDF, image to PDF, compress PDF, PDF signature, digital signature, watermark PDF, QR code generator"
   },
@@ -67,7 +67,7 @@
     "custom": "Custom"
   },
   "app": {
-    "title": "Stitch PDF",
+    "title": "Herati PDF",
     "tagline": "PDF Merger & Converter",
     "subtitle": "Convert or merge PDFs, images, and documents into a single PDF - 100% client-side processing"
   },
@@ -561,7 +561,7 @@
     }
   },
   "help": {
-    "title": "Getting Started with Stitch PDF",
+    "title": "Getting Started with Herati PDF",
     "privacyNotice": "All processing happens in your browser - your files never leave your device! Works offline as a Progressive Web App (PWA).",
     "quickStart": {
       "title": "Quick Start",
@@ -638,7 +638,7 @@
     },
     "support": {
       "title": "Support This Project",
-      "description": "Stitch PDF is free and open source. If you find it useful, consider supporting development:",
+      "description": "Herati PDF is free and open source. If you find it useful, consider supporting development:",
       "buyMeCoffee": "Buy Me a Coffee"
     }
   },
@@ -702,15 +702,15 @@
     "warningMessage": "Large file processing may be slower. Memory will be managed automatically."
   },
   "pwa": {
-    "name": "Stitch PDF",
-    "shortName": "Stitch PDF",
+    "name": "Herati PDF",
+    "shortName": "Herati PDF",
     "description": "Free online PDF merger, converter, and editor with 100% client-side processing"
   },
   "coffee": {
     "buyMeCoffee": "Buy Me a Coffee",
     "supportProject": "Support This Project!",
-    "supportTitle": "Support Stitch PDF Development",
-    "supportDescription": "Stitch PDF is <strong>free and open source</strong>, built with passion to provide powerful PDF tools while protecting your privacy.",
+    "supportTitle": "Support Herati PDF Development",
+    "supportDescription": "Herati PDF is <strong>free and open source</strong>, built with passion to provide powerful PDF tools while protecting your privacy.",
     "feature1": "100% client-side - your files never leave your device",
     "feature2": "Works offline as a Progressive Web App",
     "feature3": "No ads, no tracking, no hidden costs",

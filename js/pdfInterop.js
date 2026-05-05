@@ -2330,7 +2330,7 @@ export async function shareFile() {
         const shareData = {
             files: [file],
             title: currentFileName,
-            text: 'PDF created with Stitch PDF'
+            text: 'PDF created with Herati PDF'
         };
 
         // Check if we can share files
