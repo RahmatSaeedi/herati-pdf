@@ -1,11 +1,11 @@
-{
+﻿{
   "meta": {
     "language": "tk",
     "direction": "ltr",
     "name": "Türkmençe"
   },
   "seo": {
-    "title": "Stitch PDF Öwrüji we Birleşdiriji - Mugt Onlaýn PDF Gurallary | Birleşdirmek, Öwürmek, PDF Gol çekmek",
+    "title": "Herati PDF Öwrüji we Birleşdiriji - Mugt Onlaýn PDF Gurallary | Birleşdirmek, Öwürmek, PDF Gol çekmek",
     "description": "Mugt onlaýn PDF gurallary: PDFleri birleşdirmek, DOCX/suratlary PDFe öwürmek, faýllary gysmak, sanly gollar, suw bellikleri, QR kodlar, 110+ dilde OCR. 100% müşderi tarapynda işlemek - faýllaryňyz enjamyňyzdan çykmaýar.",
     "keywords": "PDF birleşdiriji, PDF öwrüji, PDF birleşdirmek, PDFe öwürmek, DOCX-dan PDFe, suratdan PDFe, PDF gysmak, PDF gol, sanly gol, suw belligi PDF, QR kod generatory"
   },
@@ -67,7 +67,7 @@
     "custom": "Özbaşdak"
   },
   "app": {
-    "title": "Stitch PDF",
+    "title": "Herati PDF",
     "tagline": "PDF Birleşdiriji we Öwrüji",
     "subtitle": "PDFleri, suratlary we resminamalary bir PDFe öwüriň ýa-da birleşdiriň - 100% müşderi tarapynda işlemek"
   },
@@ -569,7 +569,7 @@
     }
   },
   "help": {
-    "title": "Stitch PDF bilen başlamak",
+    "title": "Herati PDF bilen başlamak",
     "privacyNotice": "Ähli işlemek brauzeriňizde bolýar - faýllaryňyz enjamyňyzdan çykmaýar! Progressive Web App (PWA) hökmünde offlaýn işleýär.",
     "quickStart": {
       "title": "Çalt başlamak",
@@ -646,7 +646,7 @@
     },
     "support": {
       "title": "Bu taslamany goldaň",
-      "description": "Stitch PDF mugt we açyk çeşme. Peýdaly bolsa, ösüşi goldamagy göz öňünde tutuň:",
+      "description": "Herati PDF mugt we açyk çeşme. Peýdaly bolsa, ösüşi goldamagy göz öňünde tutuň:",
       "buyMeCoffee": "Maňa kofe satyn alyň"
     }
   },
@@ -710,15 +710,15 @@
     "warningMessage": "Uly faýl işlemegi has haýal bolup biler. Ýat awtomatik dolandyrylýar."
   },
   "pwa": {
-    "name": "Stitch PDF",
-    "shortName": "Stitch PDF",
+    "name": "Herati PDF",
+    "shortName": "Herati PDF",
     "description": "100% müşderi tarapynda işlemek bilen mugt onlaýn PDF birleşdiriji, öwrüji we redaktory"
   },
   "coffee": {
     "buyMeCoffee": "Maňa kofe satyn alyň",
     "supportProject": "Bu taslamany goldaň!",
-    "supportTitle": "Stitch PDF ösüşini goldaň",
-    "supportDescription": "Stitch PDF <strong>mugt we açyk çeşme</strong>, gizlinligiňizi gorap ýörkä güýçli PDF gurallary bermek üçin höwes bilen döredildi.",
+    "supportTitle": "Herati PDF ösüşini goldaň",
+    "supportDescription": "Herati PDF <strong>mugt we açyk çeşme</strong>, gizlinligiňizi gorap ýörkä güýçli PDF gurallary bermek üçin höwes bilen döredildi.",
     "feature1": "100% müşderi tarapynda - faýllaryňyz enjamyňyzdan çykmaýar",
     "feature2": "Progressive Web App hökmünde offlaýn işleýär",
     "feature3": "Reklama ýok, yzarlamak ýok, gizlin çykdajy ýok",

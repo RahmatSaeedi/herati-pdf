@@ -1,11 +1,11 @@
-{
+﻿{
   "meta": {
     "language": "uz",
     "direction": "ltr",
     "name": "Oʻzbekcha"
   },
   "seo": {
-    "title": "Stitch PDF Konvertor va Birlashtiruvchi - Bepul Onlayn PDF Vositalari | Birlashtirish, Konvertatsiya, PDF Imzolash",
+    "title": "Herati PDF Konvertor va Birlashtiruvchi - Bepul Onlayn PDF Vositalari | Birlashtirish, Konvertatsiya, PDF Imzolash",
     "description": "Bepul onlayn PDF vositalari: PDFlarni birlashtirish, DOCX/rasmlarni PDFga aylantirish, fayllarni siqish, raqamli imzolar, suv belgilari, QR kodlar, 110+ tilda OCR. 100% mijoz tomonida ishlov berish - fayllaringiz qurilmangizdan chiqmaydi.",
     "keywords": "PDF birlashtiruvchi, PDF konvertor, PDF birlashtirish, PDFga aylantirish, DOCX dan PDFga, rasmdan PDFga, PDF siqish, PDF imzo, raqamli imzo, suv belgisi PDF, QR kod generatori"
   },
@@ -67,7 +67,7 @@
     "custom": "Maxsus"
   },
   "app": {
-    "title": "Stitch PDF",
+    "title": "Herati PDF",
     "tagline": "PDF Birlashtiruvchi va Konvertor",
     "subtitle": "PDFlar, rasmlar va hujjatlarni bitta PDFga aylantiring yoki birlashtiring - 100% mijoz tomonida ishlov berish"
   },
@@ -569,7 +569,7 @@
     }
   },
   "help": {
-    "title": "Stitch PDF bilan ishlashni boshlash",
+    "title": "Herati PDF bilan ishlashni boshlash",
     "privacyNotice": "Barcha ishlov berish brauzeringizda amalga oshiriladi - fayllaringiz qurilmangizdan chiqmaydi! Progressive Web App (PWA) sifatida offlayn ishlaydi.",
     "quickStart": {
       "title": "Tez boshlash",
@@ -646,7 +646,7 @@
     },
     "support": {
       "title": "Bu loyihani qoʻllab-quvvatlang",
-      "description": "Stitch PDF bepul va ochiq manbali. Agar foydali boʻlsa, rivojlanishni qoʻllab-quvvatlashni koʻrib chiqing:",
+      "description": "Herati PDF bepul va ochiq manbali. Agar foydali boʻlsa, rivojlanishni qoʻllab-quvvatlashni koʻrib chiqing:",
       "buyMeCoffee": "Menga kofe olib bering"
     }
   },
@@ -710,15 +710,15 @@
     "warningMessage": "Katta fayllerni qayta ishlash sekinroq boʻlishi mumkin. Xotira avtomatik boshqariladi."
   },
   "pwa": {
-    "name": "Stitch PDF",
-    "shortName": "Stitch PDF",
+    "name": "Herati PDF",
+    "shortName": "Herati PDF",
     "description": "100% mijoz tomonida ishlov berish bilan bepul onlayn PDF birlashtiruvchi, konvertor va muharriri"
   },
   "coffee": {
     "buyMeCoffee": "Menga kofe olib bering",
     "supportProject": "Bu loyihani qoʻllab-quvvatlang!",
-    "supportTitle": "Stitch PDF rivojlanishini qoʻllab-quvvatlang",
-    "supportDescription": "Stitch PDF <strong>bepul va ochiq manbali</strong>, maxfiyligingizni himoyalab kuchli PDF vositalarini taqdim etish uchun ishtiyoq bilan yaratilgan.",
+    "supportTitle": "Herati PDF rivojlanishini qoʻllab-quvvatlang",
+    "supportDescription": "Herati PDF <strong>bepul va ochiq manbali</strong>, maxfiyligingizni himoyalab kuchli PDF vositalarini taqdim etish uchun ishtiyoq bilan yaratilgan.",
     "feature1": "100% mijoz tomonida - fayllaringiz qurilmangizdan chiqmaydi",
     "feature2": "Progressive Web App sifatida offlayn ishlaydi",
     "feature3": "Reklama yoʻq, kuzatuv yoʻq, yashirin xarajat yoʻq",

@@ -1,6 +1,6 @@
 {
-  "name": "Stitch PDF Converter & Merger",
-  "short_name": "Stitch PDF",
+  "name": "Herati PDF",
+  "short_name": "Herati PDF",
   "description": "Free PDF toolkit: merge, convert, compress, sign PDFs with OCR in 110+ languages. 100% client-side processing - your files never leave your device. Works offline.",
   "start_url": "/herati-stitch-pdf/",
   "scope": "/herati-stitch-pdf/",
